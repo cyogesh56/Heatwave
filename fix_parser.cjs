@@ -1,23 +1,19 @@
 const fs = require('fs');
+let code = fs.readFileSync('src/lib/engine/parser.ts', 'utf-8');
 
-let parser = fs.readFileSync('src/lib/engine/parser.ts', 'utf8');
-
-parser = parser.replace(
-  /const playerA = shuffledPlayers\[0\];\s*const playerB = shuffledPlayers\[1\];/,
-  `const playerA = shuffledPlayers[0] || 'Player A';
-  const playerB = shuffledPlayers[1] || 'Player B';
-  const playerC = shuffledPlayers[2] || 'Player C';
-  const playerD = shuffledPlayers[3] || 'Player D';`
+code = code.replace(
+  'parsedOptions?: string[] } {',
+  'parsedOptions?: string[]; assignedResponderName?: string } {'
 );
 
-parser = parser.replace(
-  /let parsedText = prompt\s*\.replace\(\/\\\[Player A\\\]\/g, playerA\)\s*\.replace\(\/\\\[Player B\\\]\/g, playerB\);/,
-  `let parsedText = prompt
-    .replace(/\\[Player A\\]/g, playerA)
-    .replace(/\\[Player B\\]/g, playerB)
-    .replace(/\\[Player C\\]/g, playerC)
-    .replace(/\\[Player D\\]/g, playerD);`
+code = code.replace(
+  'const targetedPlayers: string[] = [];',
+  `const targetedPlayers: string[] = [];\n  let assignedResponderName: string | undefined = undefined;\n  const responderMatch = prompt.match(/\\[(Player [A-D])\\] answers\\.?/i);\n  if (responderMatch) {\n    if (responderMatch[1].toUpperCase() === 'PLAYER A') assignedResponderName = playerA;\n    else if (responderMatch[1].toUpperCase() === 'PLAYER B') assignedResponderName = playerB;\n    else if (responderMatch[1].toUpperCase() === 'PLAYER C') assignedResponderName = playerC;\n    else if (responderMatch[1].toUpperCase() === 'PLAYER D') assignedResponderName = playerD;\n  }`
 );
 
-fs.writeFileSync('src/lib/engine/parser.ts', parser);
-console.log('Parser fixed');
+code = code.replace(
+  'parsedOptions\n  };',
+  'parsedOptions,\n    assignedResponderName\n  };'
+);
+
+fs.writeFileSync('src/lib/engine/parser.ts', code);
