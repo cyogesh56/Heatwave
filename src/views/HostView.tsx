@@ -203,7 +203,7 @@ export const HostView: React.FC = () => {
     let requiredVotes = activeCount;
     
     if (hostGameState?.currentCard?.assignedResponderName) {
-      const responder = Object.entries(hostGameState.players || {}).find(([id, p]: [string, any]) => p.name === hostGameState.currentCard.assignedResponderName);
+      const responder = Object.entries(hostGameState.players || {}).find(([id, p]: [string, any]) => p.name === hostGameState.currentCard?.assignedResponderName);
       if (responder && responder[1].isConnected !== false) {
         requiredVotes = 1;
       }

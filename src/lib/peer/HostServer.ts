@@ -3,7 +3,7 @@ import { RealtimeChannel } from '@supabase/supabase-js';
 
 export type GameState = {
   phase: number;
-  currentCard: { card: any, parsedPrompt: string, targetedPlayers?: string[] } | null;
+  currentCard: { card: any, parsedPrompt: string, targetedPlayers?: string[], assignedResponderName?: string } | null;
   players: Record<string, { name: string, isReady: boolean, inventory: { deflect: number, killswitch: number, override: number }, isConnected?: boolean, uiAlert?: string }>;
   timers: {
     active: boolean;
