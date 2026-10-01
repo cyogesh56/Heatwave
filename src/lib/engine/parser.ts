@@ -2,7 +2,7 @@ export function parsePrompt(
   prompt: string,
   players: string[],
   options?: string[]
-): { text: string; targetedPlayers: string[]; parsedOptions?: string[] } {
+): { text: string; targetedPlayers: string[]; parsedOptions?: string[]; assignedResponderName?: string } {
   if (players.length < 2) {
     players = ["Player 1", "Player 2"];
   }
@@ -19,6 +19,14 @@ export function parsePrompt(
   const playerD = pD || 'the person to your left';
 
   const targetedPlayers: string[] = [];
+  let assignedResponderName: string | undefined = undefined;
+  const responderMatch = prompt.match(/\[(Player [A-D])\] answers\.?/i);
+  if (responderMatch) {
+    if (responderMatch[1].toUpperCase() === 'PLAYER A') assignedResponderName = playerA;
+    else if (responderMatch[1].toUpperCase() === 'PLAYER B') assignedResponderName = playerB;
+    else if (responderMatch[1].toUpperCase() === 'PLAYER C') assignedResponderName = playerC;
+    else if (responderMatch[1].toUpperCase() === 'PLAYER D') assignedResponderName = playerD;
+  }
   if (prompt.includes('[Player A]')) targetedPlayers.push(playerA);
   if (prompt.includes('[Player B]')) targetedPlayers.push(playerB);
 
@@ -60,6 +68,7 @@ export function parsePrompt(
   return {
     text: parsedText,
     targetedPlayers,
-    parsedOptions
+    parsedOptions,
+    assignedResponderName
   };
 }

@@ -18,7 +18,7 @@ export class GameEngine {
     this.allCards = cards;
   }
 
-  public drawNextCard(activePlayers: string[], targetPhase?: number, targetType?: string): { card: Card, parsedPrompt: string, targetedPlayers?: string[] } | null {
+  public drawNextCard(activePlayers: string[], targetPhase?: number, targetType?: string): { card: Card, parsedPrompt: string, targetedPlayers?: string[]; assignedResponderName?: string } | null {
     if (targetPhase !== undefined) {
       this.currentPhase = targetPhase;
     }
@@ -62,7 +62,8 @@ export class GameEngine {
     return {
       card: cardToReturn,
       parsedPrompt: parsed.text,
-      targetedPlayers: parsed.targetedPlayers
+      targetedPlayers: parsed.targetedPlayers,
+      assignedResponderName: parsed.assignedResponderName
     };
   }
 
