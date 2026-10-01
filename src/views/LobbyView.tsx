@@ -30,7 +30,7 @@ export default function LobbyView() {
   }
 
   const roomCode = hostServer.roomCode;
-  const joinUrl = `https://handsy.party/play?room=${roomCode}`;
+  const joinUrl = `${window.location.origin}/?room=${roomCode}`;
   const connectedPlayers = Object.values(hostGameState?.players || {});
 
   const toggleDeck = (id: string) => {
@@ -79,7 +79,7 @@ export default function LobbyView() {
                 <QRCodeSVG value={joinUrl} size={160} />
               </div>
               <div className="text-5xl sm:text-6xl font-mono tracking-[0.2em] font-black">{roomCode}</div>
-              <p className="font-body text-ink-primary/50 mt-2 font-medium">handsy.party</p>
+              <p className="font-body text-ink-primary/50 mt-2 font-medium">{window.location.host}</p>
             </div>
 
             <div className="w-full max-w-sm flex-1 flex flex-col justify-end">
