@@ -1,0 +1,57 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --canvas: #FFF7F2;
+    --card-surface: #FFFFFF;
+    
+    --ink-primary: #1C1024;
+    --ink-muted: #5F5266;
+
+    --accent-dare: #D91456;
+    --accent-wrong-stroke: #CC5200;
+    --accent-wrong-fill: #FF7700;
+    --accent-consensus-stroke: #008299;
+    --accent-consensus-fill: #00CDE5;
+    --accent-truth: #6818D6;
+
+    --shadow-color: #1C1024;
+  }
+
+  .dark {
+    --canvas: #1E1022;
+    --card-surface: #311938;
+    
+    --ink-primary: #FDF6FF;
+    --ink-muted: #C8B8D1;
+
+    --accent-dare: #FF6694;
+    --accent-wrong-stroke: #FFA04D;
+    --accent-wrong-fill: #FFA04D;
+    --accent-consensus-stroke: #38E1F7;
+    --accent-consensus-fill: #38E1F7;
+    --accent-truth: #B67BFF;
+
+    --shadow-color: rgba(0, 0, 0, 0.45);
+  }
+
+  body {
+    @apply bg-[var(--canvas)] text-[var(--ink-primary)] transition-colors duration-500;
+  }
+}
+
+@keyframes slow-bounce {
+  0%, 100% {
+    transform: translateY(-10%);
+    animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+  }
+  50% {
+    transform: translateY(0);
+    animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  }
+}
+.animate-slow-bounce {
+  animation: slow-bounce 3s infinite;
+}

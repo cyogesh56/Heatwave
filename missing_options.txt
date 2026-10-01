@@ -1,0 +1,102 @@
+card_base_001 (kahoot): If [Player A] were arrested, what would [Player B] assume was the crime?
+card_base_002 (kahoot): What is the exact coffee or tea order [Player A] gets when they want to treat themselves?
+card_base_003 (kahoot): Between [Player A] and [Player B], who is more likely to survive a zombie apocalypse by hiding?
+card_base_004 (kahoot): If [Player A] could instantly master any musical instrument, which would [Player B] guess they'd pick?
+card_base_005 (kahoot): Who is more likely to start a weird conspiracy theory, [Player A] or [Player B]?
+card_base_006 (kahoot): What is the most bizarre thing [Player A] has ever Googled? [Player B] guesses.
+card_base_007 (kahoot): If [Player A] had to wear one color for the rest of their life, what would [Player B] pick for them?
+card_base_008 (kahoot): Who would win in a trivia contest about 90s pop culture, [Player A] or [Player B]?
+card_base_009 (kahoot): What is [Player A]'s weirdest pet peeve? [Player B] has to guess.
+card_base_010 (kahoot): If [Player A] were a fictional character, who would [Player B] say they are?
+card_base_011 (kahoot): Who is more likely to accidentally text their boss something meant for a partner, [Player A] or [Player B]?
+card_base_012 (kahoot): What is the one movie [Player A] claims to hate but secretly loves? [Player B] guesses.
+card_base_013 (kahoot): If [Player A] could only use one app on their phone, what would [Player B] say it is?
+card_base_014 (kahoot): Who is more likely to adopt three stray dogs on a whim, [Player A] or [Player B]?
+card_base_015 (kahoot): What is [Player A]'s go-to comfort food when they've had a terrible day? [Player B] answers.
+card_base_016 (kahoot): Between [Player A] and [Player B], who is more likely to get lost in their own neighborhood?
+card_base_017 (kahoot): If [Player A] had to give a TED talk with zero preparation, what would the topic be according to [Player B]?
+card_base_018 (kahoot): What is the most embarrassing song on [Player A]'s playlist? [Player B] guesses.
+card_base_019 (kahoot): Who is more likely to forget an important anniversary, [Player A] or [Player B]?
+card_base_020 (kahoot): If [Player A] could be any animal, what would [Player B] say they embody perfectly?
+card_base_021 (kahoot): What is [Player A]'s absolute favorite way to waste time on a Sunday? [Player B] guesses.
+card_base_022 (kahoot): Between [Player A] and [Player B], who is more likely to cry at a cheesy commercial?
+card_base_023 (kahoot): If [Player A] were to write a book, what genre would it be, according to [Player B]?
+card_base_024 (kahoot): Who is more likely to try a bizarre food trend, [Player A] or [Player B]?
+card_base_025 (kahoot): What is the one thing [Player A] always forgets to pack for a trip? [Player B] answers.
+card_base_026 (kahoot): If [Player A] could have any superpower, what would [Player B] guess they'd want?
+card_base_027 (kahoot): Who is more likely to start a completely unnecessary DIY project and abandon it, [Player A] or [Player B]?
+card_base_028 (kahoot): What is [Player A]'s signature dance move when they think no one is watching? [Player B] describes it.
+card_base_029 (kahoot): Between [Player A] and [Player B], who is more likely to win a spelling bee?
+card_base_030 (kahoot): If [Player A] had to live in a different era, which one would [Player B] choose for them?
+card_base_031 (kahoot): What is the worst gift [Player A] has ever pretended to like? [Player B] guesses.
+card_base_032 (kahoot): Who is more likely to dramatically walk out of a bad movie, [Player A] or [Player B]?
+card_base_033 (kahoot): If [Player A] could only listen to one artist for a year, who would [Player B] say it is?
+card_base_034 (kahoot): What is [Player A]'s secret talent that rarely gets shown off? [Player B] answers.
+card_base_035 (kahoot): Between [Player A] and [Player B], who is more likely to survive on a deserted island?
+card_base_036 (kahoot): If [Player A] were a flavor of ice cream, what would [Player B] say they are?
+card_base_037 (kahoot): Who is more likely to talk their way out of a speeding ticket, [Player A] or [Player B]?
+card_base_038 (kahoot): What is the most ridiculous thing [Player A] has spent money on? [Player B] guesses.
+card_base_039 (kahoot): If [Player A] had to change their first name, what would [Player B] rename them?
+card_base_040 (kahoot): Between [Player A] and [Player B], who is more likely to laugh at an inappropriate moment?
+card_base_041 (kahoot): What is [Player A]'s favorite childhood memory? [Player B] tries to recall.
+card_base_042 (kahoot): If [Player A] were to open a business, what would it sell, according to [Player B]?
+card_base_043 (kahoot): Who is more likely to stay up until 3 AM arguing on the internet, [Player A] or [Player B]?
+card_base_044 (kahoot): What is the one chore [Player A] absolutely despises? [Player B] guesses.
+card_base_045 (kahoot): If [Player A] could be an Olympic athlete, what sport would [Player B] say they'd compete in?
+card_base_046 (kahoot): Between [Player A] and [Player B], who is more likely to trip over their own feet?
+card_base_047 (kahoot): What is [Player A]'s favorite piece of clothing that they own? [Player B] answers.
+card_base_048 (kahoot): If [Player A] had to star in a reality TV show, which one would [Player B] pick for them?
+card_base_049 (kahoot): Who is more likely to accidentally start a fire while cooking, [Player A] or [Player B]?
+card_base_050 (kahoot): What is the most useless piece of trivia [Player A] knows? [Player B] guesses.
+card_friends_004 (kahoot): Who is more likely to accidentally start a cult?
+card_friends_009 (kahoot): Who is more likely to survive a zombie apocalypse purely by dumb luck?
+card_friends_014 (kahoot): Who would be the first to get kicked out of a fancy restaurant?
+card_friends_019 (kahoot): Who is more likely to completely forget they have plans until 5 minutes before?
+card_friends_024 (kahoot): Who is more likely to accidentally go viral for doing something embarrassing?
+card_friends_029 (kahoot): Who has the absolute worst taste in movies?
+card_friends_034 (kahoot): Who is more likely to confidently give completely wrong directions?
+card_friends_039 (kahoot): Who is more likely to fall asleep during a highly dramatic movie scene?
+card_friends_044 (kahoot): Who is more likely to talk their way out of a speeding ticket?
+card_friends_049 (kahoot): Who is the superior driver in high-stress situations?
+card_friends_053 (kahoot): Who is more likely to secretly be an undercover agent?
+card_friends_057 (kahoot): Who is more likely to break a piece of furniture and hide it?
+card_friends_064 (kahoot): Who is the anchor of this friendship when things get chaotic?
+card_friends_070 (kahoot): Who gives the most ruthlessly honest advice?
+card_friends_076 (kahoot): Who is more likely to drop everything and show up at 3 AM if the other is in crisis?
+card_friends_082 (kahoot): Who has emotionally grown the most since you first met?
+card_friends_088 (kahoot): Who is better at reading the other's mind without a single word?
+card_nf_141 (fill_blank): The secret to a happy life is ______.
+card_nf_142 (fill_blank): [Player A] would sell their soul for a lifetime supply of ______.
+card_nf_143 (fill_blank): [Player A]'s biggest irrational fear is ______.
+card_nf_144 (fill_blank): If [Player A] were a ghost, they would haunt people by ______.
+card_nf_145 (fill_blank): The worst thing to bring to a potluck is ______.
+card_nf_146 (fill_blank): [Player A]'s autobiography would be titled: 'The Art of ______.'
+card_nf_147 (fill_blank): [Player A] can't be trusted in a store that sells ______.
+card_nf_148 (fill_blank): The most useless skill [Player A] possesses is ______.
+card_nf_149 (fill_blank): The worst sound in the world is ______.
+card_nf_150 (fill_blank): If [Player A] were a cryptid, they would be known as ______.
+card_nf_151 (fill_blank): [Player A]'s ideal Friday night involves absolutely zero ______.
+card_nf_152 (fill_blank): The quickest way to [Player A]'s heart is ______.
+card_nf_153 (fill_blank): [Player A] judges people silently if they ______.
+card_nf_154 (fill_blank): The worst text message to wake up to is ______.
+card_nf_155 (fill_blank): [Player A]'s spirit animal is a very confused ______.
+card_nf_156 (fill_blank): The one thing [Player A] refuses to share is ______.
+card_nf_157 (fill_blank): If [Player A] had a warning label, it would say: 'Beware of ______.'
+card_nf_158 (fill_blank): The worst pizza topping ever invented is ______.
+card_nf_159 (fill_blank): [Player A]'s signature dance move is called 'The ______.'
+card_nf_160 (fill_blank): The most annoying word in the English language is ______.
+card_nf_161 (fill_blank): [Player A] would be a terrible superhero because their weakness is ______.
+card_nf_162 (fill_blank): The weirdest thing in [Player A]'s search history is ______.
+card_nf_163 (fill_blank): [Player A]'s fallback career plan is professional ______.
+card_nf_164 (fill_blank): The biggest red flag on a first date is ______.
+card_nf_165 (fill_blank): If [Player A]'s pet could talk, they would probably say ______.
+card_nf_166 (fill_blank): The worst piece of clothing someone can wear is ______.
+card_nf_167 (fill_blank): [Player A] instantly loses respect for someone when they ______.
+card_nf_168 (fill_blank): The best way to escape a boring conversation is ______.
+card_nf_169 (fill_blank): [Player A] is oddly superstitious about ______.
+card_nf_170 (fill_blank): The worst smell to wake up to is ______.
+card_nf_171 (fill_blank): [Player A]'s hidden talent is identifying ______.
+card_nf_172 (fill_blank): The one thing [Player A] always forgets to pack is ______.
+card_nf_173 (fill_blank): [Player A]'s dream vacation involves absolutely no ______.
+card_nf_174 (fill_blank): The worst possible icebreaker question is ______.
+card_nf_175 (fill_blank): [Player A] is currently addicted to ______.

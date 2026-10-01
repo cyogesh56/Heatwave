@@ -1,0 +1,331 @@
+import { useSyncTimer } from '../hooks/useSyncTimer';
+import React, { useEffect, useState } from 'react';
+import { useGame } from '../context/GameContext';
+import { PlayingCard } from '../components/ui/PlayingCard';
+import { TimerBadge } from '../components/ui/TimerBadge';
+import { IconZap } from '../components/icons';
+
+export const HostView: React.FC = () => {
+  const { hostServer, hostGameState, setHostGameState, gameEngine } = useGame();
+  
+  const [votes, setVotes] = useState<Record<string, string>>({});
+  const [uiAlert, setUiAlert] = useState('');
+  const timeLeft = useSyncTimer(hostGameState?.timers?.endsAt);
+
+  useEffect(() => {
+    if (!gameEngine || !hostGameState) return;
+
+    if (!hostGameState.currentCard) {
+      handleNextCard();
+    }
+  }, [gameEngine]); // Only run when gameEngine initializes
+
+  useEffect(() => {
+    const handleAction = (e: any) => {
+      const { playerId, action } = e.detail;
+      if (action.type === 'vote') {
+        setVotes(prev => ({ ...prev, [playerId]: action.choice }));
+      } else if (action.type === 'power') {
+         const pName = hostGameState?.players[playerId]?.name || 'Someone';
+         if (action.power === 'killswitch') {
+            setUiAlert(`🛑 ${pName} used a KILLSWITCH! Drawing new card...`);
+            setTimeout(() => { setUiAlert(''); handleNextCard(); }, 2500);
+         } else if (action.power === 'override') {
+            setUiAlert(`🔥 ${pName} used an OVERRIDE! Phase escalated!`);
+            // Normally we'd take action.phase, for now we just jump
+            gameEngine?.escalatePhase();
+            setTimeout(() => { setUiAlert(''); handleNextCard(); }, 2500);
+         } else if (action.power === 'deflect') {
+            setUiAlert(`🔄 ${pName} used a DEFLECT! Passing the heat...`);
+            setTimeout(() => { setUiAlert(''); handleNextCard(); }, 2500);
+         }
+      } else if (action.type === 'fail_truth') {
+         const pName = hostGameState?.players[playerId]?.name || 'Someone';
+         setUiAlert(`😅 ${pName} failed! Drawing a TRUTH...`);
+         
+         setTimeout(() => {
+           setUiAlert('');
+           if (!gameEngine || !hostGameState) return;
+           const players = Object.values(hostGameState.players).map(p => p.name);
+           const drawn = gameEngine.drawNextCard(players, hostGameState.phase, 'truth');
+           if (drawn) {
+             setVotes({});
+             const nextState = {
+               ...hostGameState,
+               currentCard: drawn,
+               uiState: 'voting' as const
+             };
+             setHostGameState(nextState);
+             hostServer?.broadcast(nextState);
+           }
+         }, 2500);
+      }
+    };
+    window.addEventListener('player-action', handleAction);
+    return () => window.removeEventListener('player-action', handleAction);
+  }, [hostGameState, gameEngine]); // Dependencies needed to read latest state
+
+  const handleNextCard = () => {
+    if (!gameEngine || !hostGameState) return;
+    const players = Object.values(hostGameState.players).map(p => p.name);
+    const drawn = gameEngine.drawNextCard(players.length > 0 ? players : ['Player 1', 'Player 2']);
+    
+    // Loot drop logic
+    const newPlayers = JSON.parse(JSON.stringify(hostGameState.players));
+    const playerIds = Object.keys(newPlayers);
+    let alertMsg = '';
+    let targetPlayerId = '';
+    
+    if (playerIds.length > 0 && Math.random() < 0.4) {
+       const randomId = playerIds[Math.floor(Math.random() * playerIds.length)];
+       const powers = ['deflect', 'killswitch', 'override'];
+       const randomPower = powers[Math.floor(Math.random() * powers.length)];
+       newPlayers[randomId].inventory[randomPower] += 1;
+       alertMsg = `📦 ${newPlayers[randomId].name} discovered a ${randomPower.toUpperCase()}!`;
+       newPlayers[randomId].uiAlert = `📦 You discovered a ${randomPower.toUpperCase()}!`;
+       targetPlayerId = randomId;
+    }
+
+    if (drawn) {
+      setVotes({});
+      
+      // Inject options for Kahoot/Consensus if missing, or Vibe Poll
+      if (drawn.card.type === 'vibe_poll') {
+         drawn.card.options = Object.values(newPlayers).map((p: any) => p.name);
+      } else if (!drawn.card.options && (drawn.card.type === 'kahoot' || drawn.card.type === 'wrong_answers' || drawn.card.type === 'consensus')) {
+         // Treat questions without options as open-ended room discussions!
+         drawn.card.type = 'truth';
+      }
+
+      // Interstitial Logic
+      let showInterstitial = false;
+      let interTitle = '';
+      let interSub = '';
+      const prevType = hostGameState.currentCard?.card?.type;
+      
+      if (prevType && prevType !== drawn.card.type) {
+          showInterstitial = true;
+          switch (drawn.card.type) {
+             case 'truth':
+             case 'fill_blank':
+                interTitle = 'Room Discussion';
+                interSub = 'Answer out loud. No voting.';
+                break;
+             case 'dare':
+                interTitle = 'Physical Challenge';
+                interSub = 'Time to act. Complete the dare.';
+                break;
+             case 'consensus':
+             case 'vibe_poll':
+                interTitle = 'Consensus Check';
+                interSub = 'Look at your phone. Vote to agree.';
+                break;
+             case 'wrong_answers':
+             case 'kahoot':
+                interTitle = 'Trivia & Chaos';
+                interSub = 'Pick the funniest or correct option on your phone.';
+                break;
+          }
+      }
+
+      // Timer Logic
+      const delayMs = showInterstitial ? 3000 : 0;
+      const isVoting = ['kahoot', 'wrong_answers', 'consensus', 'vibe_poll'].includes(drawn.card.type);
+      const isDare = drawn.card.type === 'dare';
+      
+      let futureTimer = null;
+      if (isVoting) {
+         futureTimer = Date.now() + delayMs + 5000 + (30 * 1000); 
+      } else if (isDare && drawn.card.prompt.includes('60')) {
+         futureTimer = Date.now() + delayMs + 5000 + (60 * 1000);
+      }
+
+      const nextState = {
+        ...hostGameState,
+        players: newPlayers,
+        currentCard: drawn,
+        uiState: showInterstitial ? 'interstitial' as const : 'voting' as const,
+        interstitial: showInterstitial ? { title: interTitle, subtitle: interSub } : undefined,
+        timers: {
+          active: !!futureTimer,
+          endsAt: futureTimer,
+          remainingSeconds: 0
+        },
+        uiAlert: alertMsg || undefined
+      };
+      
+      setHostGameState(nextState);
+      hostServer?.broadcast(nextState);
+      
+      if (showInterstitial) {
+         setTimeout(() => {
+            setHostGameState(prev => {
+               if (!prev) return prev;
+               const resumedState = { ...prev, uiState: 'voting' as const };
+               hostServer?.broadcast(resumedState);
+               return resumedState;
+            });
+         }, 3000);
+      }
+      
+      if (alertMsg) {
+        setUiAlert(alertMsg);
+        setTimeout(() => {
+          setUiAlert('');
+          if (targetPlayerId) {
+             setHostGameState(prev => {
+                if (!prev) return prev;
+                const p = { ...prev.players };
+                if (p[targetPlayerId]) {
+                   p[targetPlayerId] = { ...p[targetPlayerId], uiAlert: undefined };
+                }
+                const n = { ...prev, players: p, uiAlert: undefined };
+                hostServer?.broadcast(n);
+                return n;
+             });
+          }
+        }, 4000 + delayMs);
+      }
+    }
+  };
+
+  if (!hostGameState?.currentCard) {
+
+    return <div className="min-h-screen bg-canvas text-ink-primary flex items-center justify-center font-display text-4xl">Loading Deck...</div>;
+  }
+
+
+  const connectedPlayers = Object.values(hostGameState.players).filter((p: any) => p.isConnected !== false);
+  const disconnectedPlayers = Object.values(hostGameState.players).filter((p: any) => p.isConnected === false);
+  
+  if (connectedPlayers.length < 2 && disconnectedPlayers.length > 0) {
+     return (
+        <div className="min-h-screen w-full flex flex-col items-center justify-center bg-accent-dare text-canvas p-12 text-center">
+           <h1 className="text-6xl font-display font-black uppercase tracking-widest mb-6">Game Paused</h1>
+           <p className="text-3xl font-body opacity-90 mb-12">
+              {disconnectedPlayers.map((p: any) => p.name).join(', ')} disconnected.<br/>Waiting for them to reconnect...
+           </p>
+           <button onClick={() => window.location.href = '/'} className="px-12 py-6 bg-canvas text-accent-dare font-display font-black text-2xl uppercase tracking-widest rounded-3xl shadow-solid hover:-translate-y-1 active:translate-y-1 transition-all">
+             Restart Game
+           </button>
+        </div>
+     );
+  }
+
+
+  if (hostGameState.uiState === 'interstitial' && hostGameState.interstitial) {
+     return (
+        <div className="min-h-screen w-full flex flex-col items-center justify-center bg-accent-dare text-canvas p-12 text-center transition-all animate-pulse">
+           <h1 className="text-6xl md:text-8xl font-display font-black uppercase tracking-widest mb-6">{hostGameState.interstitial.title}</h1>
+           <p className="text-3xl md:text-5xl font-body opacity-90">{hostGameState.interstitial.subtitle}</p>
+        </div>
+     );
+  }
+
+  const { card, parsedPrompt } = hostGameState.currentCard;
+
+  const renderRevealArea = () => {
+    if (uiAlert) {
+      return (
+        <div className="w-full max-w-4xl mt-0 bg-surface-card text-ink-primary backdrop-blur-3xl rounded-3xl p-8 border-4 border-accent-dare shadow-2xl animate-pulse">
+           <h3 className="text-3xl font-display font-black text-center">{uiAlert}</h3>
+        </div>
+      );
+    }
+    if (!['kahoot', 'wrong_answers', 'consensus', 'vibe_poll'].includes(card.type)) {
+      return (
+        <div className="flex flex-col gap-8 w-full max-w-md items-center mt-0">
+          <div className="relative group w-full">
+            <div className="absolute inset-0 bg-accent-truth blur-3xl opacity-20 group-hover:opacity-40 transition-opacity duration-700 rounded-full"></div>
+            <div className="relative bg-surface-card backdrop-blur-2xl border-2 border-accent-truth/40 px-12 py-8 rounded-[2rem] flex flex-col items-center gap-3 shadow-2xl transition-transform hover:scale-105 duration-300">
+              <span className="font-meta text-accent-truth uppercase tracking-widest text-sm font-bold flex items-center gap-2">
+                <span className="w-2 h-2 rounded-full bg-accent-truth animate-ping"></span>
+                In the Spotlight
+              </span>
+              <h2 className="text-5xl font-black tracking-tight text-ink-primary opacity-90 uppercase">{card.type}</h2>
+            </div>
+          </div>
+          <button onClick={handleNextCard} className="w-full py-6 bg-accent-dare text-canvas font-display font-black text-2xl uppercase tracking-widest rounded-3xl shadow-solid hover:-translate-y-1 active:translate-y-1 active:shadow-none transition-all">
+            Draw Next Card
+          </button>
+          {parsedPrompt.toLowerCase().includes('answer a truth') && (
+             <button onClick={() => window.dispatchEvent(new CustomEvent('player-action', { detail: { playerId: 'host', action: { type: 'fail_truth' } } }))} className="w-full py-4 bg-transparent border-4 border-accent-truth text-accent-truth font-display font-black text-xl uppercase tracking-widest rounded-3xl hover:bg-accent-truth/10 transition-all">
+               Answer a Truth Instead
+             </button>
+          )}
+        </div>
+      );
+    }
+
+    const options = card.options || ['Option A', 'Option B', 'Option C', 'Option D'];
+    const totalVotes = Object.keys(votes).length;
+
+    return (
+      <div className="w-full max-w-4xl mt-0 bg-surface-card backdrop-blur-xl rounded-3xl p-8 border-2 border-ink-primary/10 shadow-2xl">
+        <div className="flex items-center justify-between border-b border-ink-primary/10 pb-6 mb-6">
+          <h3 className="text-xl font-meta uppercase tracking-widest text-ink-primary/90">Consensus ({totalVotes} votes)</h3>
+          {hostGameState?.timers?.active && (
+            <div className={`text-6xl font-display font-black tabular-nums tracking-tighter ${timeLeft <= 10 ? 'text-accent-wrong animate-pulse' : 'text-accent-consensus'}`}>
+              00:{timeLeft.toString().padStart(2, '0')}
+            </div>
+          )}
+        </div>
+        <div className="flex flex-col gap-6">
+          {options.map((opt: string, i: number) => {
+            const voteCount = Object.values(votes).filter(v => v === opt).length;
+            const percentage = totalVotes === 0 ? 0 : Math.round((voteCount / totalVotes) * 100);
+            return (
+              <div key={i} className="flex items-center gap-4">
+                <div className="w-48 text-right font-bold text-sm sm:text-base opacity-90 truncate" title={opt}>{opt}</div>
+                <div className="flex-1 h-8 bg-canvas rounded-full shadow-inner overflow-hidden border border-ink-primary/5 relative">
+                  <div 
+                    className="h-full bg-accent-consensus transition-all duration-1000 ease-out relative"
+                    style={{ width: `${percentage}%` }}
+                  >
+                    {percentage > 0 && <div className="absolute inset-0 bg-white/20 w-full h-full animate-pulse"></div>}
+                  </div>
+                </div>
+                <div className="w-16 font-meta text-xl text-accent-consensus">{percentage}%</div>
+              </div>
+            );
+          })}
+        </div>
+        <button onClick={handleNextCard} className="mt-8 w-full py-6 bg-accent-dare text-canvas font-display font-black text-2xl uppercase tracking-widest rounded-3xl shadow-solid hover:-translate-y-1 active:translate-y-1 active:shadow-none transition-all">
+          Draw Next Card
+        </button>
+      </div>
+    );
+  };
+
+  return (
+    <div className="min-h-screen w-full flex flex-col transition-colors duration-500 bg-canvas text-ink-primary font-sans overflow-x-hidden">
+      <header className="w-full flex items-center justify-between p-6 bg-ink-primary/5 backdrop-blur-md border-b border-ink-primary/10 z-10">
+        <div className="flex items-center gap-6">
+          <div className="text-4xl font-black tracking-widest bg-ink-primary/5 px-5 py-2 rounded-xl border border-ink-primary/20 shadow-inner">
+            #{hostServer?.roomCode || 'GAME'}
+          </div>
+        </div>
+        
+      </header>
+
+      <main className="flex-1 flex flex-col lg:flex-row items-center justify-center p-6 lg:p-12 gap-8 lg:gap-16 relative z-0 w-full max-w-[1600px] mx-auto overflow-visible">
+        {/* Left Side: Card */}
+        <div className="relative w-full lg:w-1/2 flex items-center justify-center shrink-0">
+          <div className="w-full max-w-md lg:max-w-xl aspect-[4/3] lg:aspect-square relative">
+          <PlayingCard 
+            prompt={parsedPrompt}
+            type={card.type === 'kahoot' ? 'wrong' : card.type}
+            index={hostGameState.phase}
+          />
+
+        </div>
+        </div>
+        {/* Right Side: Reveal Area */}
+        <div className="w-full lg:w-1/2 flex items-center justify-center shrink-0 max-h-[40vh] lg:max-h-none overflow-visible p-6">
+          {renderRevealArea()}
+        </div>
+      </main>
+    </div>
+  );
+};
+
