@@ -13,14 +13,32 @@ export type Card = {
 export class GameEngine {
   private allCards: Card[] = [];
   public currentPhase: number = 1;
+  private cardsPlayedInCurrentPhase: number = 0;
+  private maxPhaseAvailable: number = 1;
+  private totalCardsPlayed: number = 0;
 
   constructor(cards: Card[]) {
     this.allCards = cards;
+    this.maxPhaseAvailable = cards.length > 0 ? Math.max(...cards.map(c => c.phase)) : 4;
   }
 
-  public drawNextCard(activePlayers: string[], targetPhase?: number, targetType?: string): { card: Card, parsedPrompt: string, targetedPlayers?: string[]; assignedResponderName?: string } | null {
-    if (targetPhase !== undefined) {
+    public drawNextCard(activePlayers: string[], targetPhase?: number, targetType?: string): { card: Card, parsedPrompt: string, targetedPlayers?: string[]; assignedResponderName?: string } | null {
+    if (targetPhase !== undefined && targetPhase !== this.currentPhase) {
       this.currentPhase = targetPhase;
+      this.cardsPlayedInCurrentPhase = 0;
+    }
+
+    if (this.cardsPlayedInCurrentPhase >= 5) {
+      if (this.currentPhase < this.maxPhaseAvailable) {
+        this.currentPhase++;
+        this.cardsPlayedInCurrentPhase = 0;
+      } else {
+        return null;
+      }
+    }
+
+    if (this.totalCardsPlayed >= 25) {
+      return null;
     }
 
     const playedIds = getPlayedCards();
@@ -34,14 +52,11 @@ export class GameEngine {
          availableCards = availableCards.filter(c => c.type === targetType);
       }
       if (availableCards.length > 0) {
-        this.currentPhase = searchPhase; 
+        if (this.currentPhase !== searchPhase) {
+           this.currentPhase = searchPhase;
+           this.cardsPlayedInCurrentPhase = 0;
+        }
         break;
-      }
-      const allPhaseCards = this.allCards.filter(c => c.phase === searchPhase);
-      if (allPhaseCards.length > 0) {
-         availableCards = allPhaseCards;
-         this.currentPhase = searchPhase;
-         break;
       }
       searchPhase++; 
     }
@@ -52,8 +67,10 @@ export class GameEngine {
     const selectedCard = availableCards[randomIndex];
     markCardAsPlayed(selectedCard.id);
     const parsed = parsePrompt(selectedCard.prompt, activePlayers, selectedCard.options);
+    
+    this.cardsPlayedInCurrentPhase++;
+    this.totalCardsPlayed++;
 
-    // Create a new card object so we don't mutate the original allCards
     const cardToReturn = { ...selectedCard };
     if (parsed.parsedOptions) {
       cardToReturn.options = parsed.parsedOptions;

@@ -272,6 +272,16 @@ export const HostView: React.FC = () => {
     let alertMsg = '';
     let targetPlayerId = '';
     
+    if (!drawn) {
+       setHostGameState(prev => {
+          if (!prev) return null;
+          const next = { ...prev, uiState: 'ended' as const };
+          hostServer?.broadcast(next);
+          return next;
+       });
+       return;
+    }
+
     if (playerIds.length > 0 && Math.random() < 0.4) {
        const randomId = playerIds[Math.floor(Math.random() * playerIds.length)];
        const powers = ['deflect', 'killswitch', 'override'];
