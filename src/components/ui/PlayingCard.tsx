@@ -22,9 +22,9 @@ export function PlayingCard({ prompt, type, index }: PlayingCardProps) {
   const { border, text, Icon } = config;
 
   let textClass = "text-2xl sm:text-3xl md:text-4xl lg:text-5xl";
-  if (prompt.length > 150) {
+  if (prompt?.length > 150) {
     textClass = "text-lg sm:text-xl md:text-2xl lg:text-3xl";
-  } else if (prompt.length > 80) {
+  } else if (prompt?.length > 80) {
     textClass = "text-xl sm:text-2xl md:text-3xl lg:text-4xl";
   }
 

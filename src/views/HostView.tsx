@@ -455,11 +455,12 @@ export const HostView: React.FC = () => {
     }
   };
 
-  if (!hostGameState?.currentCard) {
 
+
+
+  if (!hostGameState || !hostGameState.currentCard) {
     return <div className="min-h-[100dvh] bg-canvas text-ink-primary flex items-center justify-center font-display text-2xl md:text-3xl lg:text-4xl">Loading Deck...</div>;
   }
-
 
   const connectedPlayers = Object.values(hostGameState.players).filter((p: any) => p.isConnected !== false);
   const disconnectedPlayers = Object.values(hostGameState.players).filter((p: any) => p.isConnected === false);
@@ -537,9 +538,7 @@ export const HostView: React.FC = () => {
      );
   }
 
-  if (!hostGameState.currentCard) {
-    return <div className="min-h-[100dvh] bg-canvas text-ink-primary flex items-center justify-center font-display text-2xl md:text-3xl lg:text-4xl">Loading Deck...</div>;
-  }
+
 
   const { card, parsedPrompt } = hostGameState.currentCard;
   
@@ -670,7 +669,7 @@ export const HostView: React.FC = () => {
               <PlayingCard 
                 prompt={parsedPrompt}
                 type={card.type === 'kahoot' ? 'wrong' : card.type}
-                index={hostGameState.phase}
+                index={card.phase}
               />
             </motion.div>
           </AnimatePresence>
