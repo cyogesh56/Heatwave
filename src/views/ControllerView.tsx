@@ -22,22 +22,22 @@ const AlertOverlay = ({ state, node }: { state: any, node: any }) => {
     }
   }, [personalAlert, globalAlert]);
   
-  if (!globalAlert && !personalAlert) return null;
-  
   return (
-    <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/60 backdrop-blur-md px-6 pointer-events-none">
+    <div className="fixed top-6 left-1/2 -translate-x-1/2 z-[9999] flex items-start justify-center px-6 pointer-events-none w-full">
        <AnimatePresence>
-         <motion.div 
-           initial={{ scale: 0.5, opacity: 0, y: 50 }}
-           animate={{ scale: 1, opacity: 1, y: 0 }}
-           exit={{ scale: 0.5, opacity: 0, y: -50 }}
-           transition={{ type: 'spring', stiffness: 400, damping: 15 }}
-           className="w-full max-w-sm bg-surface-card text-ink-primary border-4 border-accent-dare rounded-[2rem] p-8 shadow-2xl text-center"
-         >
-            <h3 className="text-2xl font-display font-black uppercase tracking-widest leading-snug">
-               {personalAlert || globalAlert}
-            </h3>
-         </motion.div>
+         {(globalAlert || personalAlert) && (
+           <motion.div 
+             initial={{ scale: 0.8, opacity: 0, y: -20 }}
+             animate={{ scale: 1, opacity: 1, y: 0 }}
+             exit={{ scale: 0.8, opacity: 0, y: -20 }}
+             transition={{ type: 'spring', stiffness: 400, damping: 15 }}
+             className="w-full max-w-sm bg-surface-card text-ink-primary border-4 border-accent-dare rounded-2xl p-4 shadow-2xl text-center backdrop-blur-xl"
+           >
+              <h3 className="text-sm font-display font-black uppercase tracking-widest leading-snug">
+                 {personalAlert || globalAlert}
+              </h3>
+           </motion.div>
+         )}
        </AnimatePresence>
     </div>
   );

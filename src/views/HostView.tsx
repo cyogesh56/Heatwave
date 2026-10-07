@@ -634,6 +634,24 @@ export const HostView: React.FC = () => {
         </div>
       </main>
 
+      <AnimatePresence>
+        {uiAlert && (
+          <motion.div
+            initial={{ opacity: 0, y: 50, scale: 0.9 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: -50, scale: 0.9 }}
+            className="fixed top-24 lg:top-auto lg:bottom-32 left-1/2 -translate-x-1/2 z-[9999] pointer-events-none w-11/12 max-w-lg"
+          >
+            <div className="bg-surface-card text-ink-primary border-4 border-accent-dare rounded-2xl px-6 py-4 shadow-2xl text-center backdrop-blur-xl">
+              <span className="text-sm lg:text-base font-display font-black uppercase tracking-widest leading-snug">
+                {uiAlert}
+              </span>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+
       {/* Bottom Bar: Online Players */}
       <div className="fixed bottom-6 left-1/2 -translate-x-1/2 flex items-center gap-6 bg-surface-card/90 backdrop-blur-md px-8 py-4 rounded-2xl border-2 border-ink-primary/10 shadow-xl z-50">
         {Object.entries(hostGameState.players).map(([id, p]: any) => (
