@@ -21,6 +21,7 @@ export default function LobbyView() {
   const [chillMode, setChillMode] = useState(false);
   
   const [hostPlayerName, setHostPlayerName] = useState('');
+  const [isJoining, setIsJoining] = useState(false);
   const isHostless = sessionStorage.getItem('hostlessMode') === 'true';
 
   if (!isHost || !hostServer) {
@@ -186,7 +187,7 @@ export default function LobbyView() {
                      <span className="font-body text-sm opacity-80">The default, highly-tested experience.</span>
                    </div>
                    <div className={`w-12 h-6 rounded-full border-2 ${(!chaosMode && !chillMode) ? 'bg-ink-primary border-ink-primary' : 'bg-ink-primary/5 border-ink-primary/30'} flex items-center p-1 transition-all`}>
-                     <div className={`w-4 h-4 rounded-full transition-all ${(!chaosMode && !chillMode) ? 'translate-x-6 bg-surface-card' : 'translate-x-0 bg-ink-primary/40'}`}/>
+                     <div className={`w-4 h-4 rounded-full transition-all ${(!chaosMode && !chillMode) ? 'translate-x-6 bg-surface-card' : 'translate-x-0 bg-ink-primary'}`}/>
                    </div>
                  </div>
 
@@ -196,7 +197,7 @@ export default function LobbyView() {
                      <span className="font-body text-sm opacity-80">3x more likely to drop Powers.</span>
                    </div>
                    <div className={`w-12 h-6 rounded-full border-2 ${chaosMode ? 'bg-ink-primary border-ink-primary' : 'bg-ink-primary/5 border-ink-primary/30'} flex items-center p-1 transition-all`}>
-                     <div className={`w-4 h-4 rounded-full transition-all ${chaosMode ? 'translate-x-6 bg-surface-card' : 'translate-x-0 bg-ink-primary/40'}`}/>
+                     <div className={`w-4 h-4 rounded-full transition-all ${chaosMode ? 'translate-x-6 bg-surface-card' : 'translate-x-0 bg-ink-primary'}`}/>
                    </div>
                  </div>
                  
@@ -206,7 +207,7 @@ export default function LobbyView() {
                      <span className="font-body text-sm opacity-80">Disables all countdown timers.</span>
                    </div>
                    <div className={`w-12 h-6 rounded-full border-2 ${chillMode ? 'bg-ink-primary border-ink-primary' : 'bg-ink-primary/5 border-ink-primary/30'} flex items-center p-1 transition-all`}>
-                     <div className={`w-4 h-4 rounded-full transition-all ${chillMode ? 'translate-x-6 bg-surface-card' : 'translate-x-0 bg-ink-primary/40'}`}/>
+                     <div className={`w-4 h-4 rounded-full transition-all ${chillMode ? 'translate-x-6 bg-surface-card' : 'translate-x-0 bg-ink-primary'}`}/>
                    </div>
                  </div>
               </div>
@@ -246,14 +247,19 @@ export default function LobbyView() {
                       value={hostPlayerName}
                       onChange={(e) => setHostPlayerName(e.target.value)}
                       placeholder="Your Name"
-                      className="w-full bg-canvas text-ink-primary text-center text-xl font-body p-3 rounded-xl border-2 border-ink-primary/10 focus:border-accent-dare outline-none transition-colors"
+                      disabled={isJoining}
+                      className="w-full bg-canvas text-ink-primary text-center text-xl font-body p-3 rounded-xl border-2 border-ink-primary/10 focus:border-accent-dare outline-none transition-colors disabled:opacity-50"
                     />
                     <button 
-                      onClick={() => initClient(hostServer?.roomCode || '', hostPlayerName)}
-                      disabled={!hostPlayerName.trim()}
+                      onClick={async () => {
+                        setIsJoining(true);
+                        await initClient(hostServer?.roomCode || '', hostPlayerName);
+                        setIsJoining(false);
+                      }}
+                      disabled={!hostPlayerName.trim() || isJoining}
                       className="w-full mt-2 py-3 bg-accent-dare text-canvas font-display font-bold text-lg uppercase tracking-widest rounded-xl disabled:opacity-50 active:scale-95 transition-all"
                     >
-                      Join
+                      {isJoining ? 'Joining...' : 'Join'}
                     </button>
                   </div>
                 )}
