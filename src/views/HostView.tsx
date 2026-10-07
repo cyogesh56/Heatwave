@@ -318,6 +318,8 @@ export const HostView: React.FC = () => {
   }, [hostGameState?.readyPlayers, hostGameState?.juryState?.votes]);
 
 
+  React.useEffect(() => { setShowMobileResults(false); }, [hostGameState?.currentCard?.card?.id]);
+
   const handleNextCard = (forceInterstitial = false, skipInterstitial = false) => {
     if (!gameEngine || !hostGameStateRef.current) return;
     const players = Object.values(hostGameStateRef.current!.players).map(p => p.name);
@@ -560,9 +562,6 @@ export const HostView: React.FC = () => {
 
   const { card, parsedPrompt } = hostGameState.currentCard;
   
-  React.useEffect(() => {
-    setShowMobileResults(false);
-  }, [card.id]);
 
   const renderRevealArea = () => {
     if (!['kahoot', 'wrong_answers', 'consensus', 'vibe_poll', 'fill_blank'].includes(card.type)) {
