@@ -430,7 +430,7 @@ export const HostView: React.FC = () => {
            <p className="text-3xl font-body opacity-90 mb-12">
               {disconnectedPlayers.map((p: any) => p.name).join(', ')} disconnected.<br/>Waiting for them to reconnect...
            </p>
-           <button onClick={() => window.location.href = '/'} className="px-12 py-6 bg-canvas text-accent-dare font-display font-black text-2xl uppercase tracking-widest rounded-3xl shadow-solid hover:-translate-y-1 active:translate-y-1 transition-all">
+           <button onClick={() => window.location.href = '/'} className="px-12 py-6 bg-canvas text-accent-dare font-display font-black text-2xl uppercase tracking-widest rounded-2xl shadow-solid hover:-translate-y-1 active:translate-y-1 transition-all">
              Restart Game
            </button>
         </div>
@@ -515,12 +515,12 @@ export const HostView: React.FC = () => {
        ADVANCING IN {hostGameState.revealCountdown}...
      </div>
   ) : (
-     <button onClick={() => handleNextCard(false)} className="w-full py-4 bg-transparent border-4 border-ink-primary/20 text-ink-primary/40 font-display font-bold text-sm uppercase tracking-widest rounded-xl hover:bg-ink-primary/5 transition-all">
+     <button onClick={() => handleNextCard(false)} className="w-full py-4 bg-transparent border-4 border-ink-primary/20 text-ink-primary/40 font-display font-bold text-sm uppercase tracking-widest rounded-2xl hover:bg-ink-primary/5 transition-all">
        Force Advance
      </button>
   )}
           {parsedPrompt.toLowerCase().includes('answer a truth') && (
-             <button onClick={() => window.dispatchEvent(new CustomEvent('player-action', { detail: { playerId: 'host', action: { type: 'fail_truth' } } }))} className="w-full py-4 bg-transparent border-4 border-accent-truth text-accent-truth font-display font-black text-xl uppercase tracking-widest rounded-3xl hover:bg-accent-truth/10 transition-all">
+             <button onClick={() => window.dispatchEvent(new CustomEvent('player-action', { detail: { playerId: 'host', action: { type: 'fail_truth' } } }))} className="w-full py-4 bg-transparent border-4 border-accent-truth text-accent-truth font-display font-black text-xl uppercase tracking-widest rounded-2xl hover:bg-accent-truth/10 transition-all">
                Answer a Truth Instead
              </button>
           )}
@@ -576,7 +576,7 @@ export const HostView: React.FC = () => {
             );
           })}
         </div>
-        <button onClick={() => handleNextCard(false)} className="mt-8 w-full py-6 bg-accent-dare text-canvas font-display font-black text-2xl uppercase tracking-widest rounded-3xl shadow-solid hover:-translate-y-1 active:translate-y-1 active:shadow-none transition-all">
+        <button onClick={() => handleNextCard(false)} className="mt-8 w-full py-6 bg-accent-dare text-canvas font-display font-black text-2xl uppercase tracking-widest rounded-2xl shadow-solid hover:-translate-y-1 active:translate-y-1 active:shadow-none transition-all">
           Draw Next Card
         </button>
       </div>
@@ -598,14 +598,14 @@ export const HostView: React.FC = () => {
       <audio src="/arpmedia-bedroom-night-sensual-massage-569465.mp3" autoPlay loop muted={false} />
       <UniversalHeader
         leftNode={
-          <div className="text-xl sm:text-2xl lg:text-4xl font-black tracking-widest bg-ink-primary/5 px-4 lg:px-5 py-1.5 lg:py-2 rounded-xl border border-ink-primary/20 shadow-inner">
+          <div className="text-xl sm:text-2xl lg:text-4xl font-black tracking-widest bg-ink-primary/5 px-4 lg:px-5 py-1.5 lg:py-2 rounded-2xl border border-ink-primary/20 shadow-inner">
             #{hostServer?.roomCode || 'GAME'}
           </div>
         }
         rightNode={
           <button 
             onClick={() => setConfirmEndGame(true)}
-            className="font-meta font-bold text-sm tracking-widest uppercase text-accent-dare hover:bg-accent-dare/10 px-4 py-2 rounded-xl transition-colors"
+            className="font-meta font-bold text-sm tracking-widest uppercase text-accent-dare hover:bg-accent-dare/10 px-4 py-2 rounded-2xl shadow-solid-sm active:translate-y-0.5 active:shadow-none transition-all transition-colors"
           >
             End Game
           </button>
@@ -642,7 +642,7 @@ export const HostView: React.FC = () => {
       </main>
 
       {/* Bottom Bar: Online Players */}
-      <div className="fixed bottom-6 left-1/2 -translate-x-1/2 flex items-center gap-6 bg-surface-card/90 backdrop-blur-md px-8 py-4 rounded-full border-2 border-ink-primary/10 shadow-xl z-50">
+      <div className="fixed bottom-6 left-1/2 -translate-x-1/2 flex items-center gap-6 bg-surface-card/90 backdrop-blur-md px-8 py-4 rounded-2xl border-2 border-ink-primary/10 shadow-xl z-50">
         {Object.entries(hostGameState.players).map(([id, p]: any) => (
            <div key={id} className="flex items-center gap-2">
              <div className={`w-3 h-3 rounded-full shadow-solid-sm ${p.isConnected !== false ? 'bg-[#10B981]' : 'bg-accent-dare'}`} />
@@ -653,3 +653,4 @@ export const HostView: React.FC = () => {
     </div>
   );
 };
+

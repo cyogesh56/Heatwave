@@ -104,7 +104,7 @@ export const ControllerView: React.FC = () => {
       <div className="min-h-[100dvh] bg-canvas text-ink-primary flex flex-col items-center justify-center p-6 text-center">
         <h1 className="text-4xl font-display font-black text-accent-dare mb-4 uppercase">Game Over</h1>
         <p className="font-body text-ink-primary/70 mb-8">The host has ended the game.</p>
-        <button onClick={() => window.location.href = '/'} className="px-8 py-4 bg-surface-card border-4 border-ink-primary/20 text-ink-primary font-display font-black text-xl uppercase tracking-widest rounded-3xl shadow-solid active:translate-y-1 transition-all">
+        <button onClick={() => window.location.href = '/'} className="px-8 py-4 bg-surface-card border-4 border-ink-primary/20 text-ink-primary font-display font-black text-xl uppercase tracking-widest rounded-2xl shadow-solid active:translate-y-1 transition-all">
           Home
         </button>
       </div>
@@ -146,7 +146,7 @@ export const ControllerView: React.FC = () => {
            <p className="text-xl font-body opacity-90 mb-12">
               {disconnectedPlayers.map((p: any) => p.name).join(', ')} disconnected.<br/>Waiting for them to reconnect...
            </p>
-           <button onClick={() => window.location.href = '/'} className="px-8 py-4 bg-canvas text-accent-dare font-display font-black text-xl uppercase tracking-widest rounded-3xl shadow-solid active:translate-y-1 transition-all">
+           <button onClick={() => window.location.href = '/'} className="px-8 py-4 bg-canvas text-accent-dare font-display font-black text-xl uppercase tracking-widest rounded-2xl shadow-solid active:translate-y-1 transition-all">
              Leave Game
            </button>
         </div>
@@ -346,18 +346,18 @@ export const ControllerView: React.FC = () => {
              <button 
                key={id}
                onClick={() => setDeflectTarget(id)} 
-               className={`py-4 px-6 rounded-xl border-4 ${deflectTarget === id ? 'border-accent-dare bg-accent-dare/10 text-accent-dare' : 'border-ink-primary/20 bg-canvas text-ink-primary'} font-display font-bold uppercase tracking-widest text-left shadow-sm transition-all`}
+               className={`py-4 px-6 rounded-2xl border-4 ${deflectTarget === id ? 'border-accent-dare bg-accent-dare/10 text-accent-dare' : 'border-ink-primary/20 bg-canvas text-ink-primary'} font-display font-bold uppercase tracking-widest text-left shadow-sm transition-all`}
              >
                {p.name}
              </button>
           ))}
         </div>
         <div className="flex gap-4 mt-2">
-           <button onClick={() => { setIsDeflectSheetOpen(false); setDeflectTarget(null); }} className="flex-1 py-4 border-4 border-ink-primary/20 rounded-xl font-display font-bold uppercase tracking-widest text-ink-primary/50 hover:bg-ink-primary/5">Cancel</button>
+           <button onClick={() => { setIsDeflectSheetOpen(false); setDeflectTarget(null); }} className="flex-1 py-4 border-4 border-ink-primary/20 rounded-2xl font-display font-bold uppercase tracking-widest text-ink-primary/50 hover:bg-ink-primary/5">Cancel</button>
            <button 
              disabled={!deflectTarget}
              onClick={() => { clientNode?.send({ type: 'power', power: 'deflect', targetId: deflectTarget }); setIsDeflectSheetOpen(false); setDeflectTarget(null); }} 
-             className="flex-1 py-4 rounded-xl border-4 border-accent-dare bg-accent-dare text-canvas font-display font-black uppercase tracking-widest disabled:opacity-50"
+             className="flex-1 py-4 rounded-2xl border-4 border-accent-dare bg-accent-dare text-canvas font-display font-black uppercase tracking-widest disabled:opacity-50"
            >
              Deflect!
            </button>
@@ -370,13 +370,14 @@ export const ControllerView: React.FC = () => {
         <h3 className="text-center font-display font-black uppercase tracking-widest text-2xl text-ink-primary">Force Override</h3>
         <p className="text-center font-body text-ink-primary/60 -mt-4">Where are we going?</p>
         <div className="grid grid-cols-2 gap-4">
-          <button onClick={() => { handlePower('override_1'); setIsOverrideSheetOpen(false); }} className="py-4 rounded-xl border-4 border-ink-primary bg-canvas text-ink-primary font-display font-bold uppercase tracking-widest shadow-solid-sm active:translate-y-0.5 active:shadow-none">Spark</button>
-          <button onClick={() => { handlePower('override_2'); setIsOverrideSheetOpen(false); }} className="py-4 rounded-xl border-4 border-ink-primary bg-canvas text-ink-primary font-display font-bold uppercase tracking-widest shadow-solid-sm active:translate-y-0.5 active:shadow-none">Deepen</button>
-          <button onClick={() => { handlePower('override_3'); setIsOverrideSheetOpen(false); }} className="py-4 rounded-xl border-4 border-ink-primary bg-canvas text-ink-primary font-display font-bold uppercase tracking-widest shadow-solid-sm active:translate-y-0.5 active:shadow-none">Ignite</button>
-          <button onClick={() => { handlePower('override_4'); setIsOverrideSheetOpen(false); }} className="py-4 rounded-xl border-4 border-ink-primary bg-canvas text-ink-primary font-display font-bold uppercase tracking-widest shadow-solid-sm active:translate-y-0.5 active:shadow-none">Melt</button>
+          <button onClick={() => { handlePower('override_1'); setIsOverrideSheetOpen(false); }} className="py-4 rounded-2xl border-4 border-ink-primary bg-canvas text-ink-primary font-display font-bold uppercase tracking-widest shadow-solid-sm active:translate-y-0.5 active:shadow-none">Spark</button>
+          <button onClick={() => { handlePower('override_2'); setIsOverrideSheetOpen(false); }} className="py-4 rounded-2xl border-4 border-ink-primary bg-canvas text-ink-primary font-display font-bold uppercase tracking-widest shadow-solid-sm active:translate-y-0.5 active:shadow-none">Deepen</button>
+          <button onClick={() => { handlePower('override_3'); setIsOverrideSheetOpen(false); }} className="py-4 rounded-2xl border-4 border-ink-primary bg-canvas text-ink-primary font-display font-bold uppercase tracking-widest shadow-solid-sm active:translate-y-0.5 active:shadow-none">Ignite</button>
+          <button onClick={() => { handlePower('override_4'); setIsOverrideSheetOpen(false); }} className="py-4 rounded-2xl border-4 border-ink-primary bg-canvas text-ink-primary font-display font-bold uppercase tracking-widest shadow-solid-sm active:translate-y-0.5 active:shadow-none">Melt</button>
         </div>
-        <button onClick={() => setIsOverrideSheetOpen(false)} className="mt-2 py-4 border-4 border-ink-primary/20 rounded-xl font-display font-bold uppercase tracking-widest text-ink-primary/50 hover:bg-ink-primary/5">Cancel</button>
+        <button onClick={() => setIsOverrideSheetOpen(false)} className="mt-2 py-4 border-4 border-ink-primary/20 rounded-2xl font-display font-bold uppercase tracking-widest text-ink-primary/50 hover:bg-ink-primary/5">Cancel</button>
       </div>
         </div>
   );
 };
+

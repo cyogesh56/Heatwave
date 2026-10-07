@@ -236,7 +236,7 @@ export default function Landing() {
           <button 
             type="submit" 
             disabled={isJoining || roomCode.length < 6 || !playerName.trim()}
-            className="mt-4 w-full py-5 bg-accent-consensus text-canvas font-display font-black text-xl uppercase tracking-widest rounded-xl shadow-lg hover:shadow-xl active:scale-95 transition-all disabled:opacity-50"
+            className="mt-4 w-full py-5 bg-accent-consensus text-canvas font-display font-black text-xl uppercase tracking-widest rounded-2xl shadow-lg hover:shadow-xl active:scale-95 transition-all disabled:opacity-50"
           >
             {isJoining ? 'Connecting...' : 'Jack In'}
           </button>
@@ -246,3 +246,4 @@ export default function Landing() {
     </div>
   );
 }
+

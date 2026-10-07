@@ -257,7 +257,7 @@ export default function LobbyView() {
                         setIsJoining(false);
                       }}
                       disabled={!hostPlayerName.trim() || isJoining}
-                      className="w-full mt-2 py-3 bg-accent-dare text-canvas font-display font-bold text-lg uppercase tracking-widest rounded-xl disabled:opacity-50 active:scale-95 transition-all"
+                      className="w-full mt-2 py-3 bg-accent-dare text-canvas font-display font-bold text-lg uppercase tracking-widest rounded-2xl disabled:opacity-50 active:scale-95 transition-all"
                     >
                       {isJoining ? 'Joining...' : 'Join'}
                     </button>
@@ -314,7 +314,7 @@ export default function LobbyView() {
                         animate={{ scale: 1, opacity: 1 }}
                         exit={{ scale: 0, opacity: 0 }}
                         transition={{ type: 'spring', stiffness: 500, damping: 25 }}
-                        className="px-3 py-1.5 sm:px-4 sm:py-2 bg-surface-card rounded-full shadow-solid-sm border-2 border-ink-primary/20 font-bold font-body text-sm sm:text-base"
+                        className="px-3 py-1.5 sm:px-4 sm:py-2 bg-surface-card rounded-2xl shadow-solid-sm border-2 border-ink-primary/20 font-bold font-body text-sm sm:text-base"
                       >
                         {p.name}
                       </motion.div>
@@ -330,3 +330,4 @@ export default function LobbyView() {
     </div>
   );
 }
+
