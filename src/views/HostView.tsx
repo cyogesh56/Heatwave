@@ -525,20 +525,20 @@ export const HostView: React.FC = () => {
     const totalVotes = Object.keys(votes).length;
 
     return (
-      <div className="w-full max-w-4xl mt-0 bg-surface-card backdrop-blur-xl rounded-3xl p-8 border-2 border-ink-primary/10 shadow-2xl">
-        <div className="flex items-center justify-between border-b border-ink-primary/10 pb-6 mb-6">
-          <h3 className="text-xl font-meta uppercase tracking-widest text-ink-primary/90">
+      <div className="w-full max-w-4xl mt-0 bg-surface-card backdrop-blur-xl rounded-3xl p-5 sm:p-8 border-2 border-ink-primary/10 shadow-2xl">
+        <div className="flex flex-col sm:flex-row items-center justify-between border-b border-ink-primary/10 pb-4 sm:pb-6 mb-4 sm:mb-6 gap-2 sm:gap-4">
+          <h3 className="text-sm sm:text-xl font-meta uppercase tracking-widest text-ink-primary/90 text-center sm:text-left">
             {card.type === 'vibe_poll' ? 'Vibe Poll' : 
              card.type === 'kahoot' || card.type === 'wrong_answers' || card.type === 'fill_blank' ? 'Trivia & Chaos' : 
              'Consensus'} ({totalVotes} votes)
           </h3>
           {hostGameState?.timers?.active && (
-            <div className={`text-4xl md:text-5xl lg:text-6xl font-display font-black tabular-nums tracking-tighter ${timeLeft <= 10 ? 'text-accent-wrong animate-pulse' : 'text-accent-consensus'}`}>
+            <div className={`text-3xl md:text-5xl lg:text-6xl font-display font-black tabular-nums tracking-tighter ${timeLeft <= 10 ? 'text-accent-wrong animate-pulse' : 'text-accent-consensus'}`}>
               00:{timeLeft.toString().padStart(2, '0')}
             </div>
           )}
         </div>
-        <div className="flex flex-col gap-6">
+        <div className="flex flex-col gap-3 sm:gap-6">
           {options.map((opt: string, i: number) => {
             const voteCount = Object.values(votes).filter(v => v === opt).length;
             const percentage = totalVotes === 0 ? 0 : Math.round((voteCount / totalVotes) * 100);
@@ -549,8 +549,8 @@ export const HostView: React.FC = () => {
               .filter(Boolean)
               .join(', ');
             return (
-              <div key={i} className="flex items-center gap-4">
-                <div className="w-48 text-right font-bold text-sm sm:text-base opacity-90 truncate" title={opt}>{opt}</div>
+              <div key={i} className="flex items-center gap-2 sm:gap-4">
+                <div className="w-24 sm:w-32 md:w-48 text-right font-bold text-xs sm:text-base opacity-90 truncate leading-tight" title={opt}>{opt}</div>
                 <div className="flex-1 h-8 bg-canvas rounded-full shadow-inner overflow-hidden border border-ink-primary/5 relative">
                   <div 
                     className="h-full bg-accent-consensus transition-all duration-1000 ease-out relative"
@@ -569,7 +569,7 @@ export const HostView: React.FC = () => {
             );
           })}
         </div>
-        <button onClick={() => handleNextCard(false)} className="mt-8 w-full py-6 bg-accent-dare text-canvas font-display font-black text-2xl uppercase tracking-widest rounded-2xl shadow-solid hover:-translate-y-1 active:translate-y-1 active:shadow-none transition-all">
+        <button onClick={() => handleNextCard(false)} className="mt-6 sm:mt-8 w-full py-4 sm:py-6 bg-accent-dare text-canvas font-display font-black text-xl sm:text-2xl uppercase tracking-widest rounded-2xl shadow-solid hover:-translate-y-1 active:translate-y-1 active:shadow-none transition-all">
           Draw Next Card
         </button>
       </div>
@@ -605,7 +605,7 @@ export const HostView: React.FC = () => {
         }
       />
 
-      <main className="flex-1 flex flex-col lg:flex-row items-center justify-center p-6 lg:p-12 gap-8 lg:gap-16 relative z-0 w-full max-w-[1600px] mx-auto overflow-visible">
+      <main className="flex-1 flex flex-col lg:flex-row items-center justify-center p-6 pb-32 lg:p-12 gap-4 sm:gap-8 lg:gap-16 relative z-0 w-full max-w-[1600px] mx-auto overflow-visible">
         {/* Left Side: Card */}
         <div className="relative w-full lg:w-1/2 flex items-center justify-center shrink-0">
           <div className="w-full max-w-md lg:max-w-xl aspect-[4/3] relative">
@@ -629,7 +629,7 @@ export const HostView: React.FC = () => {
         </div>
         </div>
         {/* Right Side: Reveal Area */}
-        <div className="w-full lg:w-1/2 flex items-center justify-center shrink-0 max-h-[40vh] lg:max-h-none overflow-visible p-6">
+        <div className="w-full lg:w-1/2 flex items-center justify-center shrink-0 p-6 sm:p-8 min-h-[300px]">
           {renderRevealArea()}
         </div>
       </main>
