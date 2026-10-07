@@ -7053,10 +7053,10 @@
     "type": "consensus",
     "prompt": "What is the acceptable timeframe to eat a KitKat?",
     "options": [
-      "Depends",
-      "No",
-      "Maybe",
-      "Yes"
+      "1 bite",
+      "1 minute",
+      "5 minutes",
+      "Save some for later"
     ],
     "decks": [
       "new_friends",
@@ -7085,10 +7085,10 @@
     "type": "consensus",
     "prompt": "How many cups on the nightstand is too many?",
     "options": [
-      "Depends",
-      "Yes",
-      "Maybe",
-      "No"
+      "1 is too many",
+      "3",
+      "5+",
+      "When there's no room for my phone"
     ],
     "decks": [
       "new_friends",
@@ -7133,10 +7133,10 @@
     "type": "consensus",
     "prompt": "What is the ultimate commute crime?",
     "options": [
-      "0",
-      "1-3",
-      "4-7",
-      "8+"
+      "Playing videos out loud",
+      "Clipping your nails",
+      "Eating smelly food",
+      "Taking up two seats"
     ],
     "decks": [
       "new_friends",
@@ -7213,10 +7213,10 @@
     "type": "consensus",
     "prompt": "What is the ultimate group chat crime?",
     "options": [
-      "1-3",
-      "4-7",
-      "0",
-      "8+"
+      "Adding someone without asking",
+      "Sending 10 rapid-fire texts",
+      "Leaving a 3-minute voice note",
+      "Reading and never replying"
     ],
     "decks": [
       "new_friends",
@@ -7309,10 +7309,10 @@
     "type": "consensus",
     "prompt": "How many alarms set is too many?",
     "options": [
-      "Yes",
-      "No",
-      "Depends",
-      "Maybe"
+      "1 is enough",
+      "3 max",
+      "5-10 every morning",
+      "My whole screen is alarms"
     ],
     "decks": [
       "new_friends",
@@ -7373,10 +7373,10 @@
     "type": "consensus",
     "prompt": "What is the correct way to cut a sandwich?",
     "options": [
-      "No",
-      "Yes",
-      "Maybe",
-      "Depends"
+      "Diagonally (The only way)",
+      "Horizontally",
+      "Into 4 squares",
+      "I don't cut it"
     ],
     "decks": [
       "new_friends",
@@ -7405,10 +7405,10 @@
     "type": "consensus",
     "prompt": "How many plants is too many?",
     "options": [
-      "1-3",
-      "0",
-      "8+",
-      "4-7"
+      "1-5 is plenty",
+      "10-20 (Jungle mode)",
+      "If you can't walk, it's too many",
+      "There is no limit"
     ],
     "decks": [
       "new_friends",
@@ -7421,10 +7421,10 @@
     "type": "consensus",
     "prompt": "What is the ultimate airplane crime?",
     "options": [
-      "Depends",
-      "No",
-      "Yes",
-      "Maybe"
+      "Reclining your seat",
+      "Taking off your shoes",
+      "Clapping when it lands",
+      "Hogging both armrests"
     ],
     "decks": [
       "new_friends",
@@ -7501,10 +7501,10 @@
     "type": "consensus",
     "prompt": "What is the ultimate dating crime?",
     "options": [
-      "Maybe",
-      "Yes",
-      "No",
-      "Depends"
+      "Ghosting",
+      "Being rude to staff",
+      "Talking about an ex",
+      "Chewing with mouth open"
     ],
     "decks": [
       "new_friends",
@@ -7581,10 +7581,10 @@
     "type": "consensus",
     "prompt": "What is the acceptable timeframe to eat fries?",
     "options": [
-      "1-3",
-      "8+",
-      "0",
-      "4-7"
+      "Immediately in the car",
+      "Within 10 minutes",
+      "Up to 30 minutes",
+      "They are good cold too"
     ],
     "decks": [
       "new_friends",
@@ -7645,10 +7645,10 @@
     "type": "consensus",
     "prompt": "What is the ultimate wedding crime?",
     "options": [
-      "0",
-      "4-7",
-      "1-3",
-      "8+"
+      "Wearing white",
+      "Proposing to someone else",
+      "Getting blackout drunk",
+      "Complaining about the food"
     ],
     "decks": [
       "new_friends",
@@ -7709,10 +7709,10 @@
     "type": "consensus",
     "prompt": "What is the acceptable timeframe to say goodbye?",
     "options": [
-      "No",
-      "Maybe",
-      "Depends",
-      "Yes"
+      "The Irish Goodbye (0 mins)",
+      "5 minutes",
+      "15 minutes",
+      "The 1-hour doorway chat"
     ],
     "decks": [
       "new_friends",
@@ -7757,10 +7757,10 @@
     "type": "consensus",
     "prompt": "Which household chore belongs in the trash?",
     "options": [
-      "Depends",
-      "Maybe",
-      "Yes",
-      "No"
+      "Folding laundry",
+      "Washing dishes",
+      "Vacuuming",
+      "Cleaning the bathroom"
     ],
     "decks": [
       "new_friends",
@@ -7773,10 +7773,10 @@
     "type": "consensus",
     "prompt": "What is the ultimate dating crime?",
     "options": [
-      "8+",
-      "1-3",
-      "4-7",
-      "0"
+      "Talking only about yourself",
+      "Being rude to the waiter",
+      "Checking your phone constantly",
+      "Mentioning your ex 5 times"
     ],
     "decks": [
       "new_friends",
