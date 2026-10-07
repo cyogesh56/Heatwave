@@ -20,7 +20,7 @@ const HostAlertOverlay = ({ uiAlert }: { uiAlert?: string }) => (
         initial={{ opacity: 0, y: 50, scale: 0.9 }}
         animate={{ opacity: 1, y: 0, scale: 1 }}
         exit={{ opacity: 0, y: -50, scale: 0.9 }}
-        className="fixed top-24 lg:top-auto lg:bottom-32 left-1/2 -translate-x-1/2 z-[9999] pointer-events-none w-11/12 max-w-lg"
+        className="fixed top-12 left-1/2 -translate-x-1/2 z-[9999] pointer-events-none w-11/12 max-w-lg"
       >
         <div className="bg-surface-card text-ink-primary border-4 border-accent-dare rounded-2xl px-6 py-4 shadow-2xl text-center backdrop-blur-xl">
           <span className="text-sm lg:text-base font-display font-black uppercase tracking-widest leading-snug">
@@ -220,6 +220,7 @@ export const HostView: React.FC = () => {
           let changed = false;
           const newPlayers = { ...prev.players };
           for (const id of Object.keys(newPlayers)) {
+             if (id === 'host') continue;
              const isConnected = connectedIds.includes(id);
              if (newPlayers[id].isConnected !== isConnected) {
                 newPlayers[id] = { ...newPlayers[id], isConnected };
