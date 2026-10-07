@@ -59,7 +59,7 @@ export default function Landing() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.15, duration: 0.3 }}
-            className="text-6xl sm:text-8xl font-display font-black mb-4 tracking-tighter uppercase"
+            className="text-4xl sm:text-6xl lg:text-8xl font-display font-black mb-4 tracking-tighter uppercase"
           >
             Handsy
           </motion.h1>
@@ -144,7 +144,7 @@ export default function Landing() {
         leftNode={<button onClick={() => setStep('hero')} className="font-meta uppercase tracking-widest text-ink-primary/60 hover:text-ink-primary">← Back</button>} 
       />
       <div className="flex-1 flex flex-col items-center justify-center p-6 w-full">
-        <h2 className="text-3xl sm:text-4xl font-display font-black mb-8 sm:mb-12 uppercase tracking-wide text-center">Choose your path</h2>
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-black mb-8 sm:mb-12 uppercase tracking-wide text-center">Choose your path</h2>
         
         <div className="flex flex-col md:flex-row gap-8 w-full max-w-4xl">
            
@@ -207,7 +207,7 @@ export default function Landing() {
       />
       <div className="flex-1 flex flex-col items-center justify-center p-6 w-full">
         <div className="w-full max-w-md bg-surface-card border-4 border-accent-consensus rounded-3xl p-6 sm:p-8">
-        <h2 className="text-2xl sm:text-3xl font-display font-black text-center mb-6 sm:mb-8 uppercase tracking-wide">Connect Device</h2>
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-black text-center mb-6 sm:mb-8 uppercase tracking-wide">Connect Device</h2>
         <form onSubmit={handleJoin} className="flex flex-col gap-6">
           <div className="flex flex-col gap-2">
             <label className="font-meta font-bold text-xs uppercase tracking-widest text-ink-primary/50">Room Code</label>
@@ -217,7 +217,7 @@ export default function Landing() {
               value={roomCode}
               onChange={(e) => setRoomCode(e.target.value.toUpperCase())}
               placeholder="XXXXXX"
-              className="w-full min-w-0 bg-ink-primary/5 text-ink-primary text-center text-3xl sm:text-4xl tracking-[0.2em] sm:tracking-[0.25em] font-mono p-3 sm:p-4 rounded-xl border-2 border-ink-primary/10 focus:border-accent-consensus focus:bg-surface-card outline-none transition-colors uppercase"
+              className="w-full min-w-0 bg-ink-primary/5 text-ink-primary text-center text-2xl sm:text-3xl md:text-4xl tracking-[0.2em] sm:tracking-[0.25em] font-mono p-3 sm:p-4 rounded-xl border-2 border-ink-primary/10 focus:border-accent-consensus focus:bg-surface-card outline-none transition-colors uppercase"
               required
             />
           </div>

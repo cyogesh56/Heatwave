@@ -416,7 +416,7 @@ export const HostView: React.FC = () => {
 
   if (!hostGameState?.currentCard) {
 
-    return <div className="min-h-[100dvh] bg-canvas text-ink-primary flex items-center justify-center font-display text-4xl">Loading Deck...</div>;
+    return <div className="min-h-[100dvh] bg-canvas text-ink-primary flex items-center justify-center font-display text-2xl md:text-3xl lg:text-4xl">Loading Deck...</div>;
   }
 
 
@@ -426,7 +426,7 @@ export const HostView: React.FC = () => {
   if (connectedPlayers.length < 2 && disconnectedPlayers.length > 0) {
      return (
         <div className="min-h-[100dvh] w-full flex flex-col items-center justify-center bg-accent-dare text-canvas p-12 text-center">
-           <h1 className="text-6xl font-display font-black uppercase tracking-widest mb-6">Game Paused</h1>
+           <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-black uppercase tracking-widest mb-6">Game Paused</h1>
            <p className="text-3xl font-body opacity-90 mb-12">
               {disconnectedPlayers.map((p: any) => p.name).join(', ')} disconnected.<br/>Waiting for them to reconnect...
            </p>
@@ -442,7 +442,7 @@ export const HostView: React.FC = () => {
   if (hostGameState.uiState === 'ended') {
     return (
       <div className="min-h-[100dvh] bg-canvas text-ink-primary flex flex-col items-center justify-center p-12 text-center">
-        <h1 className="text-6xl md:text-8xl font-display font-black text-accent-dare mb-6 uppercase tracking-widest">Game Over</h1>
+        <h1 className="text-4xl md:text-6xl lg:text-8xl font-display font-black text-accent-dare mb-6 uppercase tracking-widest">Game Over</h1>
         <p className="text-xl md:text-2xl font-body text-ink-primary/70 mb-12">The decks have run dry. The heat has subsided.</p>
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl w-full mb-12">
@@ -480,8 +480,8 @@ export const HostView: React.FC = () => {
         className="min-h-[100dvh] w-full flex flex-col items-center justify-center bg-accent-dare text-canvas p-12 text-center"
       >
         
-           <h1 className="text-6xl md:text-8xl font-display font-black uppercase tracking-widest mb-6">{hostGameState.interstitial.title}</h1>
-           <p className="text-3xl md:text-5xl font-body opacity-90">{hostGameState.interstitial.subtitle}</p>
+           <h1 className="text-4xl md:text-6xl lg:text-8xl font-display font-black uppercase tracking-widest mb-6">{hostGameState.interstitial.title}</h1>
+           <p className="text-xl md:text-3xl lg:text-5xl font-body opacity-90">{hostGameState.interstitial.subtitle}</p>
         
       </motion.div>
      );
@@ -493,7 +493,7 @@ export const HostView: React.FC = () => {
     if (uiAlert) {
       return (
         <div className="w-full max-w-4xl mt-0 bg-surface-card text-ink-primary backdrop-blur-3xl rounded-3xl p-8 border-4 border-accent-dare shadow-2xl animate-pulse">
-           <h3 className="text-3xl font-display font-black text-center">{uiAlert}</h3>
+           <h3 className="text-xl md:text-2xl lg:text-3xl font-display font-black text-center">{uiAlert}</h3>
         </div>
       );
     }
@@ -507,7 +507,7 @@ export const HostView: React.FC = () => {
                 <span className="w-2 h-2 rounded-full bg-accent-truth animate-ping"></span>
                 In the Spotlight
               </span>
-              <h2 className="text-5xl font-black tracking-tight text-ink-primary opacity-90 uppercase">{card.type}</h2>
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-black tracking-tight text-ink-primary opacity-90 uppercase">{card.type}</h2>
             </div>
           </div>
           {hostGameState?.revealCountdown ? (
@@ -540,7 +540,7 @@ export const HostView: React.FC = () => {
              'Consensus'} ({totalVotes} votes)
           </h3>
           {hostGameState?.timers?.active && (
-            <div className={`text-6xl font-display font-black tabular-nums tracking-tighter ${timeLeft <= 10 ? 'text-accent-wrong animate-pulse' : 'text-accent-consensus'}`}>
+            <div className={`text-4xl md:text-5xl lg:text-6xl font-display font-black tabular-nums tracking-tighter ${timeLeft <= 10 ? 'text-accent-wrong animate-pulse' : 'text-accent-consensus'}`}>
               00:{timeLeft.toString().padStart(2, '0')}
             </div>
           )}

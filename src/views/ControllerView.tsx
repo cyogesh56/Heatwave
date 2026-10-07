@@ -102,7 +102,7 @@ export const ControllerView: React.FC = () => {
   if (clientState?.uiState === 'ended') {
     return (
       <div className="min-h-[100dvh] bg-canvas text-ink-primary flex flex-col items-center justify-center p-6 text-center">
-        <h1 className="text-4xl font-display font-black text-accent-dare mb-4 uppercase">Game Over</h1>
+        <h1 className="text-2xl md:text-3xl lg:text-4xl font-display font-black text-accent-dare mb-4 uppercase">Game Over</h1>
         <p className="font-body text-ink-primary/70 mb-8">The host has ended the game.</p>
         <button onClick={() => window.location.href = '/'} className="px-8 py-4 bg-surface-card border-4 border-ink-primary/20 text-ink-primary font-display font-black text-xl uppercase tracking-widest rounded-2xl shadow-solid active:translate-y-1 transition-all">
           Home
@@ -114,7 +114,7 @@ export const ControllerView: React.FC = () => {
   if (clientState?.uiState === 'disconnected') {
     return (
       <div className="min-h-[100dvh] bg-canvas text-ink-primary flex flex-col items-center justify-center p-6 text-center">
-        <h1 className="text-4xl font-display font-black text-accent-dare mb-4 uppercase">Host Disconnected</h1>
+        <h1 className="text-2xl md:text-3xl lg:text-4xl font-display font-black text-accent-dare mb-4 uppercase">Host Disconnected</h1>
         <p className="font-body text-ink-primary/70">The host closed the game or lost connection. Refresh to join a new room.</p>
       </div>
     );
@@ -128,7 +128,7 @@ export const ControllerView: React.FC = () => {
         <div className="w-16 h-16 bg-surface-card rounded-2xl shadow-solid flex items-center justify-center border-4 border-ink-primary animate-bounce mb-8">
           <IconZap className="w-8 h-8 text-accent-truth" />
         </div>
-        <h1 className="text-4xl font-display font-black uppercase tracking-widest">{isReconnecting ? "Reconnecting..." : "You're In."}</h1>
+        <h1 className="text-2xl md:text-3xl lg:text-4xl font-display font-black uppercase tracking-widest">{isReconnecting ? "Reconnecting..." : "You're In."}</h1>
         <p className="font-meta text-ink-primary/50 mt-4 text-sm uppercase tracking-widest font-bold">{isReconnecting ? "Jacking back into the session..." : "Look at the big screen. Wait for the Host to start."}</p>
       </div>
     );
@@ -142,7 +142,7 @@ export const ControllerView: React.FC = () => {
   if (connectedPlayers.length < 2 && disconnectedPlayers.length > 0) {
      return (
         <div className="min-h-[100dvh] w-full flex flex-col items-center justify-center bg-accent-dare text-canvas p-8 text-center">
-           <h1 className="text-4xl font-display font-black uppercase tracking-widest mb-4">Game Paused</h1>
+           <h1 className="text-2xl md:text-3xl lg:text-4xl font-display font-black uppercase tracking-widest mb-4">Game Paused</h1>
            <p className="text-xl font-body opacity-90 mb-12">
               {disconnectedPlayers.map((p: any) => p.name).join(', ')} disconnected.<br/>Waiting for them to reconnect...
            </p>
@@ -164,7 +164,7 @@ export const ControllerView: React.FC = () => {
          className="min-h-[100dvh] w-full flex flex-col items-center justify-center bg-accent-dare text-canvas p-8 text-center"
        >
            <AlertOverlay state={clientState} node={clientNode} />
-           <h1 className="text-4xl font-display font-black uppercase tracking-widest mb-4">{clientState.interstitial.title}</h1>
+           <h1 className="text-2xl md:text-3xl lg:text-4xl font-display font-black uppercase tracking-widest mb-4">{clientState.interstitial.title}</h1>
            <p className="text-xl font-body opacity-90">{clientState.interstitial.subtitle}</p>
         </motion.div>
      );
@@ -173,7 +173,7 @@ export const ControllerView: React.FC = () => {
   if (!clientState.currentCard) {
     return (
       <div className="min-h-[100dvh] w-full flex flex-col items-center justify-center bg-canvas text-ink-primary p-8 text-center">
-        <h1 className="text-4xl font-display font-black uppercase tracking-widest mb-4 animate-pulse">Waiting for Host...</h1>
+        <h1 className="text-2xl md:text-3xl lg:text-4xl font-display font-black uppercase tracking-widest mb-4 animate-pulse">Waiting for Host...</h1>
         <p className="font-body opacity-70">Look at the TV screen.</p>
       </div>
     );
@@ -248,7 +248,7 @@ export const ControllerView: React.FC = () => {
         
         {/* TIME UP STATE */}
         {clientState?.timers?.active && timeLeft <= 0 && !selectedChoice ? (
-           <div className="w-full py-12 text-center text-4xl font-display font-black text-ink-primary/50 animate-pulse uppercase tracking-widest border-4 border-dashed border-ink-primary/20 rounded-3xl">
+           <div className="w-full py-12 text-center text-2xl md:text-3xl lg:text-4xl font-display font-black text-ink-primary/50 animate-pulse uppercase tracking-widest border-4 border-dashed border-ink-primary/20 rounded-3xl">
              TIME UP
            </div>
         ) : questionType === 'wrong' || questionType === 'wrong_answers' || questionType === 'consensus' || questionType === 'vibe_poll' || questionType === 'kahoot' || questionType === 'fill_blank' ? (
@@ -261,11 +261,11 @@ export const ControllerView: React.FC = () => {
               <div className="h-0.5 flex-1 bg-ink-primary/10"></div>
             </div>
             {clientState.currentCard.assignedResponderName && clientState.currentCard.assignedResponderName !== clientNode?.['playerName'] ? (
-              <div className="w-full py-12 text-center text-4xl font-display font-black text-ink-primary/50 animate-pulse uppercase tracking-widest border-4 border-dashed border-ink-primary/20 rounded-3xl">
+              <div className="w-full py-12 text-center text-2xl md:text-3xl lg:text-4xl font-display font-black text-ink-primary/50 animate-pulse uppercase tracking-widest border-4 border-dashed border-ink-primary/20 rounded-3xl">
                 WAITING
               </div>
             ) : selectedChoice ? (
-              <div className="w-full py-12 text-center text-4xl font-display font-black text-ink-primary/50 animate-pulse uppercase tracking-widest border-4 border-dashed border-ink-primary/20 rounded-3xl">
+              <div className="w-full py-12 text-center text-2xl md:text-3xl lg:text-4xl font-display font-black text-ink-primary/50 animate-pulse uppercase tracking-widest border-4 border-dashed border-ink-primary/20 rounded-3xl">
                 VOTED
               </div>
             ) : (

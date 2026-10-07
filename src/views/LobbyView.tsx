@@ -77,13 +77,13 @@ export default function LobbyView() {
       />
       
       <div className="flex-1 w-full flex flex-col p-6 lg:p-8 overflow-y-auto">
-        <h1 className="text-3xl sm:text-4xl font-display font-black uppercase tracking-widest text-center mb-8">Handsy Setup</h1>
+        <h1 className="text-2xl sm:text-3xl md:text-4xl font-display font-black uppercase tracking-widest text-center mb-8">Handsy Setup</h1>
 
         <div className="flex-1 w-full max-w-2xl mx-auto flex flex-col h-full">
           
           {step === 'intent' && (
             <div className="flex-1 w-full flex flex-col items-center justify-center pt-8 pb-4">
-              <h2 className="text-3xl sm:text-4xl font-display font-black uppercase tracking-widest mb-6 text-center">Who are you playing with?</h2>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-black uppercase tracking-widest mb-6 text-center">Who are you playing with?</h2>
               
               <div className="flex flex-col gap-4 w-full max-w-lg">
                 <motion.div 
@@ -133,7 +133,7 @@ export default function LobbyView() {
 
           {step === 'vibe' && (
             <div className="flex-1 w-full flex flex-col items-center justify-center pt-8 pb-4">
-              <h2 className="text-3xl sm:text-4xl font-display font-black uppercase tracking-widest mb-6 text-center">Set the Vibe</h2>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-black uppercase tracking-widest mb-6 text-center">Set the Vibe</h2>
               
               <div className="flex flex-col gap-4 w-full max-w-lg">
                 <motion.div 
@@ -177,7 +177,7 @@ export default function LobbyView() {
 
           {step === 'rules' && (
             <div className="flex-1 flex flex-col justify-center px-6 sm:px-8 max-w-2xl mx-auto w-full pt-4 pb-2">
-              <h2 className="text-4xl sm:text-5xl font-display font-black uppercase tracking-widest mb-2">House Rules</h2>
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-black uppercase tracking-widest mb-2">House Rules</h2>
               <p className="font-body text-ink-primary/70 mb-6 sm:mb-8 font-medium">Customize the chaos, or just play vanilla.</p>
               
               <div className="flex flex-col gap-4 mb-8">
@@ -187,7 +187,7 @@ export default function LobbyView() {
                      <span className="font-body text-sm opacity-80">The default, highly-tested experience.</span>
                    </div>
                    <div className={`w-12 h-6 rounded-full border-2 ${(!chaosMode && !chillMode) ? 'bg-ink-primary border-ink-primary' : 'bg-ink-primary/5 border-ink-primary/30'} flex items-center p-1 transition-all`}>
-                     <div className={`w-4 h-4 rounded-full transition-all ${(!chaosMode && !chillMode) ? 'translate-x-6 bg-surface-card' : 'translate-x-0 bg-ink-primary'}`}/>
+                     <div className={`w-4 h-4 rounded-full transition-all ${(!chaosMode && !chillMode) ? 'translate-x-5 bg-surface-card' : 'translate-x-0 bg-ink-primary'}`}/>
                    </div>
                  </div>
 
@@ -197,7 +197,7 @@ export default function LobbyView() {
                      <span className="font-body text-sm opacity-80">3x more likely to drop Powers.</span>
                    </div>
                    <div className={`w-12 h-6 rounded-full border-2 ${chaosMode ? 'bg-ink-primary border-ink-primary' : 'bg-ink-primary/5 border-ink-primary/30'} flex items-center p-1 transition-all`}>
-                     <div className={`w-4 h-4 rounded-full transition-all ${chaosMode ? 'translate-x-6 bg-surface-card' : 'translate-x-0 bg-ink-primary'}`}/>
+                     <div className={`w-4 h-4 rounded-full transition-all ${chaosMode ? 'translate-x-5 bg-surface-card' : 'translate-x-0 bg-ink-primary'}`}/>
                    </div>
                  </div>
                  
@@ -207,7 +207,7 @@ export default function LobbyView() {
                      <span className="font-body text-sm opacity-80">Disables all countdown timers.</span>
                    </div>
                    <div className={`w-12 h-6 rounded-full border-2 ${chillMode ? 'bg-ink-primary border-ink-primary' : 'bg-ink-primary/5 border-ink-primary/30'} flex items-center p-1 transition-all`}>
-                     <div className={`w-4 h-4 rounded-full transition-all ${chillMode ? 'translate-x-6 bg-surface-card' : 'translate-x-0 bg-ink-primary'}`}/>
+                     <div className={`w-4 h-4 rounded-full transition-all ${chillMode ? 'translate-x-5 bg-surface-card' : 'translate-x-0 bg-ink-primary'}`}/>
                    </div>
                  </div>
               </div>
@@ -233,7 +233,7 @@ export default function LobbyView() {
                 <div className="p-3 sm:p-4 bg-white rounded-2xl shadow-inner border border-ink-primary/5 mb-6">
                   <QRCodeSVG value={joinUrl} size={160} />
                 </div>
-                <div className="text-5xl sm:text-6xl font-mono tracking-[0.2em] font-black">{roomCode}</div>
+                <div className="text-4xl sm:text-5xl md:text-6xl font-mono tracking-[0.2em] font-black">{roomCode}</div>
                 <p className="font-body text-ink-primary/50 mt-2 font-medium">{window.location.host}</p>
               </div>
 
