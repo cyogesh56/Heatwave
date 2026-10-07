@@ -9,7 +9,28 @@ import { TimerBadge } from '../components/ui/TimerBadge';
 import { soundEngine } from '../lib/audio/SoundEngine';
 import { IconZap } from '../components/icons';
 
+
+const HostAlertOverlay = ({ uiAlert }: { uiAlert?: string }) => (
+  <AnimatePresence>
+    {uiAlert && (
+      <motion.div
+        initial={{ opacity: 0, y: 50, scale: 0.9 }}
+        animate={{ opacity: 1, y: 0, scale: 1 }}
+        exit={{ opacity: 0, y: -50, scale: 0.9 }}
+        className="fixed top-24 lg:top-auto lg:bottom-32 left-1/2 -translate-x-1/2 z-[9999] pointer-events-none w-11/12 max-w-lg"
+      >
+        <div className="bg-surface-card text-ink-primary border-4 border-accent-dare rounded-2xl px-6 py-4 shadow-2xl text-center backdrop-blur-xl">
+          <span className="text-sm lg:text-base font-display font-black uppercase tracking-widest leading-snug">
+            {uiAlert}
+          </span>
+        </div>
+      </motion.div>
+    )}
+  </AnimatePresence>
+);
+
 export const HostView: React.FC = () => {
+
   const { hostServer, hostGameState, setHostGameState, gameEngine } = useGame();
   
   const [votes, setVotes] = useState<Record<string, string>>({});
@@ -425,7 +446,9 @@ export const HostView: React.FC = () => {
   
   if (connectedPlayers.length < 2 && disconnectedPlayers.length > 0) {
      return (
-        <div className="min-h-[100dvh] w-full flex flex-col items-center justify-center bg-accent-dare text-canvas p-12 text-center">
+        <div className="min-h-[100dvh] w-full flex flex-col items-center justify-center bg-accent-dare text-canvas p-12 text-center"
+      >
+        <HostAlertOverlay uiAlert={uiAlert} />
            <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-black uppercase tracking-widest mb-6">Game Paused</h1>
            <p className="text-3xl font-body opacity-90 mb-12">
               {disconnectedPlayers.map((p: any) => p.name).join(', ')} disconnected.<br/>Waiting for them to reconnect...
@@ -633,25 +656,9 @@ export const HostView: React.FC = () => {
           {renderRevealArea()}
         </div>
       </main>
+{/* uiAlert removed */}
 
-      <AnimatePresence>
-        {uiAlert && (
-          <motion.div
-            initial={{ opacity: 0, y: 50, scale: 0.9 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: -50, scale: 0.9 }}
-            className="fixed top-24 lg:top-auto lg:bottom-32 left-1/2 -translate-x-1/2 z-[9999] pointer-events-none w-11/12 max-w-lg"
-          >
-            <div className="bg-surface-card text-ink-primary border-4 border-accent-dare rounded-2xl px-6 py-4 shadow-2xl text-center backdrop-blur-xl">
-              <span className="text-sm lg:text-base font-display font-black uppercase tracking-widest leading-snug">
-                {uiAlert}
-              </span>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-
-
+      <HostAlertOverlay uiAlert={uiAlert} />
       {/* Bottom Bar: Online Players */}
       <div className="fixed bottom-6 left-1/2 -translate-x-1/2 flex items-center gap-6 bg-surface-card/90 backdrop-blur-md px-8 py-4 rounded-2xl border-2 border-ink-primary/10 shadow-xl z-50">
         {Object.entries(hostGameState.players).map(([id, p]: any) => (
