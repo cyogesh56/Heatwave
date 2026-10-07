@@ -135,7 +135,7 @@ export const GameProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
   };
 
   const initClient = async (roomCode: string, playerName: string) => {
-    setIsHost(false);
+    if (sessionStorage.getItem('hostlessMode') !== 'true') setIsHost(false);
     const client = new ClientNode(
       (data) => setClientState(data),
       () => {

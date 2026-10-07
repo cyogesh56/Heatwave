@@ -18,7 +18,7 @@ const DECKS = [
 
 export default function LobbyView() {
   const navigate = useNavigate();
-  const { hostServer, hostGameState, setHostGameState, startGame, isHost, initClient } = useGame();
+  const { hostServer, hostGameState, setHostGameState, startGame, isHost, initClient, clientNode } = useGame();
   const [selectedDecks, setSelectedDecks] = useState<string[]>(['couples']);
   const [step, setStep] = useState<'connect' | 'intent' | 'vibe' | 'rules'>('connect');
   const [intent, setIntent] = useState<'friends' | 'couples' | 'poly' | null>(null);
@@ -57,13 +57,7 @@ export default function LobbyView() {
     }
     
     startGame(filteredCards);
-    if (isHostless) {
-      if (!hostPlayerName.trim()) { setPopupMessage("Please enter your name!"); return; }
-      await initClient(hostServer?.roomCode || '', hostPlayerName);
-      navigate('/host'); // We still need HostView to mount the game loop!
-    } else {
-      navigate('/host');
-    }
+    navigate('/host');
   };
 
   return (
@@ -91,10 +85,30 @@ export default function LobbyView() {
               <p className="font-body text-ink-primary/50 mt-2 font-medium">{window.location.host}</p>
             </div>
 
-            <div className="w-full max-w-sm flex-1 flex flex-col justify-end">
+            <div className="w-full max-w-sm flex-1 flex flex-col justify-end gap-4">
+              {isHostless && !clientNode && (
+                <div className="flex flex-col gap-2 p-4 bg-surface-card border-4 border-accent-dare/20 rounded-2xl mb-2">
+                  <label className="font-meta font-bold text-xs uppercase tracking-widest text-ink-primary/50 text-center">Join as Player 1</label>
+                  <input 
+                    type="text" 
+                    maxLength={12}
+                    value={hostPlayerName}
+                    onChange={(e) => setHostPlayerName(e.target.value)}
+                    placeholder="Your Name"
+                    className="w-full bg-canvas text-ink-primary text-center text-xl font-body p-3 rounded-xl border-2 border-ink-primary/10 focus:border-accent-dare outline-none transition-colors"
+                  />
+                  <button 
+                    onClick={() => initClient(hostServer?.roomCode || '', hostPlayerName)}
+                    disabled={!hostPlayerName.trim()}
+                    className="w-full mt-2 py-3 bg-accent-dare text-canvas font-display font-bold text-lg uppercase tracking-widest rounded-xl disabled:opacity-50 active:scale-95 transition-all"
+                  >
+                    Join
+                  </button>
+                </div>
+              )}
               <button 
                 onClick={() => setStep('intent')}
-                disabled={connectedPlayers.length < 2}
+                disabled={connectedPlayers.length < 2 || (isHostless && !clientNode)}
                 className="w-full py-5 bg-accent-consensus text-canvas font-display font-black text-xl uppercase tracking-widest rounded-2xl shadow-xl disabled:opacity-50 disabled:shadow-none hover:-translate-y-1 transition-all active:scale-95"
               >
                 {connectedPlayers.length < 2 ? 'Waiting for players...' : 'Next'}
@@ -203,19 +217,7 @@ export default function LobbyView() {
             <h2 className="text-4xl sm:text-5xl font-display font-black uppercase tracking-widest mb-2">House Rules</h2>
             <p className="font-body text-ink-primary/70 mb-6 sm:mb-8 font-medium">Customize the chaos, or just play vanilla.</p>
             
-            {isHostless && (
-              <div className="flex flex-col gap-2 mb-6">
-                <label className="font-meta font-bold text-xs uppercase tracking-widest text-ink-primary/50">Your Display Name</label>
-                <input 
-                  type="text" 
-                  maxLength={12}
-                  value={hostPlayerName}
-                  onChange={(e) => setHostPlayerName(e.target.value)}
-                  placeholder="e.g. Maverick"
-                  className="w-full bg-surface-card text-ink-primary text-xl font-body p-4 rounded-2xl border-4 border-ink-primary/10 focus:border-accent-consensus outline-none transition-colors shadow-solid-sm"
-                />
-              </div>
-            )}
+            
             
             <div className="flex flex-col gap-4 mb-8">
                <div onClick={() => setChaosMode(!chaosMode)} className={`p-5 rounded-2xl border-2 cursor-pointer transition-all flex items-center justify-between shadow-solid-sm ${chaosMode ? 'bg-accent-dare-fill border-ink-primary text-ink-dark' : 'bg-surface-card border-ink-primary/20 text-ink-primary'}`}>
@@ -245,10 +247,9 @@ export default function LobbyView() {
                   setHostGameState((prev: any) => prev ? { ...prev, settings: { chaosMode, chillMode } } : prev);
                   handleStart();
                 }}
-                disabled={isHostless && !hostPlayerName.trim()}
-                className="w-full py-5 bg-ink-primary text-canvas disabled:opacity-50 font-display font-black text-xl uppercase tracking-widest rounded-2xl shadow-xl hover:-translate-y-1 transition-all active:scale-95"
+                className="w-full py-5 bg-ink-primary text-canvas font-display font-black text-xl uppercase tracking-widest rounded-2xl shadow-xl hover:-translate-y-1 transition-all active:scale-95"
               >
-                {isHostless && !hostPlayerName.trim() ? 'Enter Name to Launch' : (chaosMode || chillMode ? 'Launch Custom Game' : 'Play Default Rules')}
+                {chaosMode || chillMode ? 'Launch Custom Game' : 'Play Default Rules'}
               </button>
             </div>
           </div>
