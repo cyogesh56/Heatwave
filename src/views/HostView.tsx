@@ -238,17 +238,20 @@ export const HostView: React.FC = () => {
     const activeCount = Object.values(hostGameState?.players || {}).filter((p: any) => p.isConnected !== false).length;
     let requiredVotes = activeCount;
     
+    const cardType = hostGameState?.currentCard?.card.type;
+    
     if (hostGameState?.currentCard?.assignedResponderName) {
-      const responder = Object.entries(hostGameState.players || {}).find(([id, p]: [string, any]) => p.name === hostGameState.currentCard?.assignedResponderName);
-      if (responder && responder[1].isConnected !== false) {
+        // The assigned responder guesses out loud, everyone else votes.
+        requiredVotes = Math.max(1, activeCount - 1);
+    } else if (cardType === 'dare' || cardType === 'truth') {
+        // Physical activities / open discussions only require 1 person (the target) to click "Done"
         requiredVotes = 1;
-      }
     }
 
     if (hostGameState?.uiState === 'voting' && Object.keys(votes).length > 0 && Object.keys(votes).length >= requiredVotes) {
        startReveal();
     }
-  }, [votes]);
+  }, [votes, hostGameState?.players]);
 
   useEffect(() => {
     if (timeLeft <= 0 && hostGameState?.timers?.active && !hostGameState?.revealCountdown) {
