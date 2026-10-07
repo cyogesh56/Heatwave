@@ -1,11 +1,11 @@
 [
   {
-    "id": "card_base_001",
+    "id": "card_couples_001",
     "phase": 1,
     "type": "kahoot",
     "prompt": "If [Player A] were arrested, what would [Player B] assume was the crime?",
     "decks": [
-      "base"
+      "couples"
     ],
     "options": [
       "Stealing a dog",
@@ -15,12 +15,12 @@
     ]
   },
   {
-    "id": "card_base_002",
+    "id": "card_couples_002",
     "phase": 1,
     "type": "kahoot",
     "prompt": "What is the exact coffee or tea order [Player A] gets when they want to treat themselves?",
     "decks": [
-      "base"
+      "couples"
     ],
     "options": [
       "Venti iced caramel macchiato",
@@ -30,12 +30,12 @@
     ]
   },
   {
-    "id": "card_base_003",
+    "id": "card_couples_003",
     "phase": 1,
     "type": "kahoot",
     "prompt": "Between [Player A] and [Player B], who is more likely to survive a zombie apocalypse by hiding?",
     "decks": [
-      "base"
+      "couples"
     ],
     "options": [
       "[Player A]",
@@ -45,12 +45,12 @@
     ]
   },
   {
-    "id": "card_base_004",
+    "id": "card_couples_004",
     "phase": 1,
     "type": "kahoot",
     "prompt": "If [Player A] could instantly master any musical instrument, which would [Player B] guess they'd pick?",
     "decks": [
-      "base"
+      "couples"
     ],
     "options": [
       "The triangle",
@@ -60,12 +60,12 @@
     ]
   },
   {
-    "id": "card_base_005",
+    "id": "card_couples_005",
     "phase": 1,
     "type": "kahoot",
     "prompt": "Who is more likely to start a weird conspiracy theory, [Player A] or [Player B]?",
     "decks": [
-      "base"
+      "couples"
     ],
     "options": [
       "[Player A]",
@@ -75,12 +75,12 @@
     ]
   },
   {
-    "id": "card_base_006",
+    "id": "card_couples_006",
     "phase": 1,
     "type": "kahoot",
     "prompt": "What is the most bizarre thing [Player A] has ever Googled? [Player B] guesses.",
     "decks": [
-      "base"
+      "couples"
     ],
     "options": [
       "Can dogs see ghosts?",
@@ -90,12 +90,12 @@
     ]
   },
   {
-    "id": "card_base_007",
+    "id": "card_couples_007",
     "phase": 1,
     "type": "kahoot",
     "prompt": "If [Player A] had to wear one color for the rest of their life, what would [Player B] pick for them?",
     "decks": [
-      "base"
+      "couples"
     ],
     "options": [
       "Neon green",
@@ -105,12 +105,12 @@
     ]
   },
   {
-    "id": "card_base_008",
+    "id": "card_couples_008",
     "phase": 1,
     "type": "kahoot",
     "prompt": "Who would win in a trivia contest about 90s pop culture, [Player A] or [Player B]?",
     "decks": [
-      "base"
+      "couples"
     ],
     "options": [
       "[Player A]",
@@ -120,12 +120,12 @@
     ]
   },
   {
-    "id": "card_base_009",
+    "id": "card_couples_009",
     "phase": 1,
     "type": "kahoot",
     "prompt": "What is [Player A]'s weirdest pet peeve? [Player B] has to guess.",
     "decks": [
-      "base"
+      "couples"
     ],
     "options": [
       "Loud chewing",
@@ -135,12 +135,12 @@
     ]
   },
   {
-    "id": "card_base_010",
+    "id": "card_couples_010",
     "phase": 1,
     "type": "kahoot",
     "prompt": "If [Player A] were a fictional character, who would [Player B] say they are?",
     "decks": [
-      "base"
+      "couples"
     ],
     "options": [
       "Michael Scott",
@@ -150,12 +150,12 @@
     ]
   },
   {
-    "id": "card_base_011",
+    "id": "card_couples_011",
     "phase": 1,
     "type": "kahoot",
     "prompt": "Who is more likely to accidentally text their boss something meant for a partner, [Player A] or [Player B]?",
     "decks": [
-      "base"
+      "couples"
     ],
     "options": [
       "[Player A]",
@@ -165,12 +165,12 @@
     ]
   },
   {
-    "id": "card_base_012",
+    "id": "card_couples_012",
     "phase": 1,
     "type": "kahoot",
     "prompt": "What is the one movie [Player A] claims to hate but secretly loves? [Player B] guesses.",
     "decks": [
-      "base"
+      "couples"
     ],
     "options": [
       "Twilight",
@@ -180,12 +180,12 @@
     ]
   },
   {
-    "id": "card_base_013",
+    "id": "card_couples_013",
     "phase": 1,
     "type": "kahoot",
     "prompt": "If [Player A] could only use one app on their phone, what would [Player B] say it is?",
     "decks": [
-      "base"
+      "couples"
     ],
     "options": [
       "TikTok",
@@ -195,12 +195,12 @@
     ]
   },
   {
-    "id": "card_base_014",
+    "id": "card_couples_014",
     "phase": 1,
     "type": "kahoot",
     "prompt": "Who is more likely to adopt three stray dogs on a whim, [Player A] or [Player B]?",
     "decks": [
-      "base"
+      "couples"
     ],
     "options": [
       "[Player A]",
@@ -210,12 +210,12 @@
     ]
   },
   {
-    "id": "card_base_015",
+    "id": "card_couples_015",
     "phase": 1,
     "type": "kahoot",
     "prompt": "What is [Player A]'s go-to comfort food when they've had a terrible day? [Player B] answers.",
     "decks": [
-      "base"
+      "couples"
     ],
     "options": [
       "Mac and cheese",
@@ -225,12 +225,12 @@
     ]
   },
   {
-    "id": "card_base_016",
+    "id": "card_couples_016",
     "phase": 1,
     "type": "kahoot",
     "prompt": "Between [Player A] and [Player B], who is more likely to get lost in their own neighborhood?",
     "decks": [
-      "base"
+      "couples"
     ],
     "options": [
       "[Player A]",
@@ -240,12 +240,12 @@
     ]
   },
   {
-    "id": "card_base_017",
+    "id": "card_couples_017",
     "phase": 1,
     "type": "kahoot",
     "prompt": "If [Player A] had to give a TED talk with zero preparation, what would the topic be according to [Player B]?",
     "decks": [
-      "base"
+      "couples"
     ],
     "options": [
       "How to avoid adulting",
@@ -255,12 +255,12 @@
     ]
   },
   {
-    "id": "card_base_018",
+    "id": "card_couples_018",
     "phase": 1,
     "type": "kahoot",
     "prompt": "What is the most embarrassing song on [Player A]'s playlist? [Player B] guesses.",
     "decks": [
-      "base"
+      "couples"
     ],
     "options": [
       "Baby Shark",
@@ -270,12 +270,12 @@
     ]
   },
   {
-    "id": "card_base_019",
+    "id": "card_couples_019",
     "phase": 1,
     "type": "kahoot",
     "prompt": "Who is more likely to forget an important anniversary, [Player A] or [Player B]?",
     "decks": [
-      "base"
+      "couples"
     ],
     "options": [
       "[Player A]",
@@ -285,12 +285,12 @@
     ]
   },
   {
-    "id": "card_base_020",
+    "id": "card_couples_020",
     "phase": 1,
     "type": "kahoot",
     "prompt": "If [Player A] could be any animal, what would [Player B] say they embody perfectly?",
     "decks": [
-      "base"
+      "couples"
     ],
     "options": [
       "A sloth",
@@ -300,12 +300,12 @@
     ]
   },
   {
-    "id": "card_base_021",
+    "id": "card_couples_021",
     "phase": 1,
     "type": "kahoot",
     "prompt": "What is [Player A]'s absolute favorite way to waste time on a Sunday? [Player B] guesses.",
     "decks": [
-      "base"
+      "couples"
     ],
     "options": [
       "Scrolling TikTok for 6 hours",
@@ -315,12 +315,12 @@
     ]
   },
   {
-    "id": "card_base_022",
+    "id": "card_couples_022",
     "phase": 1,
     "type": "kahoot",
     "prompt": "Between [Player A] and [Player B], who is more likely to cry at a cheesy commercial?",
     "decks": [
-      "base"
+      "couples"
     ],
     "options": [
       "[Player A]",
@@ -330,12 +330,12 @@
     ]
   },
   {
-    "id": "card_base_023",
+    "id": "card_couples_023",
     "phase": 1,
     "type": "kahoot",
     "prompt": "If [Player A] were to write a book, what genre would it be, according to [Player B]?",
     "decks": [
-      "base"
+      "couples"
     ],
     "options": [
       "Erotic fiction",
@@ -345,12 +345,12 @@
     ]
   },
   {
-    "id": "card_base_024",
+    "id": "card_couples_024",
     "phase": 1,
     "type": "kahoot",
     "prompt": "Who is more likely to try a bizarre food trend, [Player A] or [Player B]?",
     "decks": [
-      "base"
+      "couples"
     ],
     "options": [
       "[Player A]",
@@ -360,12 +360,12 @@
     ]
   },
   {
-    "id": "card_base_025",
+    "id": "card_couples_025",
     "phase": 1,
     "type": "kahoot",
     "prompt": "What is the one thing [Player A] always forgets to pack for a trip? [Player B] answers.",
     "decks": [
-      "base"
+      "couples"
     ],
     "options": [
       "Toothbrush",
@@ -375,12 +375,12 @@
     ]
   },
   {
-    "id": "card_base_026",
+    "id": "card_couples_026",
     "phase": 1,
     "type": "kahoot",
     "prompt": "If [Player A] could have any superpower, what would [Player B] guess they'd want?",
     "decks": [
-      "base"
+      "couples"
     ],
     "options": [
       "Invisibility",
@@ -390,12 +390,12 @@
     ]
   },
   {
-    "id": "card_base_027",
+    "id": "card_couples_027",
     "phase": 1,
     "type": "kahoot",
     "prompt": "Who is more likely to start a completely unnecessary DIY project and abandon it, [Player A] or [Player B]?",
     "decks": [
-      "base"
+      "couples"
     ],
     "options": [
       "[Player A]",
@@ -405,12 +405,12 @@
     ]
   },
   {
-    "id": "card_base_028",
+    "id": "card_couples_028",
     "phase": 1,
     "type": "kahoot",
     "prompt": "What is [Player A]'s signature dance move when they think no one is watching? [Player B] describes it.",
     "decks": [
-      "base"
+      "couples"
     ],
     "options": [
       "The Worm",
@@ -420,12 +420,12 @@
     ]
   },
   {
-    "id": "card_base_029",
+    "id": "card_couples_029",
     "phase": 1,
     "type": "kahoot",
     "prompt": "Between [Player A] and [Player B], who is more likely to win a spelling bee?",
     "decks": [
-      "base"
+      "couples"
     ],
     "options": [
       "[Player A]",
@@ -435,12 +435,12 @@
     ]
   },
   {
-    "id": "card_base_030",
+    "id": "card_couples_030",
     "phase": 1,
     "type": "kahoot",
     "prompt": "If [Player A] had to live in a different era, which one would [Player B] choose for them?",
     "decks": [
-      "base"
+      "couples"
     ],
     "options": [
       "The 1980s",
@@ -450,12 +450,12 @@
     ]
   },
   {
-    "id": "card_base_031",
+    "id": "card_couples_031",
     "phase": 1,
     "type": "kahoot",
     "prompt": "What is the worst gift [Player A] has ever pretended to like? [Player B] guesses.",
     "decks": [
-      "base"
+      "couples"
     ],
     "options": [
       "Socks",
@@ -465,12 +465,12 @@
     ]
   },
   {
-    "id": "card_base_032",
+    "id": "card_couples_032",
     "phase": 1,
     "type": "kahoot",
     "prompt": "Who is more likely to dramatically walk out of a bad movie, [Player A] or [Player B]?",
     "decks": [
-      "base"
+      "couples"
     ],
     "options": [
       "[Player A]",
@@ -480,12 +480,12 @@
     ]
   },
   {
-    "id": "card_base_033",
+    "id": "card_couples_033",
     "phase": 1,
     "type": "kahoot",
     "prompt": "If [Player A] could only listen to one artist for a year, who would [Player B] say it is?",
     "decks": [
-      "base"
+      "couples"
     ],
     "options": [
       "Taylor Swift",
@@ -495,12 +495,12 @@
     ]
   },
   {
-    "id": "card_base_034",
+    "id": "card_couples_034",
     "phase": 1,
     "type": "kahoot",
     "prompt": "What is [Player A]'s secret talent that rarely gets shown off? [Player B] answers.",
     "decks": [
-      "base"
+      "couples"
     ],
     "options": [
       "Juggling",
@@ -510,12 +510,12 @@
     ]
   },
   {
-    "id": "card_base_035",
+    "id": "card_couples_035",
     "phase": 1,
     "type": "kahoot",
     "prompt": "Between [Player A] and [Player B], who is more likely to survive on a deserted island?",
     "decks": [
-      "base"
+      "couples"
     ],
     "options": [
       "[Player A]",
@@ -525,12 +525,12 @@
     ]
   },
   {
-    "id": "card_base_036",
+    "id": "card_couples_036",
     "phase": 1,
     "type": "kahoot",
     "prompt": "If [Player A] were a flavor of ice cream, what would [Player B] say they are?",
     "decks": [
-      "base"
+      "couples"
     ],
     "options": [
       "Vanilla, plain and simple",
@@ -540,12 +540,12 @@
     ]
   },
   {
-    "id": "card_base_037",
+    "id": "card_couples_037",
     "phase": 1,
     "type": "kahoot",
     "prompt": "Who is more likely to talk their way out of a speeding ticket, [Player A] or [Player B]?",
     "decks": [
-      "base"
+      "couples"
     ],
     "options": [
       "[Player A]",
@@ -555,12 +555,12 @@
     ]
   },
   {
-    "id": "card_base_038",
+    "id": "card_couples_038",
     "phase": 1,
     "type": "kahoot",
     "prompt": "What is the most ridiculous thing [Player A] has spent money on? [Player B] guesses.",
     "decks": [
-      "base"
+      "couples"
     ],
     "options": [
       "A star named after them",
@@ -570,12 +570,12 @@
     ]
   },
   {
-    "id": "card_base_039",
+    "id": "card_couples_039",
     "phase": 1,
     "type": "kahoot",
     "prompt": "If [Player A] had to change their first name, what would [Player B] rename them?",
     "decks": [
-      "base"
+      "couples"
     ],
     "options": [
       "Bartholomew",
@@ -585,12 +585,12 @@
     ]
   },
   {
-    "id": "card_base_040",
+    "id": "card_couples_040",
     "phase": 1,
     "type": "kahoot",
     "prompt": "Between [Player A] and [Player B], who is more likely to laugh at an inappropriate moment?",
     "decks": [
-      "base"
+      "couples"
     ],
     "options": [
       "[Player A]",
@@ -600,12 +600,12 @@
     ]
   },
   {
-    "id": "card_base_041",
+    "id": "card_couples_041",
     "phase": 1,
     "type": "kahoot",
     "prompt": "What is [Player A]'s favorite childhood memory? [Player B] tries to recall.",
     "decks": [
-      "base"
+      "couples"
     ],
     "options": [
       "Getting a puppy",
@@ -615,12 +615,12 @@
     ]
   },
   {
-    "id": "card_base_042",
+    "id": "card_couples_042",
     "phase": 1,
     "type": "kahoot",
     "prompt": "If [Player A] were to open a business, what would it sell, according to [Player B]?",
     "decks": [
-      "base"
+      "couples"
     ],
     "options": [
       "Overpriced coffee",
@@ -630,12 +630,12 @@
     ]
   },
   {
-    "id": "card_base_043",
+    "id": "card_couples_043",
     "phase": 1,
     "type": "kahoot",
     "prompt": "Who is more likely to stay up until 3 AM arguing on the internet, [Player A] or [Player B]?",
     "decks": [
-      "base"
+      "couples"
     ],
     "options": [
       "[Player A]",
@@ -645,12 +645,12 @@
     ]
   },
   {
-    "id": "card_base_044",
+    "id": "card_couples_044",
     "phase": 1,
     "type": "kahoot",
     "prompt": "What is the one chore [Player A] absolutely despises? [Player B] guesses.",
     "decks": [
-      "base"
+      "couples"
     ],
     "options": [
       "Doing the dishes",
@@ -660,12 +660,12 @@
     ]
   },
   {
-    "id": "card_base_045",
+    "id": "card_couples_045",
     "phase": 1,
     "type": "kahoot",
     "prompt": "If [Player A] could be an Olympic athlete, what sport would [Player B] say they'd compete in?",
     "decks": [
-      "base"
+      "couples"
     ],
     "options": [
       "Curling",
@@ -675,12 +675,12 @@
     ]
   },
   {
-    "id": "card_base_046",
+    "id": "card_couples_046",
     "phase": 1,
     "type": "kahoot",
     "prompt": "Between [Player A] and [Player B], who is more likely to trip over their own feet?",
     "decks": [
-      "base"
+      "couples"
     ],
     "options": [
       "[Player A]",
@@ -690,12 +690,12 @@
     ]
   },
   {
-    "id": "card_base_047",
+    "id": "card_couples_047",
     "phase": 1,
     "type": "kahoot",
     "prompt": "What is [Player A]'s favorite piece of clothing that they own? [Player B] answers.",
     "decks": [
-      "base"
+      "couples"
     ],
     "options": [
       "A hoodie with holes in it",
@@ -705,12 +705,12 @@
     ]
   },
   {
-    "id": "card_base_048",
+    "id": "card_couples_048",
     "phase": 1,
     "type": "kahoot",
     "prompt": "If [Player A] had to star in a reality TV show, which one would [Player B] pick for them?",
     "decks": [
-      "base"
+      "couples"
     ],
     "options": [
       "The Bachelor/Bachelorette",
@@ -720,12 +720,12 @@
     ]
   },
   {
-    "id": "card_base_049",
+    "id": "card_couples_049",
     "phase": 1,
     "type": "kahoot",
     "prompt": "Who is more likely to accidentally start a fire while cooking, [Player A] or [Player B]?",
     "decks": [
-      "base"
+      "couples"
     ],
     "options": [
       "[Player A]",
@@ -735,12 +735,12 @@
     ]
   },
   {
-    "id": "card_base_050",
+    "id": "card_couples_050",
     "phase": 1,
     "type": "kahoot",
     "prompt": "What is the most useless piece of trivia [Player A] knows? [Player B] guesses.",
     "decks": [
-      "base"
+      "couples"
     ],
     "options": [
       "The names of all 151 original Pokemon",
@@ -750,956 +750,956 @@
     ]
   },
   {
-    "id": "card_base_051",
+    "id": "card_couples_051",
     "phase": 2,
     "type": "truth",
     "prompt": "[Player A], what is a subtle thing [Player B] does that instantly makes you feel safe?",
     "decks": [
-      "base",
+      "couples",
       "after_dark"
     ]
   },
   {
-    "id": "card_base_052",
+    "id": "card_couples_052",
     "phase": 2,
     "type": "truth",
     "prompt": "[Player B], describe the exact moment you realized your feelings for [Player A] had deepened.",
     "decks": [
-      "base"
+      "couples"
     ]
   },
   {
-    "id": "card_base_053",
+    "id": "card_couples_053",
     "phase": 2,
     "type": "truth",
     "prompt": "[Player A], what is a boundary you used to have that [Player B] helped you comfortably tear down?",
     "decks": [
-      "base"
+      "couples"
     ]
   },
   {
-    "id": "card_base_054",
+    "id": "card_couples_054",
     "phase": 2,
     "type": "truth",
     "prompt": "[Player B], what is an insecurity of yours that [Player A] always knows how to soothe?",
     "decks": [
-      "base",
+      "couples",
       "after_dark"
     ]
   },
   {
-    "id": "card_base_055",
+    "id": "card_couples_055",
     "phase": 2,
     "type": "truth",
     "prompt": "[Player A], when was the last time [Player B] completely took your breath away without trying?",
     "decks": [
-      "base"
+      "couples"
     ]
   },
   {
-    "id": "card_base_056",
+    "id": "card_couples_056",
     "phase": 2,
     "type": "truth",
     "prompt": "[Player B], what is a dream for the future that you secretly hope [Player A] shares with you?",
     "decks": [
-      "base"
+      "couples"
     ]
   },
   {
-    "id": "card_base_057",
+    "id": "card_couples_057",
     "phase": 2,
     "type": "truth",
     "prompt": "[Player A], what is the most misunderstood thing about your personality, and how does [Player B] handle it?",
     "decks": [
-      "base",
+      "couples",
       "after_dark"
     ]
   },
   {
-    "id": "card_base_058",
+    "id": "card_couples_058",
     "phase": 2,
     "type": "truth",
     "prompt": "[Player B], what is a physical feature of [Player A] that you think is wildly underappreciated?",
     "decks": [
-      "base"
+      "couples"
     ]
   },
   {
-    "id": "card_base_059",
+    "id": "card_couples_059",
     "phase": 2,
     "type": "truth",
     "prompt": "[Player A], how has [Player B] changed your perspective on what love looks like in practice?",
     "decks": [
-      "base"
+      "couples"
     ]
   },
   {
-    "id": "card_base_060",
+    "id": "card_couples_060",
     "phase": 2,
     "type": "truth",
     "prompt": "[Player B], what is a memory of [Player A] that you replay in your mind when you're feeling down?",
     "decks": [
-      "base",
+      "couples",
       "after_dark"
     ]
   },
   {
-    "id": "card_base_061",
+    "id": "card_couples_061",
     "phase": 2,
     "type": "truth",
     "prompt": "[Player A], what is the most vulnerable thing you've ever shared with [Player B], and how did their reaction make you feel?",
     "decks": [
-      "base"
+      "couples"
     ]
   },
   {
-    "id": "card_base_062",
+    "id": "card_couples_062",
     "phase": 2,
     "type": "truth",
     "prompt": "[Player B], what is a habit of [Player A]'s that you initially found annoying but now deeply love?",
     "decks": [
-      "base"
+      "couples"
     ]
   },
   {
-    "id": "card_base_063",
+    "id": "card_couples_063",
     "phase": 2,
     "type": "truth",
     "prompt": "[Player A], what is a way [Player B] challenges you to be a better person without saying a word?",
     "decks": [
-      "base",
+      "couples",
       "after_dark"
     ]
   },
   {
-    "id": "card_base_064",
+    "id": "card_couples_064",
     "phase": 2,
     "type": "truth",
     "prompt": "[Player B], what is the most surprisingly attractive thing [Player A] does in their everyday life?",
     "decks": [
-      "base"
+      "couples"
     ]
   },
   {
-    "id": "card_base_065",
+    "id": "card_couples_065",
     "phase": 2,
     "type": "truth",
     "prompt": "[Player A], when was a time you felt completely seen by [Player B] in a room full of people?",
     "decks": [
-      "base"
+      "couples"
     ]
   },
   {
-    "id": "card_base_066",
+    "id": "card_couples_066",
     "phase": 2,
     "type": "truth",
     "prompt": "[Player B], what is a lesson you've learned about yourself through loving [Player A]?",
     "decks": [
-      "base",
+      "couples",
       "after_dark"
     ]
   },
   {
-    "id": "card_base_067",
+    "id": "card_couples_067",
     "phase": 2,
     "type": "truth",
     "prompt": "[Player A], what is a fear you have about your relationship that you haven't vocalized until now?",
     "decks": [
-      "base"
+      "couples"
     ]
   },
   {
-    "id": "card_base_068",
+    "id": "card_couples_068",
     "phase": 2,
     "type": "truth",
     "prompt": "[Player B], what is a small sacrifice [Player A] makes for you that never goes unnoticed?",
     "decks": [
-      "base"
+      "couples"
     ]
   },
   {
-    "id": "card_base_069",
+    "id": "card_couples_069",
     "phase": 2,
     "type": "truth",
     "prompt": "[Player A], what is the most romantic thing [Player B] has ever done that cost absolutely nothing?",
     "decks": [
-      "base",
+      "couples",
       "after_dark"
     ]
   },
   {
-    "id": "card_base_070",
+    "id": "card_couples_070",
     "phase": 2,
     "type": "truth",
     "prompt": "[Player B], how does [Player A] make you feel when you are at your absolute lowest?",
     "decks": [
-      "base"
+      "couples"
     ]
   },
   {
-    "id": "card_base_071",
+    "id": "card_couples_071",
     "phase": 2,
     "type": "truth",
     "prompt": "[Player A], what is a detail about [Player B]'s face that you have memorized completely?",
     "decks": [
-      "base"
+      "couples"
     ]
   },
   {
-    "id": "card_base_072",
+    "id": "card_couples_072",
     "phase": 2,
     "type": "truth",
     "prompt": "[Player B], what is a conversation with [Player A] that fundamentally shifted your connection?",
     "decks": [
-      "base",
+      "couples",
       "after_dark"
     ]
   },
   {
-    "id": "card_base_073",
+    "id": "card_couples_073",
     "phase": 2,
     "type": "truth",
     "prompt": "[Player A], what is a way [Player B] makes you feel powerful and capable?",
     "decks": [
-      "base"
+      "couples"
     ]
   },
   {
-    "id": "card_base_074",
+    "id": "card_couples_074",
     "phase": 2,
     "type": "truth",
     "prompt": "[Player B], what is an unspoken rule in your relationship that you cherish deeply?",
     "decks": [
-      "base"
+      "couples"
     ]
   },
   {
-    "id": "card_base_075",
+    "id": "card_couples_075",
     "phase": 2,
     "type": "truth",
     "prompt": "[Player A], what is the most intense emotion [Player B] has ever elicited from you?",
     "decks": [
-      "base",
+      "couples",
       "after_dark"
     ]
   },
   {
-    "id": "card_base_076",
+    "id": "card_couples_076",
     "phase": 2,
     "type": "truth",
     "prompt": "[Player B], what is a quality of [Player A]'s that you wish you had more of yourself?",
     "decks": [
-      "base"
+      "couples"
     ]
   },
   {
-    "id": "card_base_077",
+    "id": "card_couples_077",
     "phase": 2,
     "type": "truth",
     "prompt": "[Player A], when was the exact moment you knew you completely trusted [Player B]?",
     "decks": [
-      "base"
+      "couples"
     ]
   },
   {
-    "id": "card_base_078",
+    "id": "card_couples_078",
     "phase": 2,
     "type": "truth",
     "prompt": "[Player B], what is a fantasy about your shared future that you think about often?",
     "decks": [
-      "base",
+      "couples",
       "after_dark"
     ]
   },
   {
-    "id": "card_base_079",
+    "id": "card_couples_079",
     "phase": 2,
     "type": "truth",
     "prompt": "[Player A], what is a way [Player B] touches you that instantly calms your nervous system?",
     "decks": [
-      "base"
+      "couples"
     ]
   },
   {
-    "id": "card_base_080",
+    "id": "card_couples_080",
     "phase": 2,
     "type": "truth",
     "prompt": "[Player B], what is the most beautiful thing about [Player A]'s mind?",
     "decks": [
-      "base"
+      "couples"
     ]
   },
   {
-    "id": "card_base_081",
+    "id": "card_couples_081",
     "phase": 2,
     "type": "truth",
     "prompt": "[Player A], what is a compliment [Player B] gave you that you still think about?",
     "decks": [
-      "base",
+      "couples",
       "after_dark"
     ]
   },
   {
-    "id": "card_base_082",
+    "id": "card_couples_082",
     "phase": 2,
     "type": "truth",
     "prompt": "[Player B], what is a way [Player A] fiercely protects your peace?",
     "decks": [
-      "base"
+      "couples"
     ]
   },
   {
-    "id": "card_base_083",
+    "id": "card_couples_083",
     "phase": 2,
     "type": "truth",
     "prompt": "[Player A], what is a secret you've kept from [Player B] because you wanted to surprise them later?",
     "decks": [
-      "base"
+      "couples"
     ]
   },
   {
-    "id": "card_base_084",
+    "id": "card_couples_084",
     "phase": 2,
     "type": "truth",
     "prompt": "[Player B], what is the most profound way [Player A] has supported your personal growth?",
     "decks": [
-      "base",
+      "couples",
       "after_dark"
     ]
   },
   {
-    "id": "card_base_085",
+    "id": "card_couples_085",
     "phase": 2,
     "type": "truth",
     "prompt": "[Player A], what is a specific outfit of [Player B]'s that always makes your heart skip a beat?",
     "decks": [
-      "base"
+      "couples"
     ]
   },
   {
-    "id": "card_base_086",
+    "id": "card_couples_086",
     "phase": 2,
     "type": "truth",
     "prompt": "[Player B], what is a time you felt profoundly lucky to have [Player A] by your side?",
     "decks": [
-      "base"
+      "couples"
     ]
   },
   {
-    "id": "card_base_087",
+    "id": "card_couples_087",
     "phase": 2,
     "type": "truth",
     "prompt": "[Player A], what is a habit you've picked up from [Player B] that you are grateful for?",
     "decks": [
-      "base",
+      "couples",
       "after_dark"
     ]
   },
   {
-    "id": "card_base_088",
+    "id": "card_couples_088",
     "phase": 2,
     "type": "truth",
     "prompt": "[Player B], what is the most intimate non-sexual experience you've shared with [Player A]?",
     "decks": [
-      "base"
+      "couples"
     ]
   },
   {
-    "id": "card_base_089",
+    "id": "card_couples_089",
     "phase": 2,
     "type": "truth",
     "prompt": "[Player A], what is a way [Player B] makes you feel incredibly sexy without touching you?",
     "decks": [
-      "base"
+      "couples"
     ]
   },
   {
-    "id": "card_base_090",
+    "id": "card_couples_090",
     "phase": 2,
     "type": "truth",
     "prompt": "[Player B], what is a fear [Player A] helped you overcome just by being there?",
     "decks": [
-      "base",
+      "couples",
       "after_dark"
     ]
   },
   {
-    "id": "card_base_091",
+    "id": "card_couples_091",
     "phase": 3,
     "type": "dare",
     "prompt": "[Player A], trace the outline of [Player B]'s lips with your thumb while maintaining eye contact for [15/30/60] seconds.",
     "decks": [
-      "base"
+      "couples"
     ]
   },
   {
-    "id": "card_base_092",
+    "id": "card_couples_092",
     "phase": 3,
     "type": "dare",
     "prompt": "[Player B], whisper a genuine, highly specific compliment into [Player A]'s ear, letting your breath linger on their [neck/jawline/collarbone].",
     "decks": [
-      "base",
+      "couples",
       "first_date"
     ]
   },
   {
-    "id": "card_base_093",
+    "id": "card_couples_093",
     "phase": 3,
     "type": "dare",
     "prompt": "[Player A], lightly graze your fingertips along [Player B]'s spine, from the base of their neck to their lower back, [3/5/7] times.",
     "decks": [
-      "base"
+      "couples"
     ]
   },
   {
-    "id": "card_base_094",
+    "id": "card_couples_094",
     "phase": 3,
     "type": "dare",
     "prompt": "[Player B], blindfold [Player A] (or have them close their eyes) and kiss three different spots on their face, making them guess where.",
     "decks": [
-      "base",
+      "couples",
       "first_date"
     ]
   },
   {
-    "id": "card_base_095",
+    "id": "card_couples_095",
     "phase": 3,
     "type": "dare",
     "prompt": "[Player A], rest your forehead against [Player B]'s and synchronize your breathing for one full minute without speaking.",
     "decks": [
-      "base"
+      "couples"
     ]
   },
   {
-    "id": "card_base_096",
+    "id": "card_couples_096",
     "phase": 3,
     "type": "dare",
     "prompt": "[Player B], massage [Player A]'s shoulders while telling them exactly what you find most irresistible about them tonight.",
     "decks": [
-      "base",
+      "couples",
       "first_date"
     ]
   },
   {
-    "id": "card_base_097",
+    "id": "card_couples_097",
     "phase": 3,
     "type": "dare",
     "prompt": "[Player A], gently hold [Player B]'s wrists above their head and kiss their jawline [2/4/6] times.",
     "decks": [
-      "base"
+      "couples"
     ]
   },
   {
-    "id": "card_base_098",
+    "id": "card_couples_098",
     "phase": 3,
     "type": "dare",
     "prompt": "[Player B], trace a word on [Player A]'s bare skin. If they guess it wrong, kiss them where you traced.",
     "decks": [
-      "base",
+      "couples",
       "first_date"
     ]
   },
   {
-    "id": "card_base_099",
+    "id": "card_couples_099",
     "phase": 3,
     "type": "dare",
     "prompt": "[Player A], cup [Player B]'s face with both hands and stare into their eyes for 30 seconds before giving them a soft kiss.",
     "decks": [
-      "base"
+      "couples"
     ]
   },
   {
-    "id": "card_base_100",
+    "id": "card_couples_100",
     "phase": 3,
     "type": "dare",
     "prompt": "[Player B], playfully bite [Player A]'s lower lip and pull away slowly, keeping eye contact.",
     "decks": [
-      "base",
+      "couples",
       "first_date"
     ]
   },
   {
-    "id": "card_base_101",
+    "id": "card_couples_101",
     "phase": 3,
     "type": "dare",
     "prompt": "[Player A], kiss [Player B]'s neck right at the pulse point and linger there for [10/20/30] seconds.",
     "decks": [
-      "base"
+      "couples"
     ]
   },
   {
-    "id": "card_base_102",
+    "id": "card_couples_102",
     "phase": 3,
     "type": "dare",
     "prompt": "[Player B], hold [Player A]'s hand and slowly kiss each of their knuckles, looking up at them between each kiss.",
     "decks": [
-      "base",
+      "couples",
       "first_date"
     ]
   },
   {
-    "id": "card_base_103",
+    "id": "card_couples_103",
     "phase": 3,
     "type": "dare",
     "prompt": "[Player A], run your hands through [Player B]'s hair while whispering a secret fantasy you haven't shared before.",
     "decks": [
-      "base"
+      "couples"
     ]
   },
   {
-    "id": "card_base_104",
+    "id": "card_couples_104",
     "phase": 3,
     "type": "dare",
     "prompt": "[Player B], gently pull [Player A] onto your lap and wrap your arms tightly around their waist for a full minute.",
     "decks": [
-      "base",
+      "couples",
       "first_date"
     ]
   },
   {
-    "id": "card_base_105",
+    "id": "card_couples_105",
     "phase": 3,
     "type": "dare",
     "prompt": "[Player A], softly trace the veins on [Player B]'s arm with your fingertips while telling them why you feel safe with them.",
     "decks": [
-      "base"
+      "couples"
     ]
   },
   {
-    "id": "card_base_106",
+    "id": "card_couples_106",
     "phase": 3,
     "type": "dare",
     "prompt": "[Player B], kiss a path from [Player A]'s earlobe down to their collarbone, pausing at the most sensitive spot.",
     "decks": [
-      "base",
+      "couples",
       "first_date"
     ]
   },
   {
-    "id": "card_base_107",
+    "id": "card_couples_107",
     "phase": 3,
     "type": "dare",
     "prompt": "[Player A], place [Player B]'s hand on your chest so they can feel your heartbeat, and confess something that makes it race.",
     "decks": [
-      "base"
+      "couples"
     ]
   },
   {
-    "id": "card_base_108",
+    "id": "card_couples_108",
     "phase": 3,
     "type": "dare",
     "prompt": "[Player B], tease [Player A] by bringing your lips a millimeter away from theirs, pausing for 10 seconds before finally kissing them.",
     "decks": [
-      "base",
+      "couples",
       "first_date"
     ]
   },
   {
-    "id": "card_base_109",
+    "id": "card_couples_109",
     "phase": 3,
     "type": "dare",
     "prompt": "[Player A], untangle [Player B]'s hair or massage their scalp slowly until they audibly sigh.",
     "decks": [
-      "base"
+      "couples"
     ]
   },
   {
-    "id": "card_base_110",
+    "id": "card_couples_110",
     "phase": 3,
     "type": "dare",
     "prompt": "[Player B], lightly scratch [Player A]'s back under their shirt for two uninterrupted minutes.",
     "decks": [
-      "base",
+      "couples",
       "first_date"
     ]
   },
   {
-    "id": "card_base_111",
+    "id": "card_couples_111",
     "phase": 3,
     "type": "dare",
     "prompt": "[Player A], playfully pin [Player B] against the nearest wall or piece of furniture and kiss them deeply.",
     "decks": [
-      "base"
+      "couples"
     ]
   },
   {
-    "id": "card_base_112",
+    "id": "card_couples_112",
     "phase": 3,
     "type": "dare",
     "prompt": "[Player B], trail your fingers lightly up and down [Player A]'s inner arm while answering their next question.",
     "decks": [
-      "base",
+      "couples",
       "first_date"
     ]
   },
   {
-    "id": "card_base_113",
+    "id": "card_couples_113",
     "phase": 3,
     "type": "dare",
     "prompt": "[Player A], softly bite [Player B]'s earlobe and whisper exactly what you want them to do to you later.",
     "decks": [
-      "base"
+      "couples"
     ]
   },
   {
-    "id": "card_base_114",
+    "id": "card_couples_114",
     "phase": 3,
     "type": "dare",
     "prompt": "[Player B], hold [Player A]'s face and give them a slow, passionate kiss that lasts at least [15/30/45] seconds.",
     "decks": [
-      "base",
+      "couples",
       "first_date"
     ]
   },
   {
-    "id": "card_base_115",
+    "id": "card_couples_115",
     "phase": 3,
     "type": "dare",
     "prompt": "[Player A], unbutton or unzip one piece of [Player B]'s clothing using only one hand.",
     "decks": [
-      "base"
+      "couples"
     ]
   },
   {
-    "id": "card_base_116",
+    "id": "card_couples_116",
     "phase": 3,
     "type": "dare",
     "prompt": "[Player B], press [Player A]'s hands flat against the wall and slowly kiss their neck.",
     "decks": [
-      "base",
+      "couples",
       "first_date"
     ]
   },
   {
-    "id": "card_base_117",
+    "id": "card_couples_117",
     "phase": 3,
     "type": "dare",
     "prompt": "[Player A], trace the shape of [Player B]'s jawline with your lips, starting from the chin up to the ear.",
     "decks": [
-      "base"
+      "couples"
     ]
   },
   {
-    "id": "card_base_118",
+    "id": "card_couples_118",
     "phase": 3,
     "type": "dare",
     "prompt": "[Player B], interlock your fingers with [Player A]'s, squeeze gently, and tell them what turns you on most about them.",
     "decks": [
-      "base",
+      "couples",
       "first_date"
     ]
   },
   {
-    "id": "card_base_119",
+    "id": "card_couples_119",
     "phase": 3,
     "type": "dare",
     "prompt": "[Player A], let [Player B] feed you a small piece of food or a sip of a drink, maintaining intense eye contact.",
     "decks": [
-      "base"
+      "couples"
     ]
   },
   {
-    "id": "card_base_120",
+    "id": "card_couples_120",
     "phase": 3,
     "type": "dare",
     "prompt": "[Player B], gently pull [Player A] closer by their belt loops or the waistband of their pants and kiss them firmly.",
     "decks": [
-      "base",
+      "couples",
       "first_date"
     ]
   },
   {
-    "id": "card_base_121",
+    "id": "card_couples_121",
     "phase": 3,
     "type": "dare",
     "prompt": "[Player A], leave a lingering kiss on the exact spot where [Player B]'s neck meets their shoulder.",
     "decks": [
-      "base"
+      "couples"
     ]
   },
   {
-    "id": "card_base_122",
+    "id": "card_couples_122",
     "phase": 3,
     "type": "dare",
     "prompt": "[Player B], lightly run your nails down [Player A]'s chest or back, varying the pressure from soft to firm.",
     "decks": [
-      "base",
+      "couples",
       "first_date"
     ]
   },
   {
-    "id": "card_base_123",
+    "id": "card_couples_123",
     "phase": 3,
     "type": "dare",
     "prompt": "[Player A], sit behind [Player B], wrap your arms around them, and kiss the back of their neck.",
     "decks": [
-      "base"
+      "couples"
     ]
   },
   {
-    "id": "card_base_124",
+    "id": "card_couples_124",
     "phase": 3,
     "type": "dare",
     "prompt": "[Player B], tease [Player A] by kissing the corners of their mouth repeatedly without touching their lips.",
     "decks": [
-      "base",
+      "couples",
       "first_date"
     ]
   },
   {
-    "id": "card_base_125",
+    "id": "card_couples_125",
     "phase": 3,
     "type": "dare",
     "prompt": "[Player A], gently nip at [Player B]'s collarbone and soothe it with a soft kiss immediately after.",
     "decks": [
-      "base"
+      "couples"
     ]
   },
   {
-    "id": "card_base_126",
+    "id": "card_couples_126",
     "phase": 3,
     "type": "dare",
     "prompt": "[Player B], firmly grip [Player A]'s thigh while leaning in to whisper a dirty thought you've had recently.",
     "decks": [
-      "base",
+      "couples",
       "first_date"
     ]
   },
   {
-    "id": "card_base_127",
+    "id": "card_couples_127",
     "phase": 3,
     "type": "dare",
     "prompt": "[Player A], softly blow on [Player B]'s neck right after kissing it to send shivers down their spine.",
     "decks": [
-      "base"
+      "couples"
     ]
   },
   {
-    "id": "card_base_128",
+    "id": "card_couples_128",
     "phase": 3,
     "type": "dare",
     "prompt": "[Player B], hold the back of [Player A]'s neck gently but firmly while bringing them in for a deep kiss.",
     "decks": [
-      "base",
+      "couples",
       "first_date"
     ]
   },
   {
-    "id": "card_base_129",
+    "id": "card_couples_129",
     "phase": 3,
     "type": "dare",
     "prompt": "[Player A], playfully wrestle [Player B] until one of you is pinned, then the winner claims a kiss anywhere they want.",
     "decks": [
-      "base"
+      "couples"
     ]
   },
   {
-    "id": "card_base_130",
+    "id": "card_couples_130",
     "phase": 3,
     "type": "dare",
     "prompt": "[Player B], straddle [Player A]'s lap facing them, wrap your arms around their neck, and sway together for a minute.",
     "decks": [
-      "base",
+      "couples",
       "first_date"
     ]
   },
   {
-    "id": "card_base_131",
+    "id": "card_couples_131",
     "phase": 4,
     "type": "dare",
     "prompt": "[Player A], slowly remove one item of [Player B]'s clothing using only your teeth.",
     "decks": [
-      "base",
+      "couples",
       "after_dark"
     ]
   },
   {
-    "id": "card_base_132",
+    "id": "card_couples_132",
     "phase": 4,
     "type": "dare",
     "prompt": "[Player B], blindfold [Player A] and trace a slow, teasing path from their collarbone down to their navel using an ice cube or your tongue.",
     "decks": [
-      "base",
+      "couples",
       "after_dark"
     ]
   },
   {
-    "id": "card_base_133",
+    "id": "card_couples_133",
     "phase": 4,
     "type": "dare",
     "prompt": "[Player A], straddle [Player B] and pin their arms above their head while giving them a slow, wet kiss on the neck.",
     "decks": [
-      "base",
+      "couples",
       "after_dark"
     ]
   },
   {
-    "id": "card_base_134",
+    "id": "card_couples_134",
     "phase": 4,
     "type": "dare",
     "prompt": "[Player B], softly bite the inside of [Player A]'s thigh, just high enough to make them gasp.",
     "decks": [
-      "base",
+      "couples",
       "after_dark"
     ]
   },
   {
-    "id": "card_base_135",
+    "id": "card_couples_135",
     "phase": 4,
     "type": "dare",
     "prompt": "[Player A], intensely massage [Player B]'s inner thighs while maintaining eye contact, moving slightly closer to their center every [10/20/30] seconds.",
     "decks": [
-      "base",
+      "couples",
       "after_dark"
     ]
   },
   {
-    "id": "card_base_136",
+    "id": "card_couples_136",
     "phase": 4,
     "type": "dare",
     "prompt": "[Player B], lightly drag your nails down [Player A]'s stomach, slipping just below their waistband, and whisper what you want them to beg for.",
     "decks": [
-      "base",
+      "couples",
       "after_dark"
     ]
   },
   {
-    "id": "card_base_137",
+    "id": "card_couples_137",
     "phase": 4,
     "type": "dare",
     "prompt": "[Player A], gently tug [Player B]'s hair to tilt their head back, exposing their throat for a deep, lingering kiss.",
     "decks": [
-      "base",
+      "couples",
       "after_dark"
     ]
   },
   {
-    "id": "card_base_138",
+    "id": "card_couples_138",
     "phase": 4,
     "type": "dare",
     "prompt": "[Player B], take one of [Player A]'s fingers into your mouth and maintain intense eye contact for [15/30/45] seconds.",
     "decks": [
-      "base",
+      "couples",
       "after_dark"
     ]
   },
   {
-    "id": "card_base_139",
+    "id": "card_couples_139",
     "phase": 4,
     "type": "dare",
     "prompt": "[Player A], press [Player B] onto their back, crawl over them slowly, and kiss them deeply without letting your bodies fully touch.",
     "decks": [
-      "base",
+      "couples",
       "after_dark"
     ]
   },
   {
-    "id": "card_base_140",
+    "id": "card_couples_140",
     "phase": 4,
     "type": "dare",
     "prompt": "[Player B], unbutton or unzip [Player A]'s pants and trace the line of their underwear with your fingertips.",
     "decks": [
-      "base",
+      "couples",
       "after_dark"
     ]
   },
   {
-    "id": "card_base_141",
+    "id": "card_couples_141",
     "phase": 4,
     "type": "dare",
     "prompt": "[Player A], firmly hold [Player B]'s hips and pull them flush against you while kissing them hungrily.",
     "decks": [
-      "base",
+      "couples",
       "after_dark"
     ]
   },
   {
-    "id": "card_base_142",
+    "id": "card_couples_142",
     "phase": 4,
     "type": "dare",
     "prompt": "[Player B], command [Player A] to touch themselves over their clothes for 60 seconds while you watch.",
     "decks": [
-      "base",
+      "couples",
       "after_dark"
     ]
   },
   {
-    "id": "card_base_143",
+    "id": "card_couples_143",
     "phase": 4,
     "type": "dare",
     "prompt": "[Player A], trace a wet line with your tongue from [Player B]'s earlobe down to the very edge of their top or waistband.",
     "decks": [
-      "base",
+      "couples",
       "after_dark"
     ]
   },
   {
-    "id": "card_base_144",
+    "id": "card_couples_144",
     "phase": 4,
     "type": "dare",
     "prompt": "[Player B], whisper explicit instructions into [Player A]'s ear about exactly how they are going to touch you right now.",
     "decks": [
-      "base",
+      "couples",
       "after_dark"
     ]
   },
   {
-    "id": "card_base_145",
+    "id": "card_couples_145",
     "phase": 4,
     "type": "dare",
     "prompt": "[Player A], kiss [Player B]'s stomach, moving lower with every kiss until they tell you to stop.",
     "decks": [
-      "base",
+      "couples",
       "after_dark"
     ]
   },
   {
-    "id": "card_base_146",
+    "id": "card_couples_146",
     "phase": 4,
     "type": "dare",
     "prompt": "[Player B], press [Player A] against a wall, slide your hand down their pants, and give them a slow, bruising kiss.",
     "decks": [
-      "base",
+      "couples",
       "after_dark"
     ]
   },
   {
-    "id": "card_base_147",
+    "id": "card_couples_147",
     "phase": 4,
     "type": "dare",
     "prompt": "[Player A], blindfold [Player B] and lightly tease their most sensitive spots with your breath, barely touching them.",
     "decks": [
-      "base",
+      "couples",
       "after_dark"
     ]
   },
   {
-    "id": "card_base_148",
+    "id": "card_couples_148",
     "phase": 4,
     "type": "dare",
     "prompt": "[Player B], wrap your legs around [Player A]'s waist and grind slowly against them while pulling their hair.",
     "decks": [
-      "base",
+      "couples",
       "after_dark"
     ]
   },
   {
-    "id": "card_base_149",
+    "id": "card_couples_149",
     "phase": 4,
     "type": "dare",
     "prompt": "[Player A], command [Player B] to close their eyes and slowly trace the outline of their underwear with your tongue.",
     "decks": [
-      "base",
+      "couples",
       "after_dark"
     ]
   },
   {
-    "id": "card_base_150",
+    "id": "card_couples_150",
     "phase": 4,
     "type": "dare",
     "prompt": "[Player B], sit on [Player A]'s lap facing away from them, arch your back, and let them explore your body from behind.",
     "decks": [
-      "base",
+      "couples",
       "after_dark"
     ]
   },
@@ -1709,7 +1709,7 @@
     "type": "truth",
     "prompt": "[Player A], what is a hill you are absolutely willing to die on, and can you convince [Player B]?",
     "decks": [
-      "base",
+      "couples",
       "just_friends"
     ]
   },
@@ -1719,7 +1719,7 @@
     "type": "dare",
     "prompt": "[Player A], let [Player B] redesign your phone's home screen for the next [5/10/24] hours.",
     "decks": [
-      "base",
+      "couples",
       "just_friends"
     ]
   },
@@ -1729,7 +1729,7 @@
     "type": "truth",
     "prompt": "[Player A], what was your absolute first impression of [Player B], and how completely wrong was it?",
     "decks": [
-      "base",
+      "couples",
       "just_friends"
     ]
   },
@@ -1739,7 +1739,7 @@
     "type": "kahoot",
     "prompt": "Who is more likely to accidentally start a cult?",
     "decks": [
-      "base",
+      "couples",
       "just_friends"
     ],
     "options": [
@@ -1755,7 +1755,7 @@
     "type": "dare",
     "prompt": "[Player A], explain the plot of your favorite movie to [Player B] using only sound effects and zero words.",
     "decks": [
-      "base",
+      "couples",
       "just_friends"
     ]
   },
@@ -1765,7 +1765,7 @@
     "type": "truth",
     "prompt": "[Player A], what is the most unhinged late-night rabbit hole you've dragged [Player B] into?",
     "decks": [
-      "base",
+      "couples",
       "just_friends"
     ]
   },
@@ -1775,7 +1775,7 @@
     "type": "truth",
     "prompt": "[Player A], if [Player B] was a minor inconvenience, what would they be?",
     "decks": [
-      "base",
+      "couples",
       "just_friends"
     ]
   },
@@ -1785,7 +1785,7 @@
     "type": "dare",
     "prompt": "[Player A], text a random contact in your phone a message dictated entirely by [Player B].",
     "decks": [
-      "base",
+      "couples",
       "just_friends"
     ]
   },
@@ -1795,7 +1795,7 @@
     "type": "kahoot",
     "prompt": "Who is more likely to survive a zombie apocalypse purely by dumb luck?",
     "decks": [
-      "base",
+      "couples",
       "just_friends"
     ],
     "options": [
@@ -1811,7 +1811,7 @@
     "type": "truth",
     "prompt": "[Player A], what is the most chaotic piece of advice you've ever given [Player B] that actually worked?",
     "decks": [
-      "base",
+      "couples",
       "just_friends"
     ]
   },
@@ -1821,7 +1821,7 @@
     "type": "truth",
     "prompt": "[Player A], if you and [Player B] were on a reality TV show, what would be your designated roles?",
     "decks": [
-      "base",
+      "couples",
       "just_friends"
     ]
   },
@@ -1831,7 +1831,7 @@
     "type": "dare",
     "prompt": "[Player A], speak in a terrible accent of [Player B]'s choosing until it is your turn again.",
     "decks": [
-      "base",
+      "couples",
       "just_friends"
     ]
   },
@@ -1841,7 +1841,7 @@
     "type": "truth",
     "prompt": "[Player A], what is a highly specific vibe that [Player B] perfectly embodies?",
     "decks": [
-      "base",
+      "couples",
       "just_friends"
     ]
   },
@@ -1851,7 +1851,7 @@
     "type": "kahoot",
     "prompt": "Who would be the first to get kicked out of a fancy restaurant?",
     "decks": [
-      "base",
+      "couples",
       "just_friends"
     ],
     "options": [
@@ -1867,7 +1867,7 @@
     "type": "dare",
     "prompt": "[Player A], let [Player B] rewrite your latest dating app bio or social media bio.",
     "decks": [
-      "base",
+      "couples",
       "just_friends"
     ]
   },
@@ -1877,7 +1877,7 @@
     "type": "truth",
     "prompt": "[Player A], what is an inside joke between you and [Player B] that makes zero sense to anyone else?",
     "decks": [
-      "base",
+      "couples",
       "just_friends"
     ]
   },
@@ -1887,7 +1887,7 @@
     "type": "truth",
     "prompt": "[Player A], if [Player B] was a specific [soup/sandwich/beverage], what would they be and why?",
     "decks": [
-      "base",
+      "couples",
       "just_friends"
     ]
   },
@@ -1897,7 +1897,7 @@
     "type": "dare",
     "prompt": "[Player A], do your best dramatic reading of the last text message [Player B] sent you.",
     "decks": [
-      "base",
+      "couples",
       "just_friends"
     ]
   },
@@ -1907,7 +1907,7 @@
     "type": "kahoot",
     "prompt": "Who is more likely to completely forget they have plans until 5 minutes before?",
     "decks": [
-      "base",
+      "couples",
       "just_friends"
     ],
     "options": [
@@ -1923,7 +1923,7 @@
     "type": "truth",
     "prompt": "[Player A], what is the most ridiculously niche subject that you think [Player B] is an expert in?",
     "decks": [
-      "base",
+      "couples",
       "just_friends"
     ]
   },
@@ -1933,7 +1933,7 @@
     "type": "truth",
     "prompt": "[Player A], what is one fictional character that [Player B] is deeply, embarrassingly similar to?",
     "decks": [
-      "base",
+      "couples",
       "just_friends"
     ]
   },
@@ -1943,7 +1943,7 @@
     "type": "dare",
     "prompt": "[Player A], try to juggle three items chosen by [Player B]. If you fail, you must answer a truth.",
     "decks": [
-      "base",
+      "couples",
       "just_friends"
     ]
   },
@@ -1953,7 +1953,7 @@
     "type": "truth",
     "prompt": "[Player A], what is the most baffling fashion choice [Player B] has ever made?",
     "decks": [
-      "base",
+      "couples",
       "just_friends"
     ]
   },
@@ -1963,7 +1963,7 @@
     "type": "kahoot",
     "prompt": "Who is more likely to accidentally go viral for doing something embarrassing?",
     "decks": [
-      "base",
+      "couples",
       "just_friends"
     ],
     "options": [
@@ -1979,7 +1979,7 @@
     "type": "dare",
     "prompt": "[Player A], let [Player B] pick an embarrassing song that you must lip-sync to for 60 seconds.",
     "decks": [
-      "base",
+      "couples",
       "just_friends"
     ]
   },
@@ -1989,7 +1989,7 @@
     "type": "truth",
     "prompt": "[Player A], what is a hyper-specific red flag that [Player B] somehow manages to ignore?",
     "decks": [
-      "base",
+      "couples",
       "just_friends"
     ]
   },
@@ -1999,7 +1999,7 @@
     "type": "truth",
     "prompt": "[Player A], what is the most questionable financial decision you’ve seen [Player B] make?",
     "decks": [
-      "base",
+      "couples",
       "just_friends"
     ]
   },
@@ -2009,7 +2009,7 @@
     "type": "dare",
     "prompt": "[Player A], swap shirts with [Player B] if you're comfortable, or wear your shirt backwards for [1/2/3] rounds.",
     "decks": [
-      "base",
+      "couples",
       "just_friends"
     ]
   },
@@ -2019,7 +2019,7 @@
     "type": "kahoot",
     "prompt": "Who has the absolute worst taste in movies?",
     "decks": [
-      "base",
+      "couples",
       "just_friends"
     ],
     "options": [
@@ -2035,7 +2035,7 @@
     "type": "truth",
     "prompt": "[Player A], what is one entirely harmless conspiracy theory that you think [Player B] secretly believes?",
     "decks": [
-      "base",
+      "couples",
       "just_friends"
     ]
   },
@@ -2045,7 +2045,7 @@
     "type": "truth",
     "prompt": "[Player A], what is the most bizarre thing [Player B] has ever confidently claimed was a fact?",
     "decks": [
-      "base",
+      "couples",
       "just_friends"
     ]
   },
@@ -2055,7 +2055,7 @@
     "type": "dare",
     "prompt": "[Player A], attempt to balance a [spoon/book/cup] on your head while answering [Player B]'s next question.",
     "decks": [
-      "base",
+      "couples",
       "just_friends"
     ]
   },
@@ -2065,7 +2065,7 @@
     "type": "truth",
     "prompt": "[Player A], if [Player B] was a boss in a video game, what would their main attack be?",
     "decks": [
-      "base",
+      "couples",
       "just_friends"
     ]
   },
@@ -2075,7 +2075,7 @@
     "type": "kahoot",
     "prompt": "Who is more likely to confidently give completely wrong directions?",
     "decks": [
-      "base",
+      "couples",
       "just_friends"
     ],
     "options": [
@@ -2091,7 +2091,7 @@
     "type": "dare",
     "prompt": "[Player A], you must communicate only in rhymes until it’s your turn again.",
     "decks": [
-      "base",
+      "couples",
       "just_friends"
     ]
   },
@@ -2101,7 +2101,7 @@
     "type": "truth",
     "prompt": "[Player A], what is a song that instantly reminds you of [Player B] and why?",
     "decks": [
-      "base",
+      "couples",
       "just_friends"
     ]
   },
@@ -2111,7 +2111,7 @@
     "type": "truth",
     "prompt": "[Player A], what is the most useless talent [Player B] possesses?",
     "decks": [
-      "base",
+      "couples",
       "just_friends"
     ]
   },
@@ -2121,7 +2121,7 @@
     "type": "dare",
     "prompt": "[Player A], perform an interpretive dance expressing your friendship with [Player B].",
     "decks": [
-      "base",
+      "couples",
       "just_friends"
     ]
   },
@@ -2131,7 +2131,7 @@
     "type": "kahoot",
     "prompt": "Who is more likely to fall asleep during a highly dramatic movie scene?",
     "decks": [
-      "base",
+      "couples",
       "just_friends"
     ],
     "options": [
@@ -2147,7 +2147,7 @@
     "type": "truth",
     "prompt": "[Player A], what is a weird habit [Player B] has that they think nobody notices?",
     "decks": [
-      "base",
+      "couples",
       "just_friends"
     ]
   },
@@ -2157,7 +2157,7 @@
     "type": "truth",
     "prompt": "[Player A], if you had to describe [Player B] as a wildly specific weather event, what are they?",
     "decks": [
-      "base",
+      "couples",
       "just_friends"
     ]
   },
@@ -2167,7 +2167,7 @@
     "type": "dare",
     "prompt": "[Player A], try to draw [Player B] blindfolded in 60 seconds.",
     "decks": [
-      "base",
+      "couples",
       "just_friends"
     ]
   },
@@ -2177,7 +2177,7 @@
     "type": "truth",
     "prompt": "[Player A], what is the best spontaneous adventure you’ve ever had with [Player B]?",
     "decks": [
-      "base",
+      "couples",
       "just_friends"
     ]
   },
@@ -2187,7 +2187,7 @@
     "type": "kahoot",
     "prompt": "Who is more likely to talk their way out of a speeding ticket?",
     "decks": [
-      "base",
+      "couples",
       "just_friends"
     ],
     "options": [
@@ -2203,7 +2203,7 @@
     "type": "dare",
     "prompt": "[Player A], let [Player B] style your hair using whatever is in the room.",
     "decks": [
-      "base",
+      "couples",
       "just_friends"
     ]
   },
@@ -2213,7 +2213,7 @@
     "type": "truth",
     "prompt": "[Player A], what is something [Player B] introduced you to that you now absolutely love?",
     "decks": [
-      "base",
+      "couples",
       "just_friends"
     ]
   },
@@ -2223,7 +2223,7 @@
     "type": "truth",
     "prompt": "[Player A], if [Player B] wrote an autobiography, what would the title be?",
     "decks": [
-      "base",
+      "couples",
       "just_friends"
     ]
   },
@@ -2233,7 +2233,7 @@
     "type": "dare",
     "prompt": "[Player A], give a 1-minute TedTalk on a completely random topic selected by [Player B].",
     "decks": [
-      "base",
+      "couples",
       "just_friends"
     ]
   },
@@ -2243,7 +2243,7 @@
     "type": "kahoot",
     "prompt": "Who is the superior driver in high-stress situations?",
     "decks": [
-      "base",
+      "couples",
       "just_friends"
     ],
     "options": [
@@ -2259,7 +2259,7 @@
     "type": "truth",
     "prompt": "[Player A], what is the most unwarranted argument you and [Player B] have ever had?",
     "decks": [
-      "base",
+      "couples",
       "just_friends"
     ]
   },
@@ -2269,7 +2269,7 @@
     "type": "truth",
     "prompt": "[Player A], what is one deeply mundane thing [Player B] does that inexplicably annoys you?",
     "decks": [
-      "base",
+      "couples",
       "just_friends"
     ]
   },
@@ -2279,7 +2279,7 @@
     "type": "dare",
     "prompt": "[Player A], sing whatever [Player B] says in the style of an opera singer for 30 seconds.",
     "decks": [
-      "base",
+      "couples",
       "just_friends"
     ]
   },
@@ -2289,7 +2289,7 @@
     "type": "kahoot",
     "prompt": "Who is more likely to secretly be an undercover agent?",
     "decks": [
-      "base",
+      "couples",
       "just_friends"
     ],
     "options": [
@@ -2305,7 +2305,7 @@
     "type": "truth",
     "prompt": "[Player A], what is [Player B]'s most distinctive aesthetic choice?",
     "decks": [
-      "base",
+      "couples",
       "just_friends"
     ]
   },
@@ -2315,7 +2315,7 @@
     "type": "truth",
     "prompt": "[Player A], what is an incredibly trivial secret you've kept from [Player B] until now?",
     "decks": [
-      "base",
+      "couples",
       "just_friends"
     ]
   },
@@ -2325,7 +2325,7 @@
     "type": "dare",
     "prompt": "[Player A], attempt a staring contest with [Player B] while they actively try to make you laugh.",
     "decks": [
-      "base",
+      "couples",
       "just_friends"
     ]
   },
@@ -2335,7 +2335,7 @@
     "type": "kahoot",
     "prompt": "Who is more likely to break a piece of furniture and hide it?",
     "decks": [
-      "base",
+      "couples",
       "just_friends"
     ],
     "options": [
@@ -2351,7 +2351,7 @@
     "type": "truth",
     "prompt": "[Player A], what is one ridiculous thing you and [Player B] passionately agree on?",
     "decks": [
-      "base",
+      "couples",
       "just_friends"
     ]
   },
@@ -2361,7 +2361,7 @@
     "type": "truth",
     "prompt": "[Player A], what is a piece of slang [Player B] needs to permanently retire?",
     "decks": [
-      "base",
+      "couples",
       "just_friends"
     ]
   },
@@ -2371,7 +2371,7 @@
     "type": "dare",
     "prompt": "[Player A], pitch a completely unhinged startup idea to [Player B] for 60 seconds.",
     "decks": [
-      "base",
+      "couples",
       "just_friends"
     ]
   },
@@ -2381,7 +2381,7 @@
     "type": "truth",
     "prompt": "[Player A], when did you realize that [Player B] was more than just an acquaintance, but a real friend?",
     "decks": [
-      "base",
+      "couples",
       "just_friends"
     ]
   },
@@ -2391,7 +2391,7 @@
     "type": "truth",
     "prompt": "[Player A], what is one specific thing [Player B] does that always makes you feel seen and supported?",
     "decks": [
-      "base",
+      "couples",
       "just_friends"
     ]
   },
@@ -2401,7 +2401,7 @@
     "type": "truth",
     "prompt": "[Player A], what is a deeply personal fear you’ve shared with [Player B], and how did they handle it?",
     "decks": [
-      "base",
+      "couples",
       "just_friends"
     ]
   },
@@ -2411,7 +2411,7 @@
     "type": "kahoot",
     "prompt": "Who is the anchor of this friendship when things get chaotic?",
     "decks": [
-      "base",
+      "couples",
       "just_friends"
     ],
     "options": [
@@ -2427,7 +2427,7 @@
     "type": "truth",
     "prompt": "[Player A], what is an area of life where you truly admire [Player B]'s approach?",
     "decks": [
-      "base",
+      "couples",
       "just_friends"
     ]
   },
@@ -2437,7 +2437,7 @@
     "type": "truth",
     "prompt": "[Player A], describe a time [Player B] completely changed your perspective on something important.",
     "decks": [
-      "base",
+      "couples",
       "just_friends"
     ]
   },
@@ -2447,7 +2447,7 @@
     "type": "dare",
     "prompt": "[Player A], give [Player B] a genuinely heartfelt compliment that you've never said out loud.",
     "decks": [
-      "base",
+      "couples",
       "just_friends"
     ]
   },
@@ -2457,7 +2457,7 @@
     "type": "truth",
     "prompt": "[Player A], what is a silent way [Player B] shows they care about you?",
     "decks": [
-      "base",
+      "couples",
       "just_friends"
     ]
   },
@@ -2467,7 +2467,7 @@
     "type": "truth",
     "prompt": "[Player A], what is one insecurity [Player B] has that you genuinely wish they would let go of?",
     "decks": [
-      "base",
+      "couples",
       "just_friends"
     ]
   },
@@ -2477,7 +2477,7 @@
     "type": "kahoot",
     "prompt": "Who gives the most ruthlessly honest advice?",
     "decks": [
-      "base",
+      "couples",
       "just_friends"
     ],
     "options": [
@@ -2493,7 +2493,7 @@
     "type": "truth",
     "prompt": "[Player A], what is a memory of [Player B] that you instantly go to when you need to smile?",
     "decks": [
-      "base",
+      "couples",
       "just_friends"
     ]
   },
@@ -2503,7 +2503,7 @@
     "type": "truth",
     "prompt": "[Player A], how has your life noticeably improved since [Player B] entered it?",
     "decks": [
-      "base",
+      "couples",
       "just_friends"
     ]
   },
@@ -2513,7 +2513,7 @@
     "type": "dare",
     "prompt": "[Player A], list 3 highly specific reasons why you value [Player B]'s presence in your life.",
     "decks": [
-      "base",
+      "couples",
       "just_friends"
     ]
   },
@@ -2523,7 +2523,7 @@
     "type": "truth",
     "prompt": "[Player A], what is a hard truth [Player B] told you that you needed to hear?",
     "decks": [
-      "base",
+      "couples",
       "just_friends"
     ]
   },
@@ -2533,7 +2533,7 @@
     "type": "truth",
     "prompt": "[Player A], what is one dream or goal of [Player B]'s that you would do anything to help them achieve?",
     "decks": [
-      "base",
+      "couples",
       "just_friends"
     ]
   },
@@ -2543,7 +2543,7 @@
     "type": "kahoot",
     "prompt": "Who is more likely to drop everything and show up at 3 AM if the other is in crisis?",
     "decks": [
-      "base",
+      "couples",
       "just_friends"
     ],
     "options": [
@@ -2559,7 +2559,7 @@
     "type": "truth",
     "prompt": "[Player A], what is a trait of [Player B]'s that you actively try to emulate?",
     "decks": [
-      "base",
+      "couples",
       "just_friends"
     ]
   },
@@ -2569,7 +2569,7 @@
     "type": "truth",
     "prompt": "[Player A], what is an unspoken rule in your friendship with [Player B]?",
     "decks": [
-      "base",
+      "couples",
       "just_friends"
     ]
   },
@@ -2579,7 +2579,7 @@
     "type": "dare",
     "prompt": "[Player A], tell [Player B] something you deeply appreciate about how their mind works.",
     "decks": [
-      "base",
+      "couples",
       "just_friends"
     ]
   },
@@ -2589,7 +2589,7 @@
     "type": "truth",
     "prompt": "[Player A], when was a moment you felt incredibly proud to call [Player B] your friend?",
     "decks": [
-      "base",
+      "couples",
       "just_friends"
     ]
   },
@@ -2599,7 +2599,7 @@
     "type": "truth",
     "prompt": "[Player A], what is something [Player B] does that makes the world a better place?",
     "decks": [
-      "base",
+      "couples",
       "just_friends"
     ]
   },
@@ -2609,7 +2609,7 @@
     "type": "kahoot",
     "prompt": "Who has emotionally grown the most since you first met?",
     "decks": [
-      "base",
+      "couples",
       "just_friends"
     ],
     "options": [
@@ -2625,7 +2625,7 @@
     "type": "truth",
     "prompt": "[Player A], what is an aspect of [Player B]'s personality that most people don't get to see?",
     "decks": [
-      "base",
+      "couples",
       "just_friends"
     ]
   },
@@ -2635,7 +2635,7 @@
     "type": "truth",
     "prompt": "[Player A], what is a boundary you and [Player B] have navigated perfectly together?",
     "decks": [
-      "base",
+      "couples",
       "just_friends"
     ]
   },
@@ -2645,7 +2645,7 @@
     "type": "dare",
     "prompt": "[Player A], hold [Player B]’s hands and sincerely thank them for a specific time they were there for you.",
     "decks": [
-      "base",
+      "couples",
       "just_friends"
     ]
   },
@@ -2655,7 +2655,7 @@
     "type": "truth",
     "prompt": "[Player A], what is the most comforting thing about [Player B]'s presence?",
     "decks": [
-      "base",
+      "couples",
       "just_friends"
     ]
   },
@@ -2665,7 +2665,7 @@
     "type": "truth",
     "prompt": "[Player A], how would you describe [Player B]'s unique brand of empathy?",
     "decks": [
-      "base",
+      "couples",
       "just_friends"
     ]
   },
@@ -2675,7 +2675,7 @@
     "type": "kahoot",
     "prompt": "Who is better at reading the other's mind without a single word?",
     "decks": [
-      "base",
+      "couples",
       "just_friends"
     ],
     "options": [
@@ -2691,7 +2691,7 @@
     "type": "truth",
     "prompt": "[Player A], what is an obstacle you’ve seen [Player B] overcome that left you in awe?",
     "decks": [
-      "base",
+      "couples",
       "just_friends"
     ]
   },
@@ -2701,7 +2701,7 @@
     "type": "truth",
     "prompt": "[Player A], what is the most meaningful conversation you’ve ever had with [Player B]?",
     "decks": [
-      "base",
+      "couples",
       "just_friends"
     ]
   },
@@ -2711,7 +2711,7 @@
     "type": "dare",
     "prompt": "[Player A] and [Player B], engage in an intensely competitive thumb war. Best two out of three wins.",
     "decks": [
-      "base",
+      "couples",
       "just_friends"
     ]
   },
@@ -2721,7 +2721,7 @@
     "type": "dare",
     "prompt": "[Player A] and [Player B], arm wrestle. Loser has to fetch the winner a [snack/drink/pillow].",
     "decks": [
-      "base",
+      "couples",
       "just_friends"
     ]
   },
@@ -2731,7 +2731,7 @@
     "type": "dare",
     "prompt": "[Player A], give [Player B] a highly dramatic, overly enthusiastic high-five, mimicking a sports victory.",
     "decks": [
-      "base",
+      "couples",
       "just_friends"
     ]
   },
@@ -2741,7 +2741,7 @@
     "type": "dare",
     "prompt": "[Player A] and [Player B], try to complete a secret handshake you make up on the spot in under 30 seconds.",
     "decks": [
-      "base",
+      "couples",
       "just_friends"
     ]
   },
@@ -2751,7 +2751,7 @@
     "type": "dare",
     "prompt": "[Player A], give [Player B] a genuinely great 60-second shoulder massage to release the tension of the game.",
     "decks": [
-      "base",
+      "couples",
       "just_friends"
     ]
   },
@@ -2761,7 +2761,7 @@
     "type": "dare",
     "prompt": "[Player A] and [Player B], link arms and try to stand up from sitting on the floor without using your hands.",
     "decks": [
-      "base",
+      "couples",
       "just_friends"
     ]
   },
@@ -2771,7 +2771,7 @@
     "type": "dare",
     "prompt": "[Player A], initiate a completely unironic, fully committed bear hug with [Player B] for exactly [5/10/15] seconds.",
     "decks": [
-      "base",
+      "couples",
       "just_friends"
     ]
   },
@@ -2781,7 +2781,7 @@
     "type": "dare",
     "prompt": "[Player A] and [Player B], play a round of Rock, Paper, Scissors using your whole bodies to signify the choices.",
     "decks": [
-      "base",
+      "couples",
       "just_friends"
     ]
   },
@@ -2791,7 +2791,7 @@
     "type": "dare",
     "prompt": "[Player A], carry [Player B] piggyback across the room, or if not possible, securely link arms and skip.",
     "decks": [
-      "base",
+      "couples",
       "just_friends"
     ]
   },
@@ -2801,7 +2801,7 @@
     "type": "dare",
     "prompt": "[Player A] and [Player B], lightly poke each other's sides to see who breaks and laughs first. Limit 30 seconds.",
     "decks": [
-      "base",
+      "couples",
       "just_friends"
     ]
   },
@@ -2812,7 +2812,7 @@
     "prompt": "What is the most niche topic [Player A] could give a 30-minute presentation on right now?",
     "decks": [
       "first_date",
-      "base"
+      "couples"
     ]
   },
   {
@@ -2822,7 +2822,7 @@
     "prompt": "If [Player B] had to describe their perfect Sunday morning in exactly three words, what would they be?",
     "decks": [
       "first_date",
-      "base"
+      "couples"
     ]
   },
   {
@@ -2832,7 +2832,7 @@
     "prompt": "[Player A], what is a completely irrational fear you still have from childhood?",
     "decks": [
       "first_date",
-      "base"
+      "couples"
     ]
   },
   {
@@ -2842,7 +2842,7 @@
     "prompt": "[Player B], what's a movie or book that fundamentally changed how you view the world?",
     "decks": [
       "first_date",
-      "base"
+      "couples"
     ]
   },
   {
@@ -2852,7 +2852,7 @@
     "prompt": "What's the most surprisingly good piece of advice [Player A] has ever received from a stranger?",
     "decks": [
       "first_date",
-      "base"
+      "couples"
     ]
   },
   {
@@ -2862,7 +2862,7 @@
     "prompt": "If [Player B] was a DJ, what specific mood or scenario would their signature playlist be for?",
     "decks": [
       "first_date",
-      "base"
+      "couples"
     ]
   },
   {
@@ -2872,7 +2872,7 @@
     "prompt": "[Player A], what's a hobby you've always wanted to pick up but haven't yet?",
     "decks": [
       "first_date",
-      "base"
+      "couples"
     ]
   },
   {
@@ -2882,7 +2882,7 @@
     "prompt": "What is [Player B]'s most controversial food opinion?",
     "decks": [
       "first_date",
-      "base"
+      "couples"
     ]
   },
   {
@@ -2892,7 +2892,7 @@
     "prompt": "[Player A], tell [Player B] about a time you laughed so hard you cried.",
     "decks": [
       "first_date",
-      "base"
+      "couples"
     ]
   },
   {
@@ -2902,7 +2902,7 @@
     "prompt": "If [Player B] could instantly master one instrument, what would it be and why?",
     "decks": [
       "first_date",
-      "base"
+      "couples"
     ]
   },
   {
@@ -2912,7 +2912,7 @@
     "prompt": "What's a subtle green flag [Player A] always looks for when meeting someone new?",
     "decks": [
       "first_date",
-      "base"
+      "couples"
     ]
   },
   {
@@ -2922,7 +2922,7 @@
     "prompt": "[Player B], what is the most beautifully strange thing you've ever witnessed in public?",
     "decks": [
       "first_date",
-      "base"
+      "couples"
     ]
   },
   {
@@ -2932,7 +2932,7 @@
     "prompt": "[Player A], what's a song you can't help but sing along to every single time?",
     "decks": [
       "first_date",
-      "base"
+      "couples"
     ]
   },
   {
@@ -2942,7 +2942,7 @@
     "prompt": "If [Player B] had to eat one cuisine for the rest of their life, what would it be?",
     "decks": [
       "first_date",
-      "base"
+      "couples"
     ]
   },
   {
@@ -2952,7 +2952,7 @@
     "prompt": "[Player A], what is your ultimate comfort movie when you're feeling down?",
     "decks": [
       "first_date",
-      "base"
+      "couples"
     ]
   },
   {
@@ -2962,7 +2962,7 @@
     "prompt": "What is a small, everyday thing that brings [Player B] an unreasonable amount of joy?",
     "decks": [
       "first_date",
-      "base"
+      "couples"
     ]
   },
   {
@@ -2972,7 +2972,7 @@
     "prompt": "[Player A], what was your absolute favorite thing to do during recess as a kid?",
     "decks": [
       "first_date",
-      "base"
+      "couples"
     ]
   },
   {
@@ -2982,7 +2982,7 @@
     "prompt": "[Player B], what is a hill you will absolutely die on?",
     "decks": [
       "first_date",
-      "base"
+      "couples"
     ]
   },
   {
@@ -2992,7 +2992,7 @@
     "prompt": "What's the best compliment [Player A] has ever received that wasn't about their appearance?",
     "decks": [
       "first_date",
-      "base"
+      "couples"
     ]
   },
   {
@@ -3002,7 +3002,7 @@
     "prompt": "[Player B], what is the most spontaneous thing you've done in the last [month/year]?",
     "decks": [
       "first_date",
-      "base"
+      "couples"
     ]
   },
   {
@@ -3012,7 +3012,7 @@
     "prompt": "[Player A], if you could have dinner with any historical figure, who would it be?",
     "decks": [
       "first_date",
-      "base"
+      "couples"
     ]
   },
   {
@@ -3022,7 +3022,7 @@
     "prompt": "What is [Player B]'s go-to strategy for getting out of a bad mood?",
     "decks": [
       "first_date",
-      "base"
+      "couples"
     ]
   },
   {
@@ -3032,7 +3032,7 @@
     "prompt": "[Player A], what's a weird talent you have that rarely comes up in conversation?",
     "decks": [
       "first_date",
-      "base"
+      "couples"
     ]
   },
   {
@@ -3042,7 +3042,7 @@
     "prompt": "If [Player B] could live in any fictional universe, which one would they choose?",
     "decks": [
       "first_date",
-      "base"
+      "couples"
     ]
   },
   {
@@ -3052,7 +3052,7 @@
     "prompt": "What is a skill [Player A] is surprisingly terrible at?",
     "decks": [
       "first_date",
-      "base"
+      "couples"
     ]
   },
   {
@@ -3062,7 +3062,7 @@
     "prompt": "[Player A], try to guess [Player B]'s coffee or tea order. If you're wrong, buy their next one.",
     "decks": [
       "first_date",
-      "base"
+      "couples"
     ]
   },
   {
@@ -3072,7 +3072,7 @@
     "prompt": "[Player B], show [Player A] the last photo you took on your phone that wasn't a screenshot.",
     "decks": [
       "first_date",
-      "base"
+      "couples"
     ]
   },
   {
@@ -3082,7 +3082,7 @@
     "prompt": "[Player A], describe [Player B]'s vibe using only three colors.",
     "decks": [
       "first_date",
-      "base"
+      "couples"
     ]
   },
   {
@@ -3092,7 +3092,7 @@
     "prompt": "[Player B], give [Player A] your best fake compliment.",
     "decks": [
       "first_date",
-      "base"
+      "couples"
     ]
   },
   {
@@ -3102,7 +3102,7 @@
     "prompt": "[Player A], try to make [Player B] laugh using only facial expressions.",
     "decks": [
       "first_date",
-      "base"
+      "couples"
     ]
   },
   {
@@ -3112,7 +3112,7 @@
     "prompt": "[Player B], show [Player A] your most used emoji and explain why.",
     "decks": [
       "first_date",
-      "base"
+      "couples"
     ]
   },
   {
@@ -3122,7 +3122,7 @@
     "prompt": "[Player A], attempt to draw [Player B] on a napkin in 30 seconds.",
     "decks": [
       "first_date",
-      "base"
+      "couples"
     ]
   },
   {
@@ -3132,7 +3132,7 @@
     "prompt": "[Player B], perform your best dramatic reading of the last text message you received.",
     "decks": [
       "first_date",
-      "base"
+      "couples"
     ]
   },
   {
@@ -3142,7 +3142,7 @@
     "prompt": "[Player A], hum a song and [Player B] has to guess what it is.",
     "decks": [
       "first_date",
-      "base"
+      "couples"
     ]
   },
   {
@@ -3152,7 +3152,7 @@
     "prompt": "[Player B], give [Player A] a personalized nickname based on your interactions so far.",
     "decks": [
       "first_date",
-      "base"
+      "couples"
     ]
   },
   {
@@ -3162,7 +3162,7 @@
     "prompt": "[Player A], show [Player B] a song you currently have on repeat.",
     "decks": [
       "first_date",
-      "base"
+      "couples"
     ]
   },
   {
@@ -3172,7 +3172,7 @@
     "prompt": "[Player B], describe [Player A] as if they were a character in a fantasy novel.",
     "decks": [
       "first_date",
-      "base"
+      "couples"
     ]
   },
   {
@@ -3182,7 +3182,7 @@
     "prompt": "[Player A], try to guess [Player B]'s astrological sign based on their energy.",
     "decks": [
       "first_date",
-      "base"
+      "couples"
     ]
   },
   {
@@ -3192,7 +3192,7 @@
     "prompt": "[Player B], recommend a movie you think [Player A] would absolutely hate.",
     "decks": [
       "first_date",
-      "base"
+      "couples"
     ]
   },
   {
@@ -3202,7 +3202,7 @@
     "prompt": "[Player A], share your most embarrassing recent google search with [Player B].",
     "decks": [
       "first_date",
-      "base"
+      "couples"
     ]
   },
   {
@@ -3212,7 +3212,7 @@
     "prompt": "[Player B], pitch a ridiculous startup idea to [Player A].",
     "decks": [
       "first_date",
-      "base"
+      "couples"
     ]
   },
   {
@@ -3222,7 +3222,7 @@
     "prompt": "[Player A], describe your dream vacation destination to [Player B] without naming it. [Player B] must guess.",
     "decks": [
       "first_date",
-      "base"
+      "couples"
     ]
   },
   {
@@ -3232,7 +3232,7 @@
     "prompt": "[Player B], pretend you and [Player A] are old friends running into each other.",
     "decks": [
       "first_date",
-      "base"
+      "couples"
     ]
   },
   {
@@ -3242,7 +3242,7 @@
     "prompt": "[Player A], try to juggle three invisible objects.",
     "decks": [
       "first_date",
-      "base"
+      "couples"
     ]
   },
   {
@@ -3252,7 +3252,7 @@
     "prompt": "[Player B], create a secret handshake with [Player A].",
     "decks": [
       "first_date",
-      "base"
+      "couples"
     ]
   },
   {
@@ -3262,7 +3262,7 @@
     "prompt": "[Player A], give [Player B] a tour of your ideal imaginary house.",
     "decks": [
       "first_date",
-      "base"
+      "couples"
     ]
   },
   {
@@ -3272,7 +3272,7 @@
     "prompt": "[Player B], teach [Player A] how to say 'hello' in a different language.",
     "decks": [
       "first_date",
-      "base"
+      "couples"
     ]
   },
   {
@@ -3282,7 +3282,7 @@
     "prompt": "[Player A], describe [Player B]'s fashion style as a type of architecture.",
     "decks": [
       "first_date",
-      "base"
+      "couples"
     ]
   },
   {
@@ -3292,7 +3292,7 @@
     "prompt": "[Player B], try to guess what [Player A]'s favorite childhood cartoon was.",
     "decks": [
       "first_date",
-      "base"
+      "couples"
     ]
   },
   {
@@ -3302,7 +3302,7 @@
     "prompt": "[Player A], act out your go-to karaoke performance for 10 seconds.",
     "decks": [
       "first_date",
-      "base"
+      "couples"
     ]
   },
   {
@@ -3612,7 +3612,7 @@
     "prompt": "[Player A], what is a memory that always makes you smile when you think of it?",
     "decks": [
       "first_date",
-      "base",
+      "couples",
       "just_friends"
     ]
   },
@@ -3623,7 +3623,7 @@
     "prompt": "[Player B], what is something you're deeply passionate about that you don't share often?",
     "decks": [
       "first_date",
-      "base",
+      "couples",
       "just_friends"
     ]
   },
@@ -3634,7 +3634,7 @@
     "prompt": "[Player A], how do you define a successful life?",
     "decks": [
       "first_date",
-      "base",
+      "couples",
       "just_friends"
     ]
   },
@@ -3645,7 +3645,7 @@
     "prompt": "What is a fear [Player B] has overcome recently?",
     "decks": [
       "first_date",
-      "base",
+      "couples",
       "just_friends"
     ]
   },
@@ -3656,7 +3656,7 @@
     "prompt": "[Player A], what is the most beautiful place you've ever been to?",
     "decks": [
       "first_date",
-      "base",
+      "couples",
       "just_friends"
     ]
   },
@@ -3667,7 +3667,7 @@
     "prompt": "If [Player B] could freeze time for one hour, what would they do?",
     "decks": [
       "first_date",
-      "base",
+      "couples",
       "just_friends"
     ]
   },
@@ -3678,7 +3678,7 @@
     "prompt": "[Player A], what is a dream you've given up on, and are you okay with it?",
     "decks": [
       "first_date",
-      "base",
+      "couples",
       "just_friends"
     ]
   },
@@ -3689,7 +3689,7 @@
     "prompt": "What is something [Player B] desperately wants to achieve in the next five years?",
     "decks": [
       "first_date",
-      "base",
+      "couples",
       "just_friends"
     ]
   },
@@ -3700,7 +3700,7 @@
     "prompt": "[Player A], what is a piece of art that deeply moved you?",
     "decks": [
       "first_date",
-      "base",
+      "couples",
       "just_friends"
     ]
   },
@@ -3711,7 +3711,7 @@
     "prompt": "How does [Player B] handle feeling overwhelmed?",
     "decks": [
       "first_date",
-      "base",
+      "couples",
       "just_friends"
     ]
   },
@@ -4122,7 +4122,7 @@
     "prompt": "[Player C], when did you realize that [Player B] and [Player A] were both essential to your happiness?",
     "decks": [
       "polyamory",
-      "base"
+      "couples"
     ]
   },
   {
@@ -4132,7 +4132,7 @@
     "prompt": "[Player A], let [Player C] and [Player B] each kiss a different part of your face simultaneously.",
     "decks": [
       "polyamory",
-      "base"
+      "couples"
     ]
   },
   {
@@ -4142,7 +4142,7 @@
     "prompt": "[Player C], how do you show affection differently to [Player A] compared to [Player B]?",
     "decks": [
       "polyamory",
-      "base"
+      "couples"
     ]
   },
   {
@@ -4152,7 +4152,7 @@
     "prompt": "[Player B], let [Player A] and [Player C] each kiss a different part of your face simultaneously.",
     "decks": [
       "polyamory",
-      "base"
+      "couples"
     ]
   },
   {
@@ -4162,7 +4162,7 @@
     "prompt": "[Player C], how do you show affection differently to [Player B] compared to [Player A]?",
     "decks": [
       "polyamory",
-      "base"
+      "couples"
     ]
   },
   {
@@ -4172,7 +4172,7 @@
     "prompt": "[Player C], what is a fantasy you have that involves both [Player A] and [Player B]?",
     "decks": [
       "polyamory",
-      "base"
+      "couples"
     ]
   },
   {
@@ -4182,7 +4182,7 @@
     "prompt": "[Player A], when did you realize that [Player C] and [Player B] were both essential to your happiness?",
     "decks": [
       "polyamory",
-      "base"
+      "couples"
     ]
   },
   {
@@ -4192,7 +4192,7 @@
     "prompt": "[Player B], what is something [Player A] does that makes you feel deeply seen, and how does it compare to [Player C]?",
     "decks": [
       "polyamory",
-      "base"
+      "couples"
     ]
   },
   {
@@ -4202,7 +4202,7 @@
     "prompt": "[Player B], let [Player C] and [Player A] each kiss a different part of your face simultaneously.",
     "decks": [
       "polyamory",
-      "base"
+      "couples"
     ]
   },
   {
@@ -4212,7 +4212,7 @@
     "prompt": "[Player A], how do you show affection differently to [Player B] compared to [Player C]?",
     "decks": [
       "polyamory",
-      "base"
+      "couples"
     ]
   },
   {
@@ -4222,7 +4222,7 @@
     "prompt": "[Player B], when did you realize that [Player A] and [Player C] were both essential to your happiness?",
     "decks": [
       "polyamory",
-      "base"
+      "couples"
     ]
   },
   {
@@ -4232,7 +4232,7 @@
     "prompt": "[Player B], what is a fantasy you have that involves both [Player A] and [Player C]?",
     "decks": [
       "polyamory",
-      "base"
+      "couples"
     ]
   },
   {
@@ -4242,7 +4242,7 @@
     "prompt": "[Player B], what is a fantasy you have that involves both [Player C] and [Player A]?",
     "decks": [
       "polyamory",
-      "base"
+      "couples"
     ]
   },
   {
@@ -4252,7 +4252,7 @@
     "prompt": "[Player C], trace the outline of [Player B]'s lips while [Player A] whispers in your ear.",
     "decks": [
       "polyamory",
-      "base"
+      "couples"
     ]
   },
   {
@@ -4262,7 +4262,7 @@
     "prompt": "[Player C], kiss [Player A] on the cheek while maintaining eye contact with [Player B].",
     "decks": [
       "polyamory",
-      "base"
+      "couples"
     ]
   },
   {
@@ -4272,7 +4272,7 @@
     "prompt": "[Player C], let [Player A] and [Player B] each kiss a different part of your face simultaneously.",
     "decks": [
       "polyamory",
-      "base"
+      "couples"
     ]
   },
   {
@@ -4282,7 +4282,7 @@
     "prompt": "[Player A], trace the outline of [Player C]'s lips while [Player B] whispers in your ear.",
     "decks": [
       "polyamory",
-      "base"
+      "couples"
     ]
   },
   {
@@ -4292,7 +4292,7 @@
     "prompt": "[Player C], what is the most intimate non-sexual moment you've shared with [Player A] and [Player B]?",
     "decks": [
       "polyamory",
-      "base"
+      "couples"
     ]
   },
   {
@@ -4302,7 +4302,7 @@
     "prompt": "[Player A], give [Player B] a shoulder massage while [Player C] traces your spine.",
     "decks": [
       "polyamory",
-      "base"
+      "couples"
     ]
   },
   {
@@ -4312,7 +4312,7 @@
     "prompt": "[Player B], how do you show affection differently to [Player C] compared to [Player A]?",
     "decks": [
       "polyamory",
-      "base"
+      "couples"
     ]
   },
   {
@@ -4322,7 +4322,7 @@
     "prompt": "[Player B], trace the outline of [Player A]'s lips while [Player C] whispers in your ear.",
     "decks": [
       "polyamory",
-      "base"
+      "couples"
     ]
   },
   {
@@ -4332,7 +4332,7 @@
     "prompt": "[Player A], what is a fantasy you have that involves both [Player B] and [Player C]?",
     "decks": [
       "polyamory",
-      "base"
+      "couples"
     ]
   },
   {
@@ -4342,7 +4342,7 @@
     "prompt": "[Player A], straddle [Player B]'s lap and pull [Player C] in for a group embrace.",
     "decks": [
       "polyamory",
-      "base"
+      "couples"
     ]
   },
   {
@@ -4352,7 +4352,7 @@
     "prompt": "[Player B], straddle [Player A]'s lap and pull [Player C] in for a group embrace.",
     "decks": [
       "polyamory",
-      "base"
+      "couples"
     ]
   },
   {
@@ -4362,7 +4362,7 @@
     "prompt": "[Player B], trace the outline of [Player C]'s lips while [Player A] whispers in your ear.",
     "decks": [
       "polyamory",
-      "base"
+      "couples"
     ]
   },
   {
@@ -4372,7 +4372,7 @@
     "prompt": "[Player A], trace the outline of [Player B]'s lips while [Player C] whispers in your ear.",
     "decks": [
       "polyamory",
-      "base"
+      "couples"
     ]
   },
   {
@@ -4382,7 +4382,7 @@
     "prompt": "[Player C], what is the most intimate non-sexual moment you've shared with [Player B] and [Player A]?",
     "decks": [
       "polyamory",
-      "base"
+      "couples"
     ]
   },
   {
@@ -4392,7 +4392,7 @@
     "prompt": "[Player C], what is a fantasy you have that involves both [Player B] and [Player A]?",
     "decks": [
       "polyamory",
-      "base"
+      "couples"
     ]
   },
   {
@@ -4402,7 +4402,7 @@
     "prompt": "[Player B], give [Player A] a shoulder massage while [Player C] traces your spine.",
     "decks": [
       "polyamory",
-      "base"
+      "couples"
     ]
   },
   {
@@ -4412,7 +4412,7 @@
     "prompt": "[Player A], what is something [Player B] does that makes you feel deeply seen, and how does it compare to [Player C]?",
     "decks": [
       "polyamory",
-      "base"
+      "couples"
     ]
   },
   {
@@ -4422,7 +4422,7 @@
     "prompt": "[Player B], straddle [Player C]'s lap and pull [Player A] in for a group embrace.",
     "decks": [
       "polyamory",
-      "base"
+      "couples"
     ]
   },
   {
@@ -4432,7 +4432,7 @@
     "prompt": "[Player A], kiss [Player B] on the neck while maintaining eye contact with [Player C].",
     "decks": [
       "polyamory",
-      "base"
+      "couples"
     ]
   },
   {
@@ -4442,7 +4442,7 @@
     "prompt": "[Player C], straddle [Player B]'s lap and pull [Player A] in for a group embrace.",
     "decks": [
       "polyamory",
-      "base"
+      "couples"
     ]
   },
   {
@@ -4452,7 +4452,7 @@
     "prompt": "[Player A], what is a fantasy you have that involves both [Player C] and [Player B]?",
     "decks": [
       "polyamory",
-      "base"
+      "couples"
     ]
   },
   {
@@ -4462,7 +4462,7 @@
     "prompt": "[Player B], what is something [Player C] does that makes you feel deeply seen, and how does it compare to [Player A]?",
     "decks": [
       "polyamory",
-      "base"
+      "couples"
     ]
   },
   {
@@ -4472,7 +4472,7 @@
     "prompt": "[Player B], kiss [Player A] on the cheek while maintaining eye contact with [Player C].",
     "decks": [
       "polyamory",
-      "base"
+      "couples"
     ]
   },
   {
@@ -4482,7 +4482,7 @@
     "prompt": "[Player A], let [Player B] and [Player C] each kiss a different part of your face simultaneously.",
     "decks": [
       "polyamory",
-      "base"
+      "couples"
     ]
   },
   {
@@ -4492,7 +4492,7 @@
     "prompt": "[Player A], how do you show affection differently to [Player C] compared to [Player B]?",
     "decks": [
       "polyamory",
-      "base"
+      "couples"
     ]
   },
   {
@@ -4502,7 +4502,7 @@
     "prompt": "[Player C], what is something [Player B] does that makes you feel deeply seen, and how does it compare to [Player A]?",
     "decks": [
       "polyamory",
-      "base"
+      "couples"
     ]
   },
   {
@@ -4512,7 +4512,7 @@
     "prompt": "[Player B], how do you show affection differently to [Player A] compared to [Player C]?",
     "decks": [
       "polyamory",
-      "base"
+      "couples"
     ]
   },
   {
@@ -6228,7 +6228,7 @@
     ],
     "decks": [
       "new_friends",
-      "base"
+      "couples"
     ]
   },
   {
@@ -6244,7 +6244,7 @@
     ],
     "decks": [
       "new_friends",
-      "base"
+      "couples"
     ]
   },
   {
@@ -6260,7 +6260,7 @@
     ],
     "decks": [
       "new_friends",
-      "base"
+      "couples"
     ]
   },
   {
@@ -6276,7 +6276,7 @@
     ],
     "decks": [
       "new_friends",
-      "base"
+      "couples"
     ]
   },
   {
@@ -6292,7 +6292,7 @@
     ],
     "decks": [
       "new_friends",
-      "base"
+      "couples"
     ]
   },
   {
@@ -6308,7 +6308,7 @@
     ],
     "decks": [
       "new_friends",
-      "base"
+      "couples"
     ]
   },
   {
@@ -6324,7 +6324,7 @@
     ],
     "decks": [
       "new_friends",
-      "base"
+      "couples"
     ]
   },
   {
@@ -6340,7 +6340,7 @@
     ],
     "decks": [
       "new_friends",
-      "base"
+      "couples"
     ]
   },
   {
@@ -6356,7 +6356,7 @@
     ],
     "decks": [
       "new_friends",
-      "base"
+      "couples"
     ]
   },
   {
@@ -6372,7 +6372,7 @@
     ],
     "decks": [
       "new_friends",
-      "base"
+      "couples"
     ]
   },
   {
@@ -6388,7 +6388,7 @@
     ],
     "decks": [
       "new_friends",
-      "base"
+      "couples"
     ]
   },
   {
@@ -6404,7 +6404,7 @@
     ],
     "decks": [
       "new_friends",
-      "base"
+      "couples"
     ]
   },
   {
@@ -6420,7 +6420,7 @@
     ],
     "decks": [
       "new_friends",
-      "base"
+      "couples"
     ]
   },
   {
@@ -6436,7 +6436,7 @@
     ],
     "decks": [
       "new_friends",
-      "base"
+      "couples"
     ]
   },
   {
@@ -6452,7 +6452,7 @@
     ],
     "decks": [
       "new_friends",
-      "base"
+      "couples"
     ]
   },
   {
@@ -6468,7 +6468,7 @@
     ],
     "decks": [
       "new_friends",
-      "base"
+      "couples"
     ]
   },
   {
@@ -6484,7 +6484,7 @@
     ],
     "decks": [
       "new_friends",
-      "base"
+      "couples"
     ]
   },
   {
@@ -6500,7 +6500,7 @@
     ],
     "decks": [
       "new_friends",
-      "base"
+      "couples"
     ]
   },
   {
@@ -6516,7 +6516,7 @@
     ],
     "decks": [
       "new_friends",
-      "base"
+      "couples"
     ]
   },
   {
@@ -6532,7 +6532,7 @@
     ],
     "decks": [
       "new_friends",
-      "base"
+      "couples"
     ]
   },
   {
@@ -6548,7 +6548,7 @@
     ],
     "decks": [
       "new_friends",
-      "base"
+      "couples"
     ]
   },
   {
@@ -6564,7 +6564,7 @@
     ],
     "decks": [
       "new_friends",
-      "base"
+      "couples"
     ]
   },
   {
@@ -6580,7 +6580,7 @@
     ],
     "decks": [
       "new_friends",
-      "base"
+      "couples"
     ]
   },
   {
@@ -6596,7 +6596,7 @@
     ],
     "decks": [
       "new_friends",
-      "base"
+      "couples"
     ]
   },
   {
@@ -6612,7 +6612,7 @@
     ],
     "decks": [
       "new_friends",
-      "base"
+      "couples"
     ]
   },
   {
@@ -6628,7 +6628,7 @@
     ],
     "decks": [
       "new_friends",
-      "base"
+      "couples"
     ]
   },
   {
@@ -6644,7 +6644,7 @@
     ],
     "decks": [
       "new_friends",
-      "base"
+      "couples"
     ]
   },
   {
@@ -6660,7 +6660,7 @@
     ],
     "decks": [
       "new_friends",
-      "base"
+      "couples"
     ]
   },
   {
@@ -6676,7 +6676,7 @@
     ],
     "decks": [
       "new_friends",
-      "base"
+      "couples"
     ]
   },
   {
@@ -6692,7 +6692,7 @@
     ],
     "decks": [
       "new_friends",
-      "base"
+      "couples"
     ]
   },
   {
@@ -6708,7 +6708,7 @@
     ],
     "decks": [
       "new_friends",
-      "base"
+      "couples"
     ]
   },
   {
@@ -6724,7 +6724,7 @@
     ],
     "decks": [
       "new_friends",
-      "base"
+      "couples"
     ]
   },
   {
@@ -6740,7 +6740,7 @@
     ],
     "decks": [
       "new_friends",
-      "base"
+      "couples"
     ]
   },
   {
@@ -6756,7 +6756,7 @@
     ],
     "decks": [
       "new_friends",
-      "base"
+      "couples"
     ]
   },
   {
@@ -6772,7 +6772,7 @@
     ],
     "decks": [
       "new_friends",
-      "base"
+      "couples"
     ]
   },
   {
@@ -6788,7 +6788,7 @@
     ],
     "decks": [
       "new_friends",
-      "base"
+      "couples"
     ]
   },
   {
@@ -6804,7 +6804,7 @@
     ],
     "decks": [
       "new_friends",
-      "base"
+      "couples"
     ]
   },
   {
@@ -6820,7 +6820,7 @@
     ],
     "decks": [
       "new_friends",
-      "base"
+      "couples"
     ]
   },
   {
@@ -6836,7 +6836,7 @@
     ],
     "decks": [
       "new_friends",
-      "base"
+      "couples"
     ]
   },
   {
@@ -6852,7 +6852,7 @@
     ],
     "decks": [
       "new_friends",
-      "base"
+      "couples"
     ]
   },
   {
@@ -6868,7 +6868,7 @@
     ],
     "decks": [
       "new_friends",
-      "base"
+      "couples"
     ]
   },
   {
@@ -6884,7 +6884,7 @@
     ],
     "decks": [
       "new_friends",
-      "base"
+      "couples"
     ]
   },
   {
@@ -6900,7 +6900,7 @@
     ],
     "decks": [
       "new_friends",
-      "base"
+      "couples"
     ]
   },
   {
@@ -6916,7 +6916,7 @@
     ],
     "decks": [
       "new_friends",
-      "base"
+      "couples"
     ]
   },
   {
@@ -6932,7 +6932,7 @@
     ],
     "decks": [
       "new_friends",
-      "base"
+      "couples"
     ]
   },
   {
@@ -6948,7 +6948,7 @@
     ],
     "decks": [
       "new_friends",
-      "base"
+      "couples"
     ]
   },
   {
@@ -6964,7 +6964,7 @@
     ],
     "decks": [
       "new_friends",
-      "base"
+      "couples"
     ]
   },
   {
@@ -6980,7 +6980,7 @@
     ],
     "decks": [
       "new_friends",
-      "base"
+      "couples"
     ]
   },
   {
@@ -6996,7 +6996,7 @@
     ],
     "decks": [
       "new_friends",
-      "base"
+      "couples"
     ]
   },
   {
@@ -7012,7 +7012,7 @@
     ],
     "decks": [
       "new_friends",
-      "base"
+      "couples"
     ]
   },
   {
@@ -9022,7 +9022,7 @@
     "prompt": "[Player A], what is a specific fantasy or kink you've been harboring that remains completely unfulfilled?",
     "decks": [
       "after_dark",
-      "base"
+      "couples"
     ]
   },
   {
@@ -9031,7 +9031,7 @@
     "type": "truth",
     "prompt": "[Player A], look right at [Player B]. Describe the absolute sexiest, most elevated version of them that you can imagine them becoming.",
     "decks": [
-      "base"
+      "couples"
     ]
   },
   {
@@ -9090,7 +9090,7 @@
     ],
     "decks": [
       "new_friends",
-      "base"
+      "couples"
     ]
   },
   {
@@ -9099,7 +9099,7 @@
     "type": "truth",
     "prompt": "[Player A], if a scandalous nude photo of you leaked to the internet tomorrow, what exact pose or bizarre activity would you be caught doing?",
     "decks": [
-      "base"
+      "couples"
     ]
   },
   {
@@ -9118,7 +9118,7 @@
     "type": "truth",
     "prompt": "[Player A], if you were handed a zero-consequences, one-night hall pass with any celebrity in the world, who are you instantly cashing it in for?",
     "decks": [
-      "base",
+      "couples",
       "just_friends"
     ]
   }
