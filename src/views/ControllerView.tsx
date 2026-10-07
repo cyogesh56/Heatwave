@@ -62,7 +62,25 @@ export const ControllerView: React.FC = () => {
     }
   }, [clientState?.theme]);
 
+  
   React.useEffect(() => {
+    const handleVisibilityChange = () => {
+      if (document.visibilityState === 'visible') {
+        const savedRoom = localStorage.getItem('handsy_room');
+        const savedName = localStorage.getItem('handsy_name');
+        if (savedRoom && savedName) {
+           console.log('App became visible. Forcing reconnect...');
+           if (clientNode) {
+             clientNode.destroy();
+           }
+           initClient(savedRoom, savedName).catch(console.error);
+        }
+      }
+    };
+    
+    document.addEventListener('visibilitychange', handleVisibilityChange);
+    
+    // Initial mount check
     if (!clientState && !clientNode) {
       const savedRoom = localStorage.getItem('handsy_room');
       const savedName = localStorage.getItem('handsy_name');
@@ -75,7 +93,12 @@ export const ControllerView: React.FC = () => {
         window.location.href = '/';
       }
     }
+    
+    return () => {
+      document.removeEventListener('visibilitychange', handleVisibilityChange);
+    };
   }, [clientState, clientNode, initClient]);
+
 
   // Dead Room Detector: If connected to channel but host never sends state
   React.useEffect(() => {
