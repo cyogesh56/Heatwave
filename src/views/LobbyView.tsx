@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { QRCodeSVG } from 'qrcode.react';
 import { useGame } from '../context/GameContext';
 import { Card } from '../lib/engine/stateMachine';
-import { IconZap, IconUsers, IconFlame, IconSpark } from '../components/icons';
+import { IconUsers, IconFlame, IconCouple, IconPoly, IconArrowLeft, IconDrink, IconMoon } from '../components/icons';
 import { motion, AnimatePresence } from 'framer-motion';
 import { UniversalHeader } from '../components/ui/UniversalHeader';
 import { GamePopup } from '../components/ui/GamePopup';
@@ -72,7 +72,7 @@ export default function LobbyView() {
       <GamePopup isOpen={!!popupMessage} title="Error" message={popupMessage} onConfirm={() => setPopupMessage('')} accent="wrong" />
       
       <UniversalHeader 
-        leftNode={<button onClick={handleBack} className="font-meta uppercase tracking-widest text-ink-primary/60 hover:text-ink-primary">← Back</button>} 
+        leftNode={<button onClick={handleBack} className="font-meta uppercase tracking-widest text-ink-primary/60 hover:text-ink-primary"><div className="flex items-center gap-2"><IconArrowLeft className="w-5 h-5" /> Back</div></button>} 
         rightNode={<div className="font-meta uppercase tracking-widest text-xs sm:text-sm font-bold text-ink-primary/40 shrink-0">Step {getStepNumber()}</div>}
       />
       
@@ -106,7 +106,7 @@ export default function LobbyView() {
                   className="bg-surface-card p-6 rounded-3xl border-4 border-accent-truth shadow-solid-sm cursor-pointer flex items-center gap-4 group"
                 >
                   <div className="w-14 h-14 rounded-full bg-accent-truth/10 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
-                    <IconFlame className="w-7 h-7 text-accent-truth" />
+                    <IconCouple className="w-7 h-7 text-accent-truth" />
                   </div>
                   <div className="text-left">
                     <h3 className="font-display font-black text-xl uppercase tracking-widest">Couples</h3>
@@ -120,7 +120,7 @@ export default function LobbyView() {
                   className="bg-surface-card p-6 rounded-3xl border-4 border-accent-dare shadow-solid-sm cursor-pointer flex items-center gap-4 group"
                 >
                   <div className="w-14 h-14 rounded-full bg-accent-dare/10 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
-                    <IconZap className="w-7 h-7 text-accent-dare" />
+                    <IconPoly className="w-7 h-7 text-accent-dare" />
                   </div>
                   <div className="text-left">
                     <h3 className="font-display font-black text-xl uppercase tracking-widest">The Polycule</h3>
@@ -146,7 +146,7 @@ export default function LobbyView() {
                   className="bg-surface-card p-6 rounded-3xl border-4 border-accent-consensus shadow-solid-sm cursor-pointer flex items-center gap-4 group"
                 >
                   <div className="w-14 h-14 rounded-full bg-accent-consensus/10 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
-                    <IconSpark className="w-7 h-7 text-accent-consensus" />
+                    <IconDrink className="w-7 h-7 text-accent-consensus" />
                   </div>
                   <div className="text-left">
                     <h3 className="font-display font-black text-xl uppercase tracking-widest">First Date</h3>
@@ -164,7 +164,7 @@ export default function LobbyView() {
                   className="bg-surface-card p-6 rounded-3xl border-4 border-accent-dare shadow-solid-sm cursor-pointer flex items-center gap-4 group"
                 >
                   <div className="w-14 h-14 rounded-full bg-accent-dare/10 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
-                    <IconFlame className="w-7 h-7 text-accent-dare" />
+                    <IconMoon className="w-7 h-7 text-accent-dare" />
                   </div>
                   <div className="text-left">
                     <h3 className="font-display font-black text-xl uppercase tracking-widest">After Dark</h3>

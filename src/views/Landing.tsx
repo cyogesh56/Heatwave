@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import { useGame } from '../context/GameContext';
 import { GamePopup } from '../components/ui/GamePopup';
-import { IconFlame, IconUsers, IconZap } from '../components/icons';
+import { IconFlame, IconUsers, IconZap, IconOnTheGo, IconConnect } from '../components/icons';
 import { UniversalHeader } from '../components/ui/UniversalHeader';
 
 export default function Landing() {
@@ -169,7 +169,7 @@ export default function Landing() {
                 className="bg-surface-card border-4 border-accent-dare rounded-3xl p-6 flex items-center text-left cursor-pointer hover:-translate-y-1 focus:outline-none focus:ring-4 focus:ring-accent-dare transition-all group shadow-solid-sm"  tabIndex={0} 
               >
                 <div className="w-14 h-14 bg-accent-dare/10 rounded-full flex items-center justify-center mr-4 group-hover:scale-110 transition-transform shrink-0">
-                  <IconFlame className="w-7 h-7 text-accent-dare" />
+                  <IconOnTheGo className="w-7 h-7 text-accent-dare" />
                 </div>
                 <div>
                   <h3 className="text-xl font-display font-black mb-1">On The Go</h3>
@@ -186,7 +186,7 @@ export default function Landing() {
                 className="flex-1 bg-surface-card border-4 border-accent-consensus rounded-3xl p-6 flex flex-col items-center justify-center text-center cursor-pointer hover:-translate-y-1 focus:outline-none focus:ring-4 focus:ring-accent-consensus transition-all group shadow-solid-sm min-h-[160px]"  tabIndex={0} 
               >
                 <div className="w-16 h-16 bg-accent-consensus/10 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                  <IconZap className="w-8 h-8 text-accent-consensus" />
+                  <IconConnect className="w-8 h-8 text-accent-consensus" />
                 </div>
                 <h3 className="text-2xl font-display font-black mb-2">Join Game</h3>
                 <p className="font-body text-sm text-ink-primary/60 font-medium px-4">Use your phone as a controller to vote and sabotage.</p>
