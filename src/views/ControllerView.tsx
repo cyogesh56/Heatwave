@@ -1,10 +1,10 @@
 import { useSyncTimer } from '../hooks/useSyncTimer';
 import React, { useState } from 'react';
 import { useGame } from '../context/GameContext';
-import { IconZap } from '../components/icons';
 import { ChoiceGrid } from '../components/ui/ChoiceGrid';
 import { PowerDock } from '../components/ui/PowerDock';
 import { UniversalHeader } from '../components/ui/UniversalHeader';
+import { IconZap, IconFlame, IconScale, IconEye } from '../components/icons';
 import { PlayingCard } from '../components/ui/PlayingCard';
 import { GamePopup } from '../components/ui/GamePopup';
 import { motion, AnimatePresence } from 'framer-motion';

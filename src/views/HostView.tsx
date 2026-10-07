@@ -1,5 +1,6 @@
 import { useSyncTimer } from '../hooks/useSyncTimer';
 import React, { useEffect, useState } from 'react';
+class ErrorBoundary extends React.Component<any, any> { constructor(props: any) { super(props); this.state = { hasError: false, error: null }; } static getDerivedStateFromError(error: any) { return { hasError: true, error }; } render() { if (this.state.hasError) { return <div className="p-12 text-red-500 font-meta bg-white z-[9999] relative">CRASH: {this.state.error?.message}</div>; } return this.props.children; } }
 import { useGame } from '../context/GameContext';
 import { PlayingCard } from '../components/ui/PlayingCard';
 import { PowerDock } from '../components/ui/PowerDock';
@@ -362,7 +363,7 @@ export const HostView: React.FC = () => {
       // Interstitial Logic
       let showInterstitial = false;
       let interColor = "bg-accent-dare";
-      let interIcon = undefined;
+      let interIconName = 'IconFlame';
       let interTitle = '';
       let interSub = '';
       const prevType = hostGameStateRef.current.currentCard?.card?.type;
@@ -374,28 +375,27 @@ export const HostView: React.FC = () => {
              const phaseNames = ['The Spark', 'The Deepen', 'The Ignite', 'The Melt'];
              interTitle = `PHASE ${drawn.card.phase}: ${phaseNames[drawn.card.phase - 1] || 'HEAT'}`.toUpperCase();
              interSub = 'The heat rises. The vibe shifts.';
+             interColor = "bg-accent-dare";
+             interIconName = "IconFlame";
           } else {
              switch (drawn.card.type) {
                 case 'truth':
+                   interTitle = 'Room Discussion'; interSub = 'Answer out loud. No voting.';
+                   interColor = 'bg-accent-truth'; interIconName = 'IconEye'; break;
                 case 'fill_blank':
-                   interTitle = 'Room Discussion';
-                   interSub = 'Answer out loud. No voting.';
-                   break;
+                   interTitle = 'Room Discussion'; interSub = 'Answer out loud. No voting.';
+                   interColor = 'bg-accent-truth'; interIconName = 'IconEye'; break;
                 case 'dare':
-                   interTitle = 'Physical Challenge';
-                   interSub = 'Time to act. Complete the dare.';
-                   break;
+                   interTitle = 'Physical Challenge'; interSub = 'Time to act. Complete the dare.';
+                   interColor = 'bg-accent-dare'; interIconName = 'IconFlame'; break;
                 case 'consensus':
                 case 'vibe_poll':
-                   interTitle = 'Consensus Check';
-                   interSub = 'Look at your phone. Vote to agree.';
-                   break;
+                   interTitle = 'Consensus Check'; interSub = 'Look at your phone. Vote to agree.';
+                   interColor = 'bg-accent-consensus-stroke'; interIconName = 'IconScale'; break;
                 case 'wrong_answers':
-                case 'fill_blank':
                 case 'kahoot':
-                   interTitle = 'Trivia & Chaos';
-                   interSub = 'Pick the funniest or correct option on your phone.';
-                   break;
+                   interTitle = 'Trivia & Chaos'; interSub = 'Pick the funniest or correct option on your phone.';
+                   interColor = 'bg-accent-wrong-stroke'; interIconName = 'IconZap'; break;
              }
           }
       }
@@ -414,10 +414,11 @@ export const HostView: React.FC = () => {
 
       const nextState = {
         ...hostGameStateRef.current,
+        phase: drawn.card.phase,
         players: newPlayers,
         currentCard: drawn,
         uiState: showInterstitial ? 'interstitial' as const : 'voting' as const,
-        interstitial: showInterstitial ? { title: interTitle, subtitle: interSub, color: interColor, icon: interIcon } : undefined,
+        interstitial: showInterstitial ? { title: interTitle, subtitle: interSub, color: interColor, icon: interIconName } : undefined,
         readyPlayers: [],
         juryState: undefined,
         revealCountdown: undefined,
@@ -642,6 +643,7 @@ export const HostView: React.FC = () => {
   };
 
   return (
+  <ErrorBoundary>
     <div className="min-h-[100dvh] w-full flex flex-col transition-colors duration-500 bg-canvas text-ink-primary font-sans overflow-x-hidden">
       <GamePopup 
         isOpen={confirmEndGame} 
@@ -672,7 +674,7 @@ export const HostView: React.FC = () => {
 
       <main className="flex-1 flex flex-col lg:flex-row items-center justify-center p-6 pb-32 lg:p-12 gap-4 sm:gap-8 lg:gap-16 relative z-0 w-full max-w-[1600px] mx-auto overflow-visible">
         {/* Left Side: Card */}
-        <div className="relative w-full lg:w-1/2 flex items-center justify-center shrink-0">
+        <div className={`relative w-full lg:w-1/2 items-center justify-center shrink-0 ${showMobileResults ? "hidden lg:flex" : "flex"}`}>
           <div className="w-full max-w-md lg:max-w-xl aspect-[4/3] relative">
           <AnimatePresence mode="wait">
             <motion.div
@@ -771,6 +773,7 @@ export const HostView: React.FC = () => {
         <button onClick={() => setIsOverrideSheetOpen(false)} className="mt-2 py-4 border-4 border-ink-primary/20 rounded-2xl font-display font-bold uppercase tracking-widest text-ink-primary/50 hover:bg-ink-primary/5">Cancel</button>
       </div>
     </div>
+  </ErrorBoundary>
   );
 };
 
