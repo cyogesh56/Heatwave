@@ -147,7 +147,7 @@ export const ControllerView: React.FC = () => {
     const isReconnecting = !clientNode;
     return (
       <div className="min-h-[100dvh] bg-canvas text-ink-primary flex flex-col items-center justify-center p-8 text-center relative overflow-hidden">
-        <GamePopup isOpen={!!popupMessage} title="Disconnected" message={popupMessage} onConfirm={() => { localStorage.removeItem('handsy_room'); localStorage.removeItem('handsy_name'); window.location.href = '/'; }} accent="dare" />
+        <GamePopup isOpen={!!popupMessage} title="Disconnected" message={popupMessage} confirmText="Return to Lobby" onConfirm={() => { localStorage.removeItem('handsy_room'); localStorage.removeItem('handsy_name'); window.location.href = '/'; }} accent="dare" />
         <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/diagonal-stripes.png')] opacity-5"></div>
         <div className="w-16 h-16 bg-surface-card rounded-2xl shadow-solid flex items-center justify-center border-4 border-ink-primary animate-bounce mb-8">
           <IconZap className="w-8 h-8 text-accent-truth" />
@@ -221,7 +221,7 @@ export const ControllerView: React.FC = () => {
 
   return (
     <div className="relative w-full h-[100dvh] bg-canvas flex flex-col overflow-hidden text-ink-primary font-sans">
-      <GamePopup isOpen={!!popupMessage} title="Disconnected" message={popupMessage} onConfirm={() => { localStorage.removeItem('handsy_room'); localStorage.removeItem('handsy_name'); window.location.href = '/'; }} accent="dare" />
+      <GamePopup isOpen={!!popupMessage} title="Disconnected" message={popupMessage} confirmText="Return to Lobby" onConfirm={() => { localStorage.removeItem('handsy_room'); localStorage.removeItem('handsy_name'); window.location.href = '/'; }} accent="dare" />
       
       {/* HEADER */}
       <UniversalHeader

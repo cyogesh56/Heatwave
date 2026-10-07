@@ -57,8 +57,25 @@ export const HostView: React.FC = () => {
     // Attempt to init audio context early
     const initAudio = () => soundEngine.init();
     window.addEventListener('click', initAudio, { once: true });
-    return () => window.removeEventListener('click', initAudio);
-  }, []);
+    
+    const handleVisibility = () => {
+      if (document.visibilityState === 'visible' && hostServer) {
+         console.log("Host window visible, forcing reconnect...");
+         hostServer.reconnect();
+         setTimeout(() => {
+            if (hostGameStateRef.current) {
+               hostServer.broadcast(hostGameStateRef.current);
+            }
+         }, 500);
+      }
+    };
+    document.addEventListener('visibilitychange', handleVisibility);
+    
+    return () => {
+      window.removeEventListener('click', initAudio);
+      document.removeEventListener('visibilitychange', handleVisibility);
+    };
+  }, [hostServer]);
   const hostGameStateRef = React.useRef(hostGameState);
   React.useEffect(() => { hostGameStateRef.current = hostGameState; }, [hostGameState]);
 

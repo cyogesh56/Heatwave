@@ -37,6 +37,13 @@ export class ClientNode {
       }, 4000);
 
       this.channel
+        .on('presence', { event: 'sync' }, () => {
+          const state = this.channel!.presenceState();
+          if (isResolved && !state['host']) {
+             console.warn("Host disconnected from presence!");
+             this.onDisconnect();
+          }
+        })
         .on('broadcast', { event: 'host-state' }, (payload) => {
           if (!isResolved) {
              isResolved = true;
