@@ -490,13 +490,6 @@ export const HostView: React.FC = () => {
   const { card, parsedPrompt } = hostGameState.currentCard;
 
   const renderRevealArea = () => {
-    if (uiAlert) {
-      return (
-        <div className="w-full max-w-4xl mt-0 bg-surface-card text-ink-primary backdrop-blur-3xl rounded-3xl p-8 border-4 border-accent-dare shadow-2xl animate-pulse">
-           <h3 className="text-xl md:text-2xl lg:text-3xl font-display font-black text-center">{uiAlert}</h3>
-        </div>
-      );
-    }
     if (!['kahoot', 'wrong_answers', 'consensus', 'vibe_poll', 'fill_blank'].includes(card.type)) {
       return (
         <div className="flex flex-col gap-8 w-full max-w-md items-center mt-0">
