@@ -153,7 +153,7 @@ export default function Landing() {
               <h3 className="font-meta uppercase tracking-widest text-ink-primary/50 font-bold text-sm mb-2 text-center md:text-left">Create a Room</h3>
               <div 
                 onClick={() => { sessionStorage.setItem('hostlessMode', 'false'); handleHost(); }}
-                className="bg-surface-card border-4 border-accent-truth rounded-3xl p-6 flex items-center text-left cursor-pointer hover:-translate-y-1 focus:outline-none focus:ring-4 focus:ring-accent-truth transition-all group shadow-solid-sm"  tabIndex={0} 
+                className="bg-surface-card border-4 border-accent-truth rounded-3xl p-6 flex items-center text-left cursor-pointer hover:-translate-y-1 focus:outline-none focus:ring-4 focus:ring-accent-truth transition-all group shadow-solid-sm active:translate-y-[2px] active:shadow-none"  tabIndex={0} 
               >
                 <div className="w-14 h-14 bg-accent-truth/10 rounded-full flex items-center justify-center mr-4 group-hover:scale-110 transition-transform shrink-0">
                   <svg className="w-7 h-7 text-accent-truth" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="2" y="7" width="20" height="15" rx="2" ry="2"></rect><polyline points="17 2 12 7 7 2"></polyline></svg>
@@ -166,7 +166,7 @@ export default function Landing() {
               
               <div 
                 onClick={() => { sessionStorage.setItem('hostlessMode', 'true'); handleHost(); }}
-                className="bg-surface-card border-4 border-accent-dare rounded-3xl p-6 flex items-center text-left cursor-pointer hover:-translate-y-1 focus:outline-none focus:ring-4 focus:ring-accent-dare transition-all group shadow-solid-sm"  tabIndex={0} 
+                className="bg-surface-card border-4 border-accent-dare rounded-3xl p-6 flex items-center text-left cursor-pointer hover:-translate-y-1 focus:outline-none focus:ring-4 focus:ring-accent-dare transition-all group shadow-solid-sm active:translate-y-[2px] active:shadow-none"  tabIndex={0} 
               >
                 <div className="w-14 h-14 bg-accent-dare/10 rounded-full flex items-center justify-center mr-4 group-hover:scale-110 transition-transform shrink-0">
                   <IconOnTheGo className="w-7 h-7 text-accent-dare" />
@@ -183,7 +183,7 @@ export default function Landing() {
               <h3 className="font-meta uppercase tracking-widest text-ink-primary/50 font-bold text-sm mb-2 text-center md:text-left">Join a Room</h3>
               <div 
                 onClick={() => setStep('join')}
-                className="flex-1 bg-surface-card border-4 border-accent-consensus rounded-3xl p-6 flex flex-col items-center justify-center text-center cursor-pointer hover:-translate-y-1 focus:outline-none focus:ring-4 focus:ring-accent-consensus transition-all group shadow-solid-sm min-h-[160px]"  tabIndex={0} 
+                className="flex-1 bg-surface-card border-4 border-accent-consensus rounded-3xl p-6 flex flex-col items-center justify-center text-center cursor-pointer hover:-translate-y-1 focus:outline-none focus:ring-4 focus:ring-accent-consensus transition-all group shadow-solid-sm active:translate-y-[2px] active:shadow-none min-h-[160px]"  tabIndex={0} 
               >
                 <div className="w-16 h-16 bg-accent-consensus/10 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
                   <IconConnect className="w-8 h-8 text-accent-consensus" />

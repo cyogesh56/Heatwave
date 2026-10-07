@@ -89,7 +89,7 @@ export default function LobbyView() {
                 <motion.div 
                   whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}
                   onClick={() => { setIntent('friends'); setSelectedDecks(['just_friends']); setStep('rules'); }}
-                  className="bg-surface-card p-6 rounded-3xl border-4 border-accent-consensus shadow-solid-sm cursor-pointer flex items-center gap-4 group"
+                  className="bg-surface-card p-6 rounded-3xl border-4 border-accent-consensus shadow-solid-sm active:translate-y-[2px] active:shadow-none cursor-pointer flex items-center gap-4 group"
                 >
                   <div className="w-14 h-14 rounded-full bg-accent-consensus/10 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
                     <IconUsers className="w-7 h-7 text-accent-consensus" />
@@ -103,7 +103,7 @@ export default function LobbyView() {
                 <motion.div 
                   whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}
                   onClick={() => { setIntent('couples'); setStep('vibe'); }}
-                  className="bg-surface-card p-6 rounded-3xl border-4 border-accent-truth shadow-solid-sm cursor-pointer flex items-center gap-4 group"
+                  className="bg-surface-card p-6 rounded-3xl border-4 border-accent-truth shadow-solid-sm active:translate-y-[2px] active:shadow-none cursor-pointer flex items-center gap-4 group"
                 >
                   <div className="w-14 h-14 rounded-full bg-accent-truth/10 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
                     <IconCouple className="w-7 h-7 text-accent-truth" />
@@ -117,7 +117,7 @@ export default function LobbyView() {
                 <motion.div 
                   whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}
                   onClick={() => { setIntent('poly'); setStep('vibe'); }}
-                  className="bg-surface-card p-6 rounded-3xl border-4 border-accent-dare shadow-solid-sm cursor-pointer flex items-center gap-4 group"
+                  className="bg-surface-card p-6 rounded-3xl border-4 border-accent-dare shadow-solid-sm active:translate-y-[2px] active:shadow-none cursor-pointer flex items-center gap-4 group"
                 >
                   <div className="w-14 h-14 rounded-full bg-accent-dare/10 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
                     <IconPoly className="w-7 h-7 text-accent-dare" />
@@ -143,7 +143,7 @@ export default function LobbyView() {
                     if (intent === 'poly') setSelectedDecks(['polyamory']);
                     setStep('rules'); 
                   }}
-                  className="bg-surface-card p-6 rounded-3xl border-4 border-accent-consensus shadow-solid-sm cursor-pointer flex items-center gap-4 group"
+                  className="bg-surface-card p-6 rounded-3xl border-4 border-accent-consensus shadow-solid-sm active:translate-y-[2px] active:shadow-none cursor-pointer flex items-center gap-4 group"
                 >
                   <div className="w-14 h-14 rounded-full bg-accent-consensus/10 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
                     <IconDrink className="w-7 h-7 text-accent-consensus" />
@@ -161,7 +161,7 @@ export default function LobbyView() {
                     if (intent === 'poly') setSelectedDecks(['polyamory', 'after_dark']);
                     setStep('rules'); 
                   }}
-                  className="bg-surface-card p-6 rounded-3xl border-4 border-accent-dare shadow-solid-sm cursor-pointer flex items-center gap-4 group"
+                  className="bg-surface-card p-6 rounded-3xl border-4 border-accent-dare shadow-solid-sm active:translate-y-[2px] active:shadow-none cursor-pointer flex items-center gap-4 group"
                 >
                   <div className="w-14 h-14 rounded-full bg-accent-dare/10 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
                     <IconMoon className="w-7 h-7 text-accent-dare" />
@@ -181,7 +181,7 @@ export default function LobbyView() {
               <p className="font-body text-ink-primary/70 mb-6 sm:mb-8 font-medium">Customize the chaos, or just play vanilla.</p>
               
               <div className="flex flex-col gap-4 mb-8">
-                 <div onClick={() => { setChaosMode(false); setChillMode(false); }} className="p-5 rounded-2xl border-2 cursor-pointer transition-all flex items-center justify-between shadow-solid-sm bg-surface-card border-ink-primary/20 text-ink-primary hover:-translate-y-0.5">
+                 <div onClick={() => { setChaosMode(false); setChillMode(false); }} className="p-5 rounded-2xl border-2 cursor-pointer transition-all flex items-center justify-between shadow-solid-sm active:translate-y-[2px] active:shadow-none bg-surface-card border-ink-primary/20 text-ink-primary hover:-translate-y-0.5">
                    <div className="flex flex-col">
                      <span className="font-display font-black uppercase tracking-widest text-lg">Vanilla</span>
                      <span className="font-body text-sm opacity-80">The default, highly-tested experience.</span>
@@ -191,7 +191,7 @@ export default function LobbyView() {
                    </div>
                  </div>
 
-                 <div onClick={() => setChaosMode(!chaosMode)} className="p-5 rounded-2xl border-2 cursor-pointer transition-all flex items-center justify-between shadow-solid-sm bg-surface-card border-ink-primary/20 text-ink-primary hover:-translate-y-0.5">
+                 <div onClick={() => setChaosMode(!chaosMode)} className="p-5 rounded-2xl border-2 cursor-pointer transition-all flex items-center justify-between shadow-solid-sm active:translate-y-[2px] active:shadow-none bg-surface-card border-ink-primary/20 text-ink-primary hover:-translate-y-0.5">
                    <div className="flex flex-col">
                      <span className="font-display font-black uppercase tracking-widest text-lg">Chaos Mode</span>
                      <span className="font-body text-sm opacity-80">3x more likely to drop Powers.</span>
@@ -201,7 +201,7 @@ export default function LobbyView() {
                    </div>
                  </div>
                  
-                 <div onClick={() => setChillMode(!chillMode)} className="p-5 rounded-2xl border-2 cursor-pointer transition-all flex items-center justify-between shadow-solid-sm bg-surface-card border-ink-primary/20 text-ink-primary hover:-translate-y-0.5">
+                 <div onClick={() => setChillMode(!chillMode)} className="p-5 rounded-2xl border-2 cursor-pointer transition-all flex items-center justify-between shadow-solid-sm active:translate-y-[2px] active:shadow-none bg-surface-card border-ink-primary/20 text-ink-primary hover:-translate-y-0.5">
                    <div className="flex flex-col">
                      <span className="font-display font-black uppercase tracking-widest text-lg">Chill Mode</span>
                      <span className="font-body text-sm opacity-80">Disables all countdown timers.</span>

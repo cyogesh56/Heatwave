@@ -430,7 +430,7 @@ export const HostView: React.FC = () => {
            <p className="text-3xl font-body opacity-90 mb-12">
               {disconnectedPlayers.map((p: any) => p.name).join(', ')} disconnected.<br/>Waiting for them to reconnect...
            </p>
-           <button onClick={() => window.location.href = '/'} className="px-12 py-6 bg-canvas text-accent-dare font-display font-black text-2xl uppercase tracking-widest rounded-2xl shadow-solid hover:-translate-y-1 active:translate-y-1 transition-all">
+           <button onClick={() => window.location.href = '/'} className="px-12 py-6 bg-canvas text-accent-dare font-display font-black text-2xl uppercase tracking-widest rounded-2xl shadow-solid active:translate-y-[4px] active:shadow-none hover:-translate-y-1 transition-all">
              Restart Game
            </button>
         </div>
@@ -569,7 +569,7 @@ export const HostView: React.FC = () => {
             );
           })}
         </div>
-        <button onClick={() => handleNextCard(false)} className="mt-6 sm:mt-8 w-full py-4 sm:py-6 bg-accent-dare text-canvas font-display font-black text-xl sm:text-2xl uppercase tracking-widest rounded-2xl shadow-solid hover:-translate-y-1 active:translate-y-1 active:shadow-none transition-all">
+        <button onClick={() => handleNextCard(false)} className="mt-6 sm:mt-8 w-full py-4 sm:py-6 bg-accent-dare text-canvas font-display font-black text-xl sm:text-2xl uppercase tracking-widest rounded-2xl shadow-solid active:translate-y-[4px] active:shadow-none hover:-translate-y-1 transition-all">
           Draw Next Card
         </button>
       </div>
