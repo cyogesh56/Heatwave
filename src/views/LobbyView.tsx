@@ -253,7 +253,7 @@ export default function LobbyView() {
                     <button 
                       onClick={async () => {
                         setIsJoining(true);
-                        await initClient(hostServer?.roomCode || '', hostPlayerName);
+                        try { await initClient(hostServer?.roomCode || '', hostPlayerName); } catch(e) { console.error(e); }
                         setIsJoining(false);
                       }}
                       disabled={!hostPlayerName.trim() || isJoining}

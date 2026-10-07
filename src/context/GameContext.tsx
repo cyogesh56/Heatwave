@@ -1,3 +1,4 @@
+import { supabase } from '../lib/supabase';
 import React, { createContext, useContext, useState, useRef, ReactNode } from 'react';
 import { HostServer, GameState as HostGameState } from '../lib/peer/HostServer';
 import { ClientNode } from '../lib/peer/ClientNode';
@@ -143,6 +144,34 @@ export const GameProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
         setClientState(null);
       }
     );
+    
+    if (hostServer) {
+      // Local Host bypass: Add directly to host state to skip network latency
+      setHostGameState(prev => {
+        if (!prev) return prev;
+        const nextState = {
+          ...prev,
+          players: {
+            ...prev.players,
+            ['host']: { name: playerName, isReady: false, inventory: { deflect: 0, killswitch: 0, override: 0 }, isConnected: true }
+          }
+        };
+        setTimeout(() => hostServer.broadcast(nextState), 50);
+        return nextState;
+      });
+      // Override connectToHost to resolve instantly since we injected state
+      client.connectToHost = async () => {
+        client['playerId'] = 'host';
+        client['playerName'] = playerName;
+        
+        // We simulate the exact subscription the ClientNode needs
+        client['channel'] = supabase.channel(`room-${roomCode}`);
+        client['channel'].on('broadcast', { event: 'host-state' }, (payload: any) => {
+          client['onHostData'](payload.payload);
+        }).subscribe();
+      };
+    }
+    
     await client.connectToHost(roomCode, playerName);
     setClientNode(client);
   };
