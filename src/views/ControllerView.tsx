@@ -23,7 +23,7 @@ const AlertOverlay = ({ state, node }: { state: any, node: any }) => {
   }, [personalAlert, globalAlert]);
   
   return (
-    <div className="fixed top-6 left-1/2 -translate-x-1/2 z-[9999] flex items-start justify-center px-6 pointer-events-none w-full">
+    <div className="fixed top-6 left-0 right-0 z-[9999] flex items-start justify-center px-6 pointer-events-none">
        <AnimatePresence>
          {(globalAlert || personalAlert) && (
            <motion.div 
@@ -164,7 +164,7 @@ export const ControllerView: React.FC = () => {
   
   if (connectedPlayers.length < 2 && disconnectedPlayers.length > 0) {
      return (
-        <div className="min-h-[100dvh] w-full flex flex-col items-center justify-center bg-accent-dare text-canvas p-8 text-center">
+        <div className={`min-h-[100dvh] w-full flex flex-col items-center justify-center ${clientState.interstitial?.color || 'bg-accent-dare'} text-canvas p-8 text-center`}>
            <h1 className="text-2xl md:text-3xl lg:text-4xl font-display font-black uppercase tracking-widest mb-4">Game Paused</h1>
            <p className="text-xl font-body opacity-90 mb-12">
               {disconnectedPlayers.map((p: any) => p.name).join(', ')} disconnected.<br/>Waiting for them to reconnect...

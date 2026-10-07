@@ -13,7 +13,7 @@ export type GameState = {
   uiState: 'waiting' | 'voting' | 'ready_check' | 'dare_active' | 'interstitial' | 'ended' | 'superlatives';
   settings?: { chaosMode: boolean; chillMode: boolean };
   stats?: Record<string, { powersUsed: number; truthsAnswered: number; daresCompleted: number; targetedCount: number }>;
-  interstitial?: { title: string, subtitle: string };
+  interstitial?: { title: string, subtitle: string, color?: string, icon?: string };
   uiAlert?: string;
   theme?: 'light' | 'dark';
   readyPlayers?: string[];

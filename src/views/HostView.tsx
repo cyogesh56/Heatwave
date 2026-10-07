@@ -3,12 +3,13 @@ import React, { useEffect, useState } from 'react';
 import { useGame } from '../context/GameContext';
 import { PlayingCard } from '../components/ui/PlayingCard';
 import { PowerDock } from '../components/ui/PowerDock';
+import { IconZap, IconFlame, IconScale, IconEye } from '../components/icons';
 import { motion, AnimatePresence } from 'framer-motion';
 import { UniversalHeader } from '../components/ui/UniversalHeader';
 import { GamePopup } from '../components/ui/GamePopup';
 import { TimerBadge } from '../components/ui/TimerBadge';
 import { soundEngine } from '../lib/audio/SoundEngine';
-import { IconZap } from '../components/icons';
+
 
 
 const HostAlertOverlay = ({ uiAlert }: { uiAlert?: string }) => (
@@ -41,6 +42,7 @@ export const HostView: React.FC = () => {
   const [isOverrideSheetOpen, setIsOverrideSheetOpen] = useState(false);
   const [isDeflectSheetOpen, setIsDeflectSheetOpen] = useState(false);
   const [deflectTarget, setDeflectTarget] = useState<string | null>(null);
+  const [showMobileResults, setShowMobileResults] = useState(false);
 
   
   const timeLeft = useSyncTimer(hostGameState?.timers?.endsAt);
@@ -339,6 +341,8 @@ export const HostView: React.FC = () => {
 
       // Interstitial Logic
       let showInterstitial = false;
+      let interColor = "bg-accent-dare";
+      let interIcon = undefined;
       let interTitle = '';
       let interSub = '';
       const prevType = hostGameStateRef.current.currentCard?.card?.type;
@@ -393,7 +397,7 @@ export const HostView: React.FC = () => {
         players: newPlayers,
         currentCard: drawn,
         uiState: showInterstitial ? 'interstitial' as const : 'voting' as const,
-        interstitial: showInterstitial ? { title: interTitle, subtitle: interSub } : undefined,
+        interstitial: showInterstitial ? { title: interTitle, subtitle: interSub, color: interColor, icon: interIcon } : undefined,
         readyPlayers: [],
         juryState: undefined,
         revealCountdown: undefined,
@@ -459,7 +463,7 @@ export const HostView: React.FC = () => {
   
   if (connectedPlayers.length < 2 && disconnectedPlayers.length > 0) {
      return (
-        <div className="min-h-[100dvh] w-full flex flex-col items-center justify-center bg-accent-dare text-canvas p-12 text-center"
+        <div className={`min-h-[100dvh] w-full flex flex-col items-center justify-center ${hostGameState.interstitial?.color || 'bg-accent-dare'} text-canvas p-12 text-center`}
       >
         <HostAlertOverlay uiAlert={uiAlert} />
            <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-black uppercase tracking-widest mb-6">Game Paused</h1>
@@ -513,32 +517,33 @@ export const HostView: React.FC = () => {
         animate={{ opacity: 1, scale: 1 }}
         exit={{ opacity: 0, scale: 1.1 }}
         transition={{ type: 'spring', stiffness: 200, damping: 20 }}
-        className="min-h-[100dvh] w-full flex flex-col items-center justify-center bg-accent-dare text-canvas p-12 text-center"
+        
       >
         
-           <h1 className="text-4xl md:text-6xl lg:text-8xl font-display font-black uppercase tracking-widest mb-6">{hostGameState.interstitial.title}</h1>
-           <p className="text-xl md:text-3xl lg:text-5xl font-body opacity-90">{hostGameState.interstitial.subtitle}</p>
+           
+           {hostGameState.interstitial?.icon === 'IconZap' && <IconZap className="w-24 h-24 mb-6 opacity-80" />}
+           {hostGameState.interstitial?.icon === 'IconFlame' && <IconFlame className="w-24 h-24 mb-6 opacity-80" />}
+           {hostGameState.interstitial?.icon === 'IconScale' && <IconScale className="w-24 h-24 mb-6 opacity-80" />}
+           {hostGameState.interstitial?.icon === 'IconEye' && <IconEye className="w-24 h-24 mb-6 opacity-80" />}
+           <h1 className="text-4xl md:text-6xl lg:text-8xl font-display font-black uppercase tracking-widest mb-6">{hostGameState.interstitial?.title}</h1>
+
+           <p className="text-xl md:text-3xl lg:text-5xl font-body opacity-90">{hostGameState.interstitial?.subtitle}</p>
         
       </motion.div>
      );
   }
 
   const { card, parsedPrompt } = hostGameState.currentCard;
+  
+  React.useEffect(() => {
+    setShowMobileResults(false);
+  }, [card.id]);
 
   const renderRevealArea = () => {
     if (!['kahoot', 'wrong_answers', 'consensus', 'vibe_poll', 'fill_blank'].includes(card.type)) {
       return (
         <div className="flex flex-col gap-8 w-full max-w-md items-center mt-0">
-          <div className="relative group w-full">
-            <div className="absolute inset-0 bg-accent-truth blur-3xl opacity-20 group-hover:opacity-40 transition-opacity duration-700 rounded-full"></div>
-            <div className="relative bg-surface-card backdrop-blur-2xl border-2 border-accent-truth/40 px-12 py-8 rounded-[2rem] flex flex-col items-center gap-3 shadow-2xl transition-transform hover:scale-105 duration-300">
-              <span className="font-meta text-accent-truth uppercase tracking-widest text-sm font-bold flex items-center gap-2">
-                <span className="w-2 h-2 rounded-full bg-accent-truth animate-ping"></span>
-                In the Spotlight
-              </span>
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-black tracking-tight text-ink-primary opacity-90 uppercase">{card.type}</h2>
-            </div>
-          </div>
+
           {hostGameState?.revealCountdown ? (
      <div className="w-full py-6 bg-accent-truth text-canvas font-display font-black text-2xl uppercase tracking-widest rounded-3xl shadow-solid text-center animate-pulse">
        ADVANCING IN {hostGameState.revealCountdown}...
@@ -665,10 +670,18 @@ export const HostView: React.FC = () => {
         </div>
         </div>
         {/* Right Side: Reveal Area */}
-        <div className="w-full lg:w-1/2 flex items-center justify-center shrink-0 p-6 sm:p-8 min-h-[300px]">
+        <div className={`w-full lg:w-1/2 items-center justify-center shrink-0 p-6 sm:p-8 min-h-[300px] ${showMobileResults ? 'flex' : 'hidden lg:flex'}`}>
           {renderRevealArea()}
         </div>
+      
+        {/* Mobile Toggle Button */}
+        <div className="lg:hidden fixed bottom-24 left-1/2 -translate-x-1/2 z-50">
+           <button onClick={() => setShowMobileResults(!showMobileResults)} className="px-8 py-4 bg-ink-primary text-canvas rounded-full font-meta font-bold uppercase tracking-widest shadow-2xl whitespace-nowrap active:scale-95 transition-transform">
+             {showMobileResults ? 'View Question' : 'View Live Votes'}
+           </button>
+        </div>
       </main>
+
 {/* uiAlert removed */}
 
       <HostAlertOverlay uiAlert={uiAlert} />

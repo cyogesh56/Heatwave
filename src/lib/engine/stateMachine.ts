@@ -22,7 +22,7 @@ export class GameEngine {
     this.maxPhaseAvailable = cards.length > 0 ? Math.max(...cards.map(c => c.phase)) : 4;
   }
 
-    public drawNextCard(activePlayers: string[], targetPhase?: number, targetType?: string): { card: Card, parsedPrompt: string, targetedPlayers?: string[]; assignedResponderName?: string } | null {
+    public drawNextCard(activePlayers: string[], targetPhase?: number, targetType?: string): { card: Card, parsedPrompt: string, targetedPlayers?: string[]; assignedResponderName?: string; isFinale?: boolean } | null {
     if (targetPhase !== undefined && targetPhase !== this.currentPhase) {
       this.currentPhase = targetPhase;
       this.cardsPlayedInCurrentPhase = 0;
@@ -123,7 +123,8 @@ export class GameEngine {
       card: cardToReturn,
       parsedPrompt: parsed.text,
       targetedPlayers: parsed.targetedPlayers,
-      assignedResponderName: parsed.assignedResponderName
+      assignedResponderName: parsed.assignedResponderName,
+      isFinale
     };
   }
 

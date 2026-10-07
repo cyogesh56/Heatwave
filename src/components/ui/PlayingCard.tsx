@@ -21,6 +21,14 @@ export function PlayingCard({ prompt, type, index }: PlayingCardProps) {
   const config = TYPE_CONFIG[normalizedType] || TYPE_CONFIG.truth;
   const { border, text, Icon } = config;
 
+  let textClass = "text-2xl sm:text-3xl md:text-4xl lg:text-5xl";
+  if (prompt.length > 150) {
+    textClass = "text-lg sm:text-xl md:text-2xl lg:text-3xl";
+  } else if (prompt.length > 80) {
+    textClass = "text-xl sm:text-2xl md:text-3xl lg:text-4xl";
+  }
+
+
   return (
     <div className="w-full h-full bg-surface-card rounded-3xl shadow-solid p-2.5 relative flex flex-col transition-colors duration-500">
       <div className={`relative w-full h-full border-[4px] ${border} rounded-[14px] flex flex-col items-center justify-center p-4 transition-colors duration-500`}>
@@ -32,11 +40,11 @@ export function PlayingCard({ prompt, type, index }: PlayingCardProps) {
         
         {/* Phase Pill */}
         <div className="absolute top-2 left-1/2 -translate-x-1/2 px-3 py-1 bg-ink-primary/5 rounded-full font-meta text-xs uppercase tracking-wider text-ink-primary/70">
-          Phase {index}
+          Phase {index || 1}
         </div>
         
         {/* Prompt */}
-        <h2 className="font-display font-extrabold text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-center text-ink-primary max-w-[90%] tracking-tight">
+        <h2 className={`font-display font-extrabold ${textClass} text-center text-ink-primary max-w-[95%] tracking-tight`}>
           {prompt}
         </h2>
 
