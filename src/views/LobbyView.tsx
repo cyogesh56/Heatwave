@@ -218,7 +218,7 @@ export default function LobbyView() {
                     setHostGameState((prev: any) => prev ? { ...prev, settings: { chaosMode, chillMode } } : prev);
                     setStep('connect');
                   }}
-                  className="w-full py-5 bg-ink-primary text-canvas font-display font-black text-xl uppercase tracking-widest rounded-2xl shadow-xl hover:-translate-y-1 transition-all active:scale-95"
+                  className="w-full py-5 bg-ink-primary text-canvas font-display font-black text-xl uppercase tracking-widest rounded-2xl shadow-solid hover:-translate-y-1 transition-all active:translate-y-[4px] active:shadow-none"
                 >
                   Next
                 </button>
@@ -257,7 +257,7 @@ export default function LobbyView() {
                         setIsJoining(false);
                       }}
                       disabled={!hostPlayerName.trim() || isJoining}
-                      className="w-full mt-2 py-3 bg-accent-dare text-canvas font-display font-bold text-lg uppercase tracking-widest rounded-2xl disabled:opacity-50 active:scale-95 transition-all"
+                      className="w-full mt-2 py-3 bg-accent-dare text-canvas font-display font-bold text-lg uppercase tracking-widest rounded-2xl disabled:opacity-50 active:scale-95 transition-all shadow-solid-sm active:translate-y-[2px] active:shadow-none"
                     >
                       {isJoining ? 'Joining...' : 'Join'}
                     </button>
@@ -288,7 +288,7 @@ export default function LobbyView() {
                     <button 
                       onClick={handleStart}
                       disabled={!isReady}
-                      className="w-full py-5 bg-accent-consensus text-canvas font-display font-black text-xl uppercase tracking-widest rounded-2xl shadow-xl disabled:opacity-50 disabled:shadow-none hover:-translate-y-1 transition-all active:scale-95"
+                      className="w-full py-5 bg-accent-consensus text-canvas font-display font-black text-xl uppercase tracking-widest rounded-2xl shadow-solid disabled:opacity-50 disabled:shadow-none hover:-translate-y-1 transition-all active:translate-y-[4px] active:shadow-none"
                     >
                       {!isReady ? (limitMsg || 'Complete Setup') : 'Start Game'}
                     </button>

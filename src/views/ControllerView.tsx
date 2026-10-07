@@ -289,7 +289,7 @@ export const ControllerView: React.FC = () => {
                 <button 
                   onClick={() => handleVote('done')}
                   disabled={selectedChoice !== null}
-                  className="w-full py-8 rounded-2xl bg-accent-dare border-4 border-ink-primary text-canvas font-display font-black text-3xl uppercase tracking-widest shadow-solid active:translate-y-1 active:shadow-none transition-all disabled:opacity-50"
+                  className="w-full py-8 rounded-2xl bg-accent-dare border-4 border-ink-primary text-canvas font-display font-black text-3xl uppercase tracking-widest shadow-solid active:translate-y-[4px] active:shadow-none transition-all disabled:opacity-50"
                 >
                   {selectedChoice ? 'WAITING...' : 'I DID IT'}
                 </button>

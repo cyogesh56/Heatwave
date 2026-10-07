@@ -21,7 +21,7 @@ export function PowerDock({ onDeflect, onKillswitch, onOverride, inventory = { d
     );
   };
 
-  const btnShape = "relative w-14 h-14 bg-surface-card border-2 border-ink-primary/20 flex items-center justify-center transition-colors shadow-solid-sm rounded-tl-2xl rounded-br-2xl rounded-tr-sm rounded-bl-sm";
+  const btnShape = "relative w-14 h-14 bg-surface-card border-2 border-ink-primary/20 flex items-center justify-center transition-colors shadow-solid-sm active:translate-y-[2px] active:shadow-none rounded-tl-2xl rounded-br-2xl rounded-tr-sm rounded-bl-sm";
 
   return (
     <div className="sticky bottom-0 left-0 w-full backdrop-blur-md bg-canvas/80 border-t-2 border-ink-primary/10 p-4 pb-safe flex items-center justify-around z-50">

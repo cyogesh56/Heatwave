@@ -462,7 +462,7 @@ export const HostView: React.FC = () => {
 
         <button 
           onClick={() => window.location.href = '/'} 
-          className="px-12 py-6 bg-ink-primary text-canvas font-display font-black text-2xl uppercase tracking-widest rounded-[2rem] shadow-solid hover:-translate-y-2 transition-all active:scale-95"
+          className="px-12 py-6 bg-ink-primary text-canvas font-display font-black text-2xl uppercase tracking-widest rounded-[2rem] shadow-solid hover:-translate-y-2 transition-all active:translate-y-[4px] active:shadow-none"
         >
           Return to Lobby
         </button>
@@ -598,7 +598,7 @@ export const HostView: React.FC = () => {
         rightNode={
           <button 
             onClick={() => setConfirmEndGame(true)}
-            className="font-meta font-bold text-sm tracking-widest uppercase text-accent-dare hover:bg-accent-dare/10 px-4 py-2 rounded-2xl shadow-solid-sm active:translate-y-0.5 active:shadow-none transition-all transition-colors"
+            className="font-meta font-bold text-sm tracking-widest uppercase text-accent-dare hover:bg-accent-dare/10 px-4 py-2 rounded-2xl shadow-solid-sm active:translate-y-[2px] active:shadow-none transition-all transition-colors"
           >
             End Game
           </button>

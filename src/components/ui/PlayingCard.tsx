@@ -23,7 +23,7 @@ export function PlayingCard({ prompt, type, index }: PlayingCardProps) {
 
   return (
     <div className="w-full h-full bg-surface-card rounded-3xl shadow-solid p-2.5 relative flex flex-col transition-colors duration-500">
-      <div className={`relative w-full h-full border-[4px] ${border} rounded-none flex flex-col items-center justify-center p-4 transition-colors duration-500`}>
+      <div className={`relative w-full h-full border-[4px] ${border} rounded-[14px] flex flex-col items-center justify-center p-4 transition-colors duration-500`}>
         
         {/* Top Left Emblem */}
         <div className={`absolute -top-3.5 -left-3.5 w-7 h-7 rounded-full bg-surface-card border-2 ${border} flex items-center justify-center transition-colors duration-500 z-10`}>
