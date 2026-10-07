@@ -32,7 +32,7 @@ const HostAlertOverlay = ({ uiAlert }: { uiAlert?: string }) => (
   </AnimatePresence>
 );
 
-export const HostView: React.FC = () => {
+const HostViewInner: React.FC = () => {
 
   const { hostServer, hostGameState, setHostGameState, gameEngine, clientNode } = useGame();
   
@@ -777,3 +777,12 @@ export const HostView: React.FC = () => {
   );
 };
 
+
+
+export const HostView: React.FC = () => {
+  return (
+    <ErrorBoundary>
+      <HostViewInner />
+    </ErrorBoundary>
+  );
+};
