@@ -517,6 +517,7 @@ export const HostView: React.FC = () => {
         animate={{ opacity: 1, scale: 1 }}
         exit={{ opacity: 0, scale: 1.1 }}
         transition={{ type: 'spring', stiffness: 200, damping: 20 }}
+        className={`min-h-[100dvh] w-full flex flex-col items-center justify-center ${hostGameState.interstitial?.color || 'bg-accent-dare'} text-canvas p-12 text-center`}
         
       >
         
@@ -531,6 +532,10 @@ export const HostView: React.FC = () => {
         
       </motion.div>
      );
+  }
+
+  if (!hostGameState.currentCard) {
+    return <div className="min-h-[100dvh] bg-canvas text-ink-primary flex items-center justify-center font-display text-2xl md:text-3xl lg:text-4xl">Loading Deck...</div>;
   }
 
   const { card, parsedPrompt } = hostGameState.currentCard;
