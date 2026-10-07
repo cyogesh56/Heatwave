@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { QRCodeSVG } from 'qrcode.react';
 import { useGame } from '../context/GameContext';
 import { Card } from '../lib/engine/stateMachine';
-import { IconZap } from '../components/icons';
+import { IconZap, IconUsers, IconFlame, IconSpark } from '../components/icons';
 import { motion, AnimatePresence } from 'framer-motion';
 import { UniversalHeader } from '../components/ui/UniversalHeader';
 import { GamePopup } from '../components/ui/GamePopup';
@@ -18,15 +18,18 @@ const DECKS = [
 
 export default function LobbyView() {
   const navigate = useNavigate();
-  const { hostServer, hostGameState, setHostGameState, startGame, isHost } = useGame();
+  const { hostServer, hostGameState, setHostGameState, startGame, isHost, initClient } = useGame();
   const [selectedDecks, setSelectedDecks] = useState<string[]>(['couples']);
-  const [step, setStep] = useState<'connect' | 'decks' | 'rules'>('connect');
+  const [step, setStep] = useState<'connect' | 'intent' | 'vibe' | 'rules'>('connect');
+  const [intent, setIntent] = useState<'friends' | 'couples' | 'poly' | null>(null);
   const [popupMessage, setPopupMessage] = useState('');
   const [chaosMode, setChaosMode] = useState(false);
   const [chillMode, setChillMode] = useState(false);
+  const [hostPlayerName, setHostPlayerName] = useState('');
+  const isHostless = sessionStorage.getItem('hostlessMode') === 'true';
 
   if (!isHost || !hostServer) {
-    return <div className="p-8 text-ink-primary bg-canvas min-h-[100dvh]">Not a host. <button onClick={() => step === 'rules' ? setStep('decks') : (step === 'decks' ? setStep('connect') : navigate('/'))}>Go back</button></div>;
+    return <div className="p-8 text-ink-primary bg-canvas min-h-[100dvh]">Not a host. <button onClick={() => step === 'rules' ? (intent === 'friends' ? setStep('intent') : setStep('vibe')) : (step === 'vibe' ? setStep('intent') : (step === 'intent' ? setStep('connect') : navigate('/')))}>Go back</button></div>;
   }
 
   const roomCode = hostServer.roomCode;
@@ -54,7 +57,13 @@ export default function LobbyView() {
     }
     
     startGame(filteredCards);
-    navigate('/host');
+    if (isHostless) {
+      if (!hostPlayerName.trim()) { setPopupMessage("Please enter your name!"); return; }
+      await initClient(hostServer?.roomCode || '', hostPlayerName);
+      navigate('/host'); // We still need HostView to mount the game loop!
+    } else {
+      navigate('/host');
+    }
   };
 
   return (
@@ -63,8 +72,8 @@ export default function LobbyView() {
       
       <audio src="/saavane-sensual-music-390794.mp3" autoPlay loop muted={false} />
       <UniversalHeader 
-        leftNode={<button onClick={() => step === 'rules' ? setStep('decks') : step === 'decks' ? setStep('connect') : navigate('/')} className="font-meta uppercase tracking-widest text-ink-primary/60 hover:text-ink-primary">← Back</button>}
-        rightNode={<div className="font-meta uppercase tracking-widest text-xs sm:text-sm font-bold text-ink-primary/40 shrink-0">Step {step === 'connect' ? '1' : step === 'decks' ? '2' : '3'} of 3</div>}
+        leftNode={<button onClick={() => step === 'rules' ? (intent === 'friends' ? setStep('intent') : setStep('vibe')) : (step === 'vibe' ? setStep('intent') : (step === 'intent' ? setStep('connect') : navigate('/')))} className="font-meta uppercase tracking-widest text-ink-primary/60 hover:text-ink-primary">← Back</button>}
+        rightNode={<div className="font-meta uppercase tracking-widest text-xs sm:text-sm font-bold text-ink-primary/40 shrink-0">Step {step === 'connect' ? '1' : step === 'intent' ? '2' : step === 'vibe' ? '3' : '4'}</div>}
       />
       <div className="flex-1 w-full flex flex-col p-6 lg:p-8 overflow-y-auto">
         <h1 className="text-3xl sm:text-4xl font-display font-black uppercase tracking-widest text-center mb-8">Handsy Setup</h1>
@@ -84,7 +93,7 @@ export default function LobbyView() {
 
             <div className="w-full max-w-sm flex-1 flex flex-col justify-end">
               <button 
-                onClick={() => setStep('decks')}
+                onClick={() => setStep('intent')}
                 disabled={connectedPlayers.length < 2}
                 className="w-full py-5 bg-accent-consensus text-canvas font-display font-black text-xl uppercase tracking-widest rounded-2xl shadow-xl disabled:opacity-50 disabled:shadow-none hover:-translate-y-1 transition-all active:scale-95"
               >
@@ -94,41 +103,96 @@ export default function LobbyView() {
           </div>
         )}
 
-        {step === 'decks' && (
-          <div className="flex-1 w-full flex flex-col">
+        {step === 'intent' && (
+          <div className="flex-1 w-full flex flex-col items-center justify-center pt-8 pb-4">
+            <h2 className="text-3xl sm:text-4xl font-display font-black uppercase tracking-widest mb-6 text-center">Who are you playing with?</h2>
             
-            
-            <h2 className="font-meta font-bold uppercase tracking-widest text-ink-primary/50 mb-4 text-sm">Mix Your Vibe (Select Multiple)</h2>
-            
-            <div className="flex-1 flex flex-col gap-3 overflow-y-auto p-2 -mx-2 pb-6">
-              {DECKS.map(deck => {
-                const isSelected = selectedDecks.includes(deck.id);
-                return (
-                  <div 
-                    key={deck.id}
-                    onClick={() => toggleDeck(deck.id)}
-                    className={`p-4 rounded-2xl border-2 cursor-pointer transition-all flex items-start gap-4 shadow-solid-sm hover:-translate-y-0.5 focus:outline-none focus:ring-4 focus:ring-accent-consensus ${isSelected ? "bg-accent-consensus-fill border-ink-primary text-ink-dark" : "bg-surface-card border-ink-primary/20 text-ink-primary"}`} role="checkbox" aria-checked={isSelected} tabIndex={0}
-                  >
-                    <div className={`w-6 h-6 shrink-0 rounded border-2 mt-1 flex items-center justify-center ${isSelected ? 'border-ink-primary bg-ink-primary text-white' : 'border-ink-primary/30'}`}>
-                      {isSelected && <IconZap className="w-4 h-4 text-accent-consensus-fill" />}
-                    </div>
-                    <div>
-                      <h3 className="font-display font-black text-lg sm:text-xl">{deck.name}</h3>
-                      <p className={`font-body text-xs sm:text-sm mt-1 ${isSelected ? 'text-ink-dark/80' : 'text-ink-primary/60'}`}>{deck.desc}</p>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-
-            <div className="w-full shrink-0 pt-4">
-              <button 
-                onClick={() => setStep('rules')}
-                disabled={selectedDecks.length === 0}
-                className="w-full py-5 bg-accent-truth text-canvas font-display font-black text-xl uppercase tracking-widest rounded-2xl shadow-xl disabled:opacity-50 disabled:shadow-none hover:-translate-y-1 transition-all active:scale-95"
+            <div className="flex flex-col gap-4 w-full max-w-lg">
+              <motion.div 
+                whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}
+                onClick={() => { setIntent('friends'); setSelectedDecks(['just_friends']); setStep('rules'); }}
+                className="bg-surface-card p-6 rounded-3xl border-4 border-accent-consensus shadow-solid-sm cursor-pointer flex items-center gap-4 group"
               >
-                Configure Rules
-              </button>
+                <div className="w-14 h-14 rounded-full bg-accent-consensus/10 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                  <IconUsers className="w-7 h-7 text-accent-consensus" />
+                </div>
+                <div className="text-left">
+                  <h3 className="font-display font-black text-xl uppercase tracking-widest">New Friends</h3>
+                  <p className="font-body text-ink-primary/60 text-sm font-medium">Up to 8 players. Casual & fun group party. No after-dark content.</p>
+                </div>
+              </motion.div>
+
+              <motion.div 
+                whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}
+                onClick={() => { setIntent('couples'); setStep('vibe'); }}
+                className="bg-surface-card p-6 rounded-3xl border-4 border-accent-truth shadow-solid-sm cursor-pointer flex items-center gap-4 group"
+              >
+                <div className="w-14 h-14 rounded-full bg-accent-truth/10 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                  <IconFlame className="w-7 h-7 text-accent-truth" />
+                </div>
+                <div className="text-left">
+                  <h3 className="font-display font-black text-xl uppercase tracking-widest">Couples</h3>
+                  <p className="font-body text-ink-primary/60 text-sm font-medium">2 players. Intimate, revealing, and deeply personal.</p>
+                </div>
+              </motion.div>
+
+              <motion.div 
+                whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}
+                onClick={() => { setIntent('poly'); setStep('vibe'); }}
+                className="bg-surface-card p-6 rounded-3xl border-4 border-accent-dare shadow-solid-sm cursor-pointer flex items-center gap-4 group"
+              >
+                <div className="w-14 h-14 rounded-full bg-accent-dare/10 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                  <IconZap className="w-7 h-7 text-accent-dare" />
+                </div>
+                <div className="text-left">
+                  <h3 className="font-display font-black text-xl uppercase tracking-widest">The Polycule</h3>
+                  <p className="font-body text-ink-primary/60 text-sm font-medium">3-4 players. Group dynamics, compersion, and multi-target tension.</p>
+                </div>
+              </motion.div>
+            </div>
+          </div>
+        )}
+
+        {step === 'vibe' && (
+          <div className="flex-1 w-full flex flex-col items-center justify-center pt-8 pb-4">
+            <h2 className="text-3xl sm:text-4xl font-display font-black uppercase tracking-widest mb-6 text-center">Set the Vibe</h2>
+            
+            <div className="flex flex-col gap-4 w-full max-w-lg">
+              <motion.div 
+                whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}
+                onClick={() => { 
+                  if (intent === 'couples') setSelectedDecks(['first_date']);
+                  if (intent === 'poly') setSelectedDecks(['polyamory']); // In poly, first date just uses standard poly without after dark
+                  setStep('rules'); 
+                }}
+                className="bg-surface-card p-6 rounded-3xl border-4 border-accent-consensus shadow-solid-sm cursor-pointer flex items-center gap-4 group"
+              >
+                <div className="w-14 h-14 rounded-full bg-accent-consensus/10 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                  <IconSpark className="w-7 h-7 text-accent-consensus" />
+                </div>
+                <div className="text-left">
+                  <h3 className="font-display font-black text-xl uppercase tracking-widest">First Date</h3>
+                  <p className="font-body text-ink-primary/60 text-sm font-medium">Light, fun, breaking the ice safely.</p>
+                </div>
+              </motion.div>
+
+              <motion.div 
+                whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}
+                onClick={() => { 
+                  if (intent === 'couples') setSelectedDecks(['couples', 'after_dark']);
+                  if (intent === 'poly') setSelectedDecks(['polyamory', 'after_dark']);
+                  setStep('rules'); 
+                }}
+                className="bg-surface-card p-6 rounded-3xl border-4 border-accent-dare shadow-solid-sm cursor-pointer flex items-center gap-4 group"
+              >
+                <div className="w-14 h-14 rounded-full bg-accent-dare/10 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                  <IconFlame className="w-7 h-7 text-accent-dare" />
+                </div>
+                <div className="text-left">
+                  <h3 className="font-display font-black text-xl uppercase tracking-widest">After Dark</h3>
+                  <p className="font-body text-ink-primary/60 text-sm font-medium">Intense, NSFW, high heat and deep vulnerability.</p>
+                </div>
+              </motion.div>
             </div>
           </div>
         )}
@@ -138,6 +202,20 @@ export default function LobbyView() {
           <div className="flex-1 flex flex-col justify-center px-6 sm:px-8 max-w-2xl mx-auto w-full pt-4 pb-2">
             <h2 className="text-4xl sm:text-5xl font-display font-black uppercase tracking-widest mb-2">House Rules</h2>
             <p className="font-body text-ink-primary/70 mb-6 sm:mb-8 font-medium">Customize the chaos, or just play vanilla.</p>
+            
+            {isHostless && (
+              <div className="flex flex-col gap-2 mb-6">
+                <label className="font-meta font-bold text-xs uppercase tracking-widest text-ink-primary/50">Your Display Name</label>
+                <input 
+                  type="text" 
+                  maxLength={12}
+                  value={hostPlayerName}
+                  onChange={(e) => setHostPlayerName(e.target.value)}
+                  placeholder="e.g. Maverick"
+                  className="w-full bg-surface-card text-ink-primary text-xl font-body p-4 rounded-2xl border-4 border-ink-primary/10 focus:border-accent-consensus outline-none transition-colors shadow-solid-sm"
+                />
+              </div>
+            )}
             
             <div className="flex flex-col gap-4 mb-8">
                <div onClick={() => setChaosMode(!chaosMode)} className={`p-5 rounded-2xl border-2 cursor-pointer transition-all flex items-center justify-between shadow-solid-sm ${chaosMode ? 'bg-accent-dare-fill border-ink-primary text-ink-dark' : 'bg-surface-card border-ink-primary/20 text-ink-primary'}`}>
@@ -167,9 +245,10 @@ export default function LobbyView() {
                   setHostGameState((prev: any) => prev ? { ...prev, settings: { chaosMode, chillMode } } : prev);
                   handleStart();
                 }}
-                className="w-full py-5 bg-ink-primary text-canvas font-display font-black text-xl uppercase tracking-widest rounded-2xl shadow-xl hover:-translate-y-1 transition-all active:scale-95"
+                disabled={isHostless && !hostPlayerName.trim()}
+                className="w-full py-5 bg-ink-primary text-canvas disabled:opacity-50 font-display font-black text-xl uppercase tracking-widest rounded-2xl shadow-xl hover:-translate-y-1 transition-all active:scale-95"
               >
-                {chaosMode || chillMode ? 'Launch Custom Game' : 'Play Default Rules'}
+                {isHostless && !hostPlayerName.trim() ? 'Enter Name to Launch' : (chaosMode || chillMode ? 'Launch Custom Game' : 'Play Default Rules')}
               </button>
             </div>
           </div>
