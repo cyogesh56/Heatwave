@@ -52,6 +52,13 @@ export class GameEngine {
       // Force the absolute most intense climax card from the highest available phase!
       searchPhase = this.maxPhaseAvailable;
       let finaleCards = this.allCards.filter(c => c.phase === searchPhase && !playedIds.includes(c.id));
+      finaleCards = finaleCards.filter(c => {
+        const requiresC = c.prompt.includes('[Player C]') || (c.options && c.options.some(o => o.includes('[Player C]')));
+        const requiresD = c.prompt.includes('[Player D]') || (c.options && c.options.some(o => o.includes('[Player D]')));
+        if (requiresC && activePlayers.length < 3) return false;
+        if (requiresD && activePlayers.length < 4) return false;
+        return true;
+      });
       
       // Try to find a 'dare' (physical challenge) in the max phase, which is always the most intense
       const dareCards = finaleCards.filter(c => c.type === 'dare');
@@ -68,6 +75,21 @@ export class GameEngine {
     if (!isFinale || availableCards.length === 0) {
       while (searchPhase <= 4) {
         availableCards = this.allCards.filter(c => c.phase === searchPhase && !playedIds.includes(c.id));
+        availableCards = availableCards.filter(c => {
+          const requiresC = c.prompt.includes('[Player C]') || (c.options && c.options.some(o => o.includes('[Player C]')));
+          const requiresD = c.prompt.includes('[Player D]') || (c.options && c.options.some(o => o.includes('[Player D]')));
+          if (requiresC && activePlayers.length < 3) return false;
+          if (requiresD && activePlayers.length < 4) return false;
+          return true;
+        });
+        // Filter out cards that require more players than we have in the room
+        availableCards = availableCards.filter(c => {
+          const requiresC = c.prompt.includes('[Player C]') || (c.options && c.options.some(o => o.includes('[Player C]')));
+          const requiresD = c.prompt.includes('[Player D]') || (c.options && c.options.some(o => o.includes('[Player D]')));
+          if (requiresC && activePlayers.length < 3) return false;
+          if (requiresD && activePlayers.length < 4) return false;
+          return true;
+        });
         if (targetType) {
            availableCards = availableCards.filter(c => c.type === targetType);
         }
