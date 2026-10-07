@@ -24,7 +24,7 @@ The game forces players out of their comfort zones through escalating phases:
 ## 🕹️ How to Play
 
 1. **Host a Room:** One person navigates to [handsy.site](https://handsy.site) on a large screen (iPad/TV/Laptop) and clicks **Host Game**.
-2. **Select Decks:** The Host selects which expansion decks to include (e.g., *The Base Journey*, *First Date*, *Just Friends*).
+2. **Select Decks:** The Host selects which expansion decks to include (e.g., *Couples*, *First Date*, *Just Friends*).
 3. **Join In:** Other players scan the QR code on the Host screen or navigate to [handsy.site](https://handsy.site), enter the 6-letter room code, and type their name.
 4. **Play:** The Host screen displays the prompts, timers, and game state. Players use their phones as private controllers to cast votes, trigger powers (like Deflect or Killswitch), and complete dares!
 
@@ -91,7 +91,7 @@ All cards are driven by JSON payloads. You can easily add, remove, or modify car
   "phase": 1,
   "type": "kahoot",
   "prompt": "What is [Player A]'s secret talent? [Player B] answers.",
-  "decks": ["base"],
+  "decks": ["couples"],
   "options": ["Juggling", "Singing", "Coding", "Sleeping"]
 }
 \`\`\`

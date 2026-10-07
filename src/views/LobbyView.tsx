@@ -9,7 +9,7 @@ import { UniversalHeader } from '../components/ui/UniversalHeader';
 import { GamePopup } from '../components/ui/GamePopup';
 
 const DECKS = [
-  { id: 'base', name: 'The Base Journey', desc: 'The classic experience. Deep questions, absurd dares, and high-tension consensus.' },
+  { id: 'couples', name: 'Couples', desc: 'The classic experience. Deep questions, absurd dares, and high-tension consensus.' },
   { id: 'new_friends', name: 'New Friends', desc: 'Icebreakers and low-stakes petty debates. Perfect for acquaintances.' },
   { id: 'first_date', name: 'First Date', desc: 'Innocent touch barriers and getting to know each other. No heavy baggage.' },
   { id: 'polyamory', name: 'The Polycule', desc: 'Group dynamics, compersion, and multi-person physical dares.' },
@@ -19,7 +19,7 @@ const DECKS = [
 export default function LobbyView() {
   const navigate = useNavigate();
   const { hostServer, hostGameState, setHostGameState, startGame, isHost } = useGame();
-  const [selectedDecks, setSelectedDecks] = useState<string[]>(['base']);
+  const [selectedDecks, setSelectedDecks] = useState<string[]>(['couples']);
   const [step, setStep] = useState<'connect' | 'decks' | 'rules'>('connect');
   const [popupMessage, setPopupMessage] = useState('');
   const [chaosMode, setChaosMode] = useState(false);
