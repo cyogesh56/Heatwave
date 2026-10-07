@@ -10,7 +10,7 @@ export default function Landing() {
   const navigate = useNavigate();
   const { initClient, initHost } = useGame();
   
-  const [step, setStep] = useState<'hero' | 'setup' | 'join'>('hero');
+  const [step, setStep] = useState<'hero' | 'setup' | 'join'>(new URLSearchParams(window.location.search).get('room') ? 'join' : 'hero');
   const searchParams = new URLSearchParams(window.location.search);
   const [roomCode, setRoomCode] = useState(searchParams.get('room') || '');
   const [playerName, setPlayerName] = useState('');
