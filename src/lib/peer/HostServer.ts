@@ -37,7 +37,7 @@ export class HostServer {
     return new Promise<string>((resolve, reject) => {
       const chars = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789"; let code = ""; for(let i=0; i<6; i++) code += chars.charAt(Math.floor(Math.random() * chars.length)); this.roomCode = code;
       
-      this.channel = supabase.channel(`room-${this.roomCode}`, { config: { presence: { key: 'host' } } });
+      this.channel = supabase.channel(`room-${this.roomCode}`, { config: { broadcast: { self: true }, presence: { key: 'host' } } });
 
       this.channel
         .on('presence', { event: 'sync' }, () => {

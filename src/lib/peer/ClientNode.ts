@@ -25,7 +25,7 @@ export class ClientNode {
     }
 
     return new Promise<void>((resolve, reject) => {
-      this.channel = supabase.channel(`room-${roomCode}`, { config: { presence: { key: this.playerId } } });
+      this.channel = supabase.channel(`room-${roomCode}`, { config: { broadcast: { self: true }, presence: { key: this.playerId } } });
 
       let isResolved = false;
       const connectionTimeout = setTimeout(() => {
