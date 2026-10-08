@@ -127,13 +127,13 @@ export const ControllerView: React.FC = () => {
 
   if (clientState?.uiState === 'ended') {
     return (
-      <div className="min-h-[100dvh] bg-canvas text-ink-primary flex flex-col items-center justify-center p-12 text-center">
+      <div className="min-h-[100dvh] bg-canvas text-ink-primary flex flex-col items-center justify-center p-6 md:p-12 text-center">
         <h1 className="text-4xl md:text-6xl lg:text-8xl font-display font-black text-accent-dare mb-6 uppercase tracking-widest">Game Over</h1>
-        <p className="text-xl md:text-2xl font-body text-ink-primary/70 mb-12">The decks have run dry. The heat has subsided.</p>
+        <p className="text-lg sm:text-xl md:text-2xl font-body text-ink-primary/70 mb-12">The decks have run dry. The heat has subsided.</p>
 
         <button 
           onClick={() => window.location.href = '/'} 
-          className="px-12 py-6 bg-ink-primary text-canvas font-display font-black text-2xl uppercase tracking-widest rounded-[2rem] shadow-solid hover:-translate-y-2 transition-all active:translate-y-[4px] active:shadow-none"
+          className="px-6 py-4 md:px-12 md:py-6 bg-ink-primary text-canvas font-display font-black text-xl md:text-2xl uppercase tracking-widest rounded-[2rem] shadow-solid hover:-translate-y-2 transition-all active:translate-y-[4px] active:shadow-none"
         >
           Return to Lobby
         </button>
@@ -152,14 +152,14 @@ export const ControllerView: React.FC = () => {
   if (!clientState || !clientState.currentCard) {
     const isReconnecting = !clientNode;
     return (
-      <div className="min-h-[100dvh] bg-canvas text-ink-primary flex flex-col items-center justify-center p-8 text-center relative overflow-hidden">
+      <div className="min-h-[100dvh] bg-canvas text-ink-primary flex flex-col items-center justify-center p-6 md:p-8 text-center relative overflow-hidden">
         <GamePopup isOpen={!!popupMessage} title="Disconnected" message={popupMessage} confirmText="Return to Lobby" onConfirm={() => { localStorage.removeItem('handsy_room'); localStorage.removeItem('handsy_name'); window.location.href = '/'; }} accent="dare" />
         <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/diagonal-stripes.png')] opacity-5"></div>
         <div className="w-16 h-16 bg-surface-card rounded-2xl shadow-solid flex items-center justify-center border-4 border-ink-primary animate-bounce mb-8">
           <IconZap className="w-8 h-8 text-accent-truth" />
         </div>
         <h1 className="text-2xl md:text-3xl lg:text-4xl font-display font-black uppercase tracking-widest">{isReconnecting ? "Reconnecting..." : "You're In."}</h1>
-        <p className="font-meta text-ink-primary/50 mt-4 text-sm uppercase tracking-widest font-bold">{isReconnecting ? "Jacking back into the session..." : "Look at the big screen. Wait for the Host to start."}</p>
+        <p className="font-meta text-ink-primary/50 mt-4 text-sm md:text-base uppercase tracking-widest font-bold">{isReconnecting ? "Jacking back into the session..." : "Look at the big screen. Wait for the Host to start."}</p>
       </div>
     );
   }
@@ -172,12 +172,12 @@ export const ControllerView: React.FC = () => {
   
   if (connectedPlayers.length < 2 && disconnectedPlayers.length > 0) {
      return (
-        <div className={`min-h-[100dvh] w-full flex flex-col items-center justify-center ${clientState.interstitial?.color || 'bg-accent-dare'} text-canvas p-8 text-center`}>
+        <div className={`min-h-[100dvh] w-full flex flex-col items-center justify-center ${clientState.interstitial?.color || 'bg-accent-dare'} text-canvas p-6 md:p-8 text-center`}>
            <h1 className="text-2xl md:text-3xl lg:text-4xl font-display font-black uppercase tracking-widest mb-4">Game Paused</h1>
-           <p className="text-xl font-body opacity-90 mb-12">
+           <p className="text-lg sm:text-xl font-body opacity-90 mb-12">
               {disconnectedPlayers.map((p: any) => p.name).join(', ')} disconnected.<br/>Waiting for them to reconnect...
            </p>
-           <button onClick={() => { setIsLeaving(true); window.location.href = '/'; }} className="px-8 py-4 bg-canvas text-accent-dare font-display font-black text-xl uppercase tracking-widest rounded-2xl shadow-solid active:translate-y-[4px] active:shadow-none transition-all">
+           <button onClick={() => { setIsLeaving(true); window.location.href = '/'; }} className="px-6 py-4 md:px-8 bg-canvas text-accent-dare font-display font-black text-lg md:text-xl uppercase tracking-widest rounded-2xl shadow-solid active:translate-y-[4px] active:shadow-none transition-all">
              {isLeaving ? 'LEAVING...' : 'Leave Game'}
            </button>
         </div>
@@ -192,10 +192,10 @@ export const ControllerView: React.FC = () => {
          animate={{ opacity: 1, scale: 1 }}
          exit={{ opacity: 0, scale: 1.05 }}
          transition={{ type: 'spring', stiffness: 200, damping: 20 }}
-         className={`min-h-[100dvh] w-full flex flex-col items-center justify-center ${clientState.interstitial.color || 'bg-accent-dare'} text-canvas p-8 text-center`}
+         className={`min-h-[100dvh] w-full flex flex-col items-center justify-center ${clientState.interstitial.color || 'bg-accent-dare'} text-canvas p-6 md:p-8 text-center`}
        >
            <h1 className="text-2xl md:text-3xl lg:text-4xl font-display font-black uppercase tracking-widest mb-4">{clientState.interstitial.title}</h1>
-           <p className="text-xl font-body opacity-90">{clientState.interstitial.subtitle}</p>
+           <p className="text-lg sm:text-xl font-body opacity-90">{clientState.interstitial.subtitle}</p>
         </motion.div>
      );
   }

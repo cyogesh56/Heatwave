@@ -17,7 +17,7 @@ export const TimerBadge: React.FC<TimerBadgeProps> = ({ timeLeft, totalTime = 60
 
   return (
     <div className={`
-      inline-flex items-center px-3 py-1.5 rounded-lg border-2 font-meta text-lg tracking-wider
+      inline-flex items-center px-4 py-2 rounded-xl border-4 font-meta text-2xl md:text-3xl tracking-wider
       ${isCritical ? 'bg-accent-wrong/10 border-accent-wrong text-accent-wrong animate-pulse' : 
         isWarning ? 'bg-accent-dare/10 border-accent-dare text-accent-dare' : 
         'bg-ink-primary border-ink-primary text-canvas'}

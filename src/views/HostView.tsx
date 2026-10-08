@@ -549,14 +549,14 @@ const HostViewInner: React.FC = () => {
   
   if (connectedPlayers.length < 2 && disconnectedPlayers.length > 0) {
      return (
-        <div className={`min-h-[100dvh] w-full flex flex-col items-center justify-center ${hostGameState.interstitial?.color || 'bg-accent-dare'} text-canvas p-12 text-center`}
+         <div className={`min-h-[100dvh] w-full flex flex-col items-center justify-center ${hostGameState.interstitial?.color || 'bg-accent-dare'} text-canvas p-6 md:p-12 text-center`}
       >
         <HostAlertOverlay uiAlert={uiAlert} />
-           <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-black uppercase tracking-widest mb-6">Game Paused</h1>
-           <p className="text-3xl font-body opacity-90 mb-12">
+           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-black uppercase tracking-widest mb-6">Game Paused</h1>
+           <p className="text-xl sm:text-2xl md:text-3xl font-body opacity-90 mb-12">
               {disconnectedPlayers.map((p: any) => p.name).join(', ')} disconnected.<br/>Waiting for them to reconnect...
            </p>
-           <button onClick={() => { setIsLeaving(true); window.location.href = '/'; }} className="px-12 py-6 bg-canvas text-accent-dare font-display font-black text-2xl uppercase tracking-widest rounded-2xl shadow-solid active:translate-y-[4px] active:shadow-none hover:-translate-y-1 transition-all">
+           <button onClick={() => { setIsLeaving(true); window.location.href = '/'; }} className="px-6 py-4 md:px-12 md:py-6 bg-canvas text-accent-dare font-display font-black text-xl md:text-2xl uppercase tracking-widest rounded-2xl shadow-solid active:translate-y-[4px] active:shadow-none hover:-translate-y-1 transition-all">
              {isLeaving ? 'RESTARTING...' : 'Restart Game'}
            </button>
         </div>
@@ -567,13 +567,13 @@ const HostViewInner: React.FC = () => {
 
   if (hostGameState.uiState === 'ended') {
     return (
-      <div className="min-h-[100dvh] bg-canvas text-ink-primary flex flex-col items-center justify-center p-12 text-center">
+      <div className="min-h-[100dvh] bg-canvas text-ink-primary flex flex-col items-center justify-center p-6 md:p-12 text-center">
         <h1 className="text-4xl md:text-6xl lg:text-8xl font-display font-black text-accent-dare mb-6 uppercase tracking-widest">Game Over</h1>
-        <p className="text-xl md:text-2xl font-body text-ink-primary/70 mb-12">The decks have run dry. The heat has subsided.</p>
+        <p className="text-lg sm:text-xl md:text-2xl font-body text-ink-primary/70 mb-12">The decks have run dry. The heat has subsided.</p>
 
         <button 
           onClick={() => window.location.href = '/'} 
-          className="px-12 py-6 bg-ink-primary text-canvas font-display font-black text-2xl uppercase tracking-widest rounded-[2rem] shadow-solid hover:-translate-y-2 transition-all active:translate-y-[4px] active:shadow-none"
+          className="px-6 py-4 md:px-12 md:py-6 bg-ink-primary text-canvas font-display font-black text-xl md:text-2xl uppercase tracking-widest rounded-[2rem] shadow-solid hover:-translate-y-2 transition-all active:translate-y-[4px] active:shadow-none"
         >
           Return to Lobby
         </button>
@@ -588,18 +588,18 @@ const HostViewInner: React.FC = () => {
         animate={{ opacity: 1, scale: 1 }}
         exit={{ opacity: 0, scale: 1.1 }}
         transition={{ type: 'spring', stiffness: 200, damping: 20 }}
-        className={`min-h-[100dvh] w-full flex flex-col items-center justify-center ${hostGameState.interstitial?.color || 'bg-accent-dare'} text-canvas p-12 text-center`}
+        className={`min-h-[100dvh] w-full flex flex-col items-center justify-center ${hostGameState.interstitial?.color || 'bg-accent-dare'} text-canvas p-6 md:p-12 text-center`}
         
       >
         
            
-           {hostGameState.interstitial?.icon === 'IconZap' && <IconZap className="w-24 h-24 mb-6 opacity-80" />}
-           {hostGameState.interstitial?.icon === 'IconFlame' && <IconFlame className="w-24 h-24 mb-6 opacity-80" />}
-           {hostGameState.interstitial?.icon === 'IconScale' && <IconScale className="w-24 h-24 mb-6 opacity-80" />}
-           {hostGameState.interstitial?.icon === 'IconEye' && <IconEye className="w-24 h-24 mb-6 opacity-80" />}
-           <h1 className="text-4xl md:text-6xl lg:text-8xl font-display font-black uppercase tracking-widest mb-6">{hostGameState.interstitial?.title}</h1>
+           {hostGameState.interstitial?.icon === 'IconZap' && <IconZap className="w-16 h-16 md:w-24 md:h-24 mb-6 opacity-80" />}
+           {hostGameState.interstitial?.icon === 'IconFlame' && <IconFlame className="w-16 h-16 md:w-24 md:h-24 mb-6 opacity-80" />}
+           {hostGameState.interstitial?.icon === 'IconScale' && <IconScale className="w-16 h-16 md:w-24 md:h-24 mb-6 opacity-80" />}
+           {hostGameState.interstitial?.icon === 'IconEye' && <IconEye className="w-16 h-16 md:w-24 md:h-24 mb-6 opacity-80" />}
+           <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-8xl font-display font-black uppercase tracking-widest mb-6">{hostGameState.interstitial?.title}</h1>
 
-           <p className="text-xl md:text-3xl lg:text-5xl font-body opacity-90">{hostGameState.interstitial?.subtitle}</p>
+           <p className="text-lg sm:text-xl md:text-3xl lg:text-5xl font-body opacity-90">{hostGameState.interstitial?.subtitle}</p>
         
       </motion.div>
      );
@@ -663,7 +663,7 @@ const HostViewInner: React.FC = () => {
              'Consensus'} ({totalVotes} votes)
           </h3>
           {hostGameState?.timers?.active && (
-            <div className="scale-150 transform origin-left md:origin-center">
+            <div className="shrink-0 mx-auto sm:mx-0">
               <TimerBadge timeLeft={timeLeft} />
             </div>
           )}
@@ -736,7 +736,7 @@ const HostViewInner: React.FC = () => {
         }
       />
 
-      <main className="flex-1 flex flex-col lg:flex-row items-center justify-center p-6 pb-32 lg:p-12 gap-4 sm:gap-8 lg:gap-16 relative z-0 w-full max-w-[1600px] mx-auto overflow-visible">
+      <main className="flex-1 flex flex-col lg:flex-row items-center justify-center p-6 pb-48 lg:p-12 gap-4 sm:gap-8 lg:gap-16 relative z-0 w-full max-w-[1600px] mx-auto overflow-visible">
         {/* Left Side: Card */}
         <div className={`relative w-full lg:w-1/2 items-center justify-center shrink-0 ${showMobileResults ? "hidden lg:flex" : "flex"}`}>
           <div className="w-full max-w-md lg:max-w-xl aspect-[4/3] relative">
@@ -765,7 +765,7 @@ const HostViewInner: React.FC = () => {
         </div>
       
         {/* Mobile Toggle Button */}
-        <div className="lg:hidden fixed bottom-24 left-1/2 -translate-x-1/2 z-50">
+        <div className="lg:hidden fixed bottom-36 left-1/2 -translate-x-1/2 z-50">
            <button onClick={() => setShowMobileResults(!showMobileResults)} className="px-8 py-4 bg-ink-primary text-canvas rounded-full font-meta font-bold uppercase tracking-widest shadow-2xl whitespace-nowrap active:scale-95 transition-transform">
              {showMobileResults ? 'View Question' : 'View Live Votes'}
            </button>
