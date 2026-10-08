@@ -5325,15 +5325,6 @@
     ]
   },
   {
-    "id": "card_dark_002",
-    "phase": 3,
-    "type": "dare",
-    "prompt": "[Player B], blindfold [Player A] for the next [2/3/4] rounds.",
-    "decks": [
-      "after_dark"
-    ]
-  },
-  {
     "id": "card_dark_003",
     "phase": 3,
     "type": "truth",
@@ -5383,15 +5374,6 @@
     "phase": 3,
     "type": "truth",
     "prompt": "[Player A], have you ever wanted to be tied up? If so, by who?",
-    "decks": [
-      "after_dark"
-    ]
-  },
-  {
-    "id": "card_dark_009",
-    "phase": 3,
-    "type": "dare",
-    "prompt": "[Player B], you are not allowed to use your hands for the next [2/3/4] turns. Let [Player A] take control.",
     "decks": [
       "after_dark"
     ]
@@ -5676,15 +5658,6 @@
     ]
   },
   {
-    "id": "card_dark_041",
-    "phase": 3,
-    "type": "dare",
-    "prompt": "[Player B], you must keep your eyes closed for the next [2/3/4] turns while [Player A] guides you.",
-    "decks": [
-      "after_dark"
-    ]
-  },
-  {
     "id": "card_dark_042",
     "phase": 3,
     "type": "truth",
@@ -5770,15 +5743,6 @@
     "phase": 4,
     "type": "truth",
     "prompt": "[Player A], what is the deepest darkest fantasy you've kept hidden?",
-    "decks": [
-      "after_dark"
-    ]
-  },
-  {
-    "id": "card_dark_052",
-    "phase": 4,
-    "type": "dare",
-    "prompt": "[Player B], dominate [Player A] for the next [2/3/4] rounds.",
     "decks": [
       "after_dark"
     ]

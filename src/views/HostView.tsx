@@ -51,6 +51,11 @@ const HostViewInner: React.FC = () => {
 
   const timeLeft = useSyncTimer(hostGameState?.timers?.endsAt);
   
+  const [manualTimeTotal, setManualTimeTotal] = useState(0);
+  const [manualTimeLeft, setManualTimeLeft] = useState(0);
+  const [manualTimerActive, setManualTimerActive] = useState(false);
+  const manualTimerRef = React.useRef<ReturnType<typeof setTimeout> | null>(null);
+  
   const handlePower = (power: string) => {
     clientNode?.send({ type: 'power', power });
     if (navigator.vibrate) navigator.vibrate([15, 30, 15]);
@@ -82,6 +87,42 @@ const HostViewInner: React.FC = () => {
   }, [hostServer]);
   const hostGameStateRef = React.useRef(hostGameState);
   React.useEffect(() => { hostGameStateRef.current = hostGameState; }, [hostGameState]);
+
+  useEffect(() => {
+    setManualTimerActive(false);
+    if (manualTimerRef.current) clearInterval(manualTimerRef.current);
+    
+    if (hostGameState?.currentCard?.parsedPrompt) {
+      const prompt = hostGameState.currentCard.parsedPrompt;
+      const secMatch = prompt.match(/\b(\d+)\s+seconds?\b/i);
+      const minMatch = prompt.match(/\b(\d+)\s+minutes?\b/i);
+      let t = 0;
+      if (secMatch) t = parseInt(secMatch[1], 10);
+      else if (minMatch) t = parseInt(minMatch[1], 10) * 60;
+      
+      setManualTimeTotal(t);
+      setManualTimeLeft(t);
+    }
+  }, [hostGameState?.currentCard?.card?.id]);
+
+  useEffect(() => {
+    if (manualTimerActive && manualTimeLeft > 0) {
+      manualTimerRef.current = setInterval(() => {
+        setManualTimeLeft(prev => {
+          if (prev <= 1) {
+            setManualTimerActive(false);
+            if (manualTimerRef.current) clearInterval(manualTimerRef.current);
+            soundEngine.playTimerEnd();
+            return 0;
+          }
+          return prev - 1;
+        });
+      }, 1000);
+    } else {
+      if (manualTimerRef.current) clearInterval(manualTimerRef.current);
+    }
+    return () => { if (manualTimerRef.current) clearInterval(manualTimerRef.current); };
+  }, [manualTimerActive, manualTimeLeft]);
 
   useEffect(() => {
     if (!gameEngine || !hostGameState) return;
@@ -588,6 +629,24 @@ const HostViewInner: React.FC = () => {
     if (!['kahoot', 'wrong_answers', 'consensus', 'vibe_poll', 'fill_blank'].includes(card.type)) {
       return (
         <div className="flex flex-col gap-8 w-full max-w-md items-center mt-0">
+          
+          {manualTimeTotal > 0 && (
+            <div className="w-full bg-surface-card rounded-3xl p-6 border-4 border-ink-primary/20 shadow-solid flex flex-col items-center gap-4">
+              <h3 className="font-display font-black text-xl uppercase tracking-widest text-ink-primary/70">Manual Timer</h3>
+              <div className="text-5xl font-meta font-bold text-accent-dare mb-2">
+                {Math.floor(manualTimeLeft / 60)}:{(manualTimeLeft % 60).toString().padStart(2, '0')}
+              </div>
+              <div className="flex gap-4 w-full">
+                {manualTimeLeft === 0 ? (
+                  <button onClick={() => { setManualTimeLeft(manualTimeTotal); setManualTimerActive(true); }} className="flex-1 py-3 bg-ink-primary text-canvas rounded-xl font-display font-bold uppercase tracking-widest hover:bg-ink-primary/80">Restart</button>
+                ) : manualTimerActive ? (
+                  <button onClick={() => setManualTimerActive(false)} className="flex-1 py-3 border-4 border-ink-primary text-ink-primary rounded-xl font-display font-bold uppercase tracking-widest hover:bg-ink-primary/5">Pause</button>
+                ) : (
+                  <button onClick={() => setManualTimerActive(true)} className="flex-1 py-3 bg-accent-dare text-canvas rounded-xl font-display font-bold uppercase tracking-widest hover:bg-accent-dare/90">Start</button>
+                )}
+              </div>
+            </div>
+          )}
 
           {hostGameState?.revealCountdown ? (
      <div className="w-full py-6 bg-accent-truth text-canvas font-display font-black text-2xl uppercase tracking-widest rounded-3xl shadow-solid text-center animate-pulse">
