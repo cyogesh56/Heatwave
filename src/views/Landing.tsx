@@ -36,10 +36,11 @@ export default function Landing() {
     }
   };
 
-  const [isHosting, setIsHosting] = useState(false);
+  const [hostingMode, setHostingMode] = useState<'tv' | 'mobile' | null>(null);
 
-  const handleHost = async () => {
-    setIsHosting(true);
+  const handleHost = async (mode: 'tv' | 'mobile') => {
+    setHostingMode(mode);
+    sessionStorage.setItem('hostlessMode', mode === 'mobile' ? 'true' : 'false');
     await initHost();
     navigate('/lobby');
   };
@@ -155,27 +156,27 @@ export default function Landing() {
            <div className="flex-1 flex flex-col gap-4">
               <h3 className="font-meta uppercase tracking-widest text-ink-primary/50 font-bold text-sm mb-2 text-center md:text-left">Create a Room</h3>
               <div 
-                onClick={() => { if(!isHosting) { sessionStorage.setItem('hostlessMode', 'false'); handleHost(); } }}
-                className={`bg-surface-card border-4 border-accent-truth rounded-3xl p-6 flex items-center text-left ${isHosting ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer hover:-translate-y-1 focus:outline-none focus:ring-4 focus:ring-accent-truth transition-all shadow-solid-sm active:translate-y-[2px] active:shadow-none'} group`}  tabIndex={0} 
+                onClick={() => { if(!hostingMode) handleHost('tv'); }}
+                className={`bg-surface-card border-4 border-accent-truth rounded-3xl p-6 flex items-center text-left ${hostingMode ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer hover:-translate-y-1 focus:outline-none focus:ring-4 focus:ring-accent-truth transition-all shadow-solid-sm active:translate-y-[2px] active:shadow-none'} group`}  tabIndex={0} 
               >
                 <div className="w-14 h-14 bg-accent-truth/10 rounded-full flex items-center justify-center mr-4 group-hover:scale-110 transition-transform shrink-0">
                   <svg className="w-7 h-7 text-accent-truth" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="2" y="7" width="20" height="15" rx="2" ry="2"></rect><polyline points="17 2 12 7 7 2"></polyline></svg>
                 </div>
                 <div>
-                  <h3 className="text-xl font-display font-black mb-1">{isHosting ? 'STARTING...' : 'TV Host'}</h3>
+                  <h3 className="text-xl font-display font-black mb-1">{hostingMode === 'tv' ? 'STARTING...' : 'TV Host'}</h3>
                   <p className="font-body text-sm text-ink-primary/60 font-medium leading-snug">Cast to a big screen. TV is the source of truth.</p>
                 </div>
               </div>
               
               <div 
-                onClick={() => { if(!isHosting) { sessionStorage.setItem('hostlessMode', 'true'); handleHost(); } }}
-                className={`bg-surface-card border-4 border-accent-dare rounded-3xl p-6 flex items-center text-left ${isHosting ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer hover:-translate-y-1 focus:outline-none focus:ring-4 focus:ring-accent-dare transition-all shadow-solid-sm active:translate-y-[2px] active:shadow-none'} group`}  tabIndex={0} 
+                onClick={() => { if(!hostingMode) handleHost('mobile'); }}
+                className={`bg-surface-card border-4 border-accent-dare rounded-3xl p-6 flex items-center text-left ${hostingMode ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer hover:-translate-y-1 focus:outline-none focus:ring-4 focus:ring-accent-dare transition-all shadow-solid-sm active:translate-y-[2px] active:shadow-none'} group`}  tabIndex={0} 
               >
                 <div className="w-14 h-14 bg-accent-dare/10 rounded-full flex items-center justify-center mr-4 group-hover:scale-110 transition-transform shrink-0">
                   <IconOnTheGo className="w-7 h-7 text-accent-dare" />
                 </div>
                 <div>
-                  <h3 className="text-xl font-display font-black mb-1">{isHosting ? 'STARTING...' : 'On The Go'}</h3>
+                  <h3 className="text-xl font-display font-black mb-1">{hostingMode === 'mobile' ? 'STARTING...' : 'On The Go'}</h3>
                   <p className="font-body text-sm text-ink-primary/60 font-medium leading-snug">Host and play directly from this phone.</p>
                 </div>
               </div>

@@ -497,11 +497,12 @@ const HostViewInner: React.FC = () => {
 
 
 
+  const [isLeaving, setIsLeaving] = useState(false);
+
   if (!hostGameState || !hostGameState.currentCard) {
     return <div className="min-h-[100dvh] bg-canvas text-ink-primary flex items-center justify-center font-display text-2xl md:text-3xl lg:text-4xl">Loading Deck...</div>;
   }
 
-  const [isLeaving, setIsLeaving] = useState(false);
   const connectedPlayers = Object.values(hostGameState.players).filter((p: any) => p.isConnected !== false);
   const disconnectedPlayers = Object.values(hostGameState.players).filter((p: any) => p.isConnected === false);
   

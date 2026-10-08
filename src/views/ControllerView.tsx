@@ -52,6 +52,7 @@ export const ControllerView: React.FC = () => {
   const [deflectTarget, setDeflectTarget] = useState<string | null>(null);
   const [selectedChoice, setSelectedChoice] = useState<string | null>(null);
   const [popupMessage, setPopupMessage] = useState('');
+  const [isLeaving, setIsLeaving] = useState(false);
   const timeLeft = useSyncTimer(clientState?.timers?.endsAt);
 
   React.useEffect(() => {
@@ -161,7 +162,7 @@ export const ControllerView: React.FC = () => {
 
   
 
-  const [isLeaving, setIsLeaving] = React.useState(false);
+
   const connectedPlayers = Object.values(clientState.players || {}).filter((p: any) => p.isConnected !== false);
   const disconnectedPlayers = Object.values(clientState.players || {}).filter((p: any) => p.isConnected === false);
   
