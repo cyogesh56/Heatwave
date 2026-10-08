@@ -52,6 +52,20 @@ export const GameProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
             if (prev.uiState !== 'waiting' && !prev.players[playerId]) return prev;
             
             
+            // Deduplicate name
+            let finalName = action.name.trim();
+            const existingNames = Object.entries(prev.players)
+              .filter(([id]) => id !== playerId)
+              .map(([, p]) => p.name.toLowerCase());
+              
+            if (existingNames.includes(finalName.toLowerCase())) {
+              let counter = 2;
+              while (existingNames.includes(`${finalName.toLowerCase()} ${counter}`)) {
+                 counter++;
+              }
+              finalName = `${finalName} ${counter}`;
+            }
+
             // Preserve inventory on reconnect
             const existingInv = prev.players[playerId]?.inventory || { deflect: 0, killswitch: 0, override: 0 };
             
@@ -59,7 +73,7 @@ export const GameProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
               ...prev,
               players: {
                 ...prev.players,
-                [playerId]: { name: action.name, isReady: false, inventory: existingInv, isConnected: true }
+                [playerId]: { name: finalName, isReady: false, inventory: existingInv, isConnected: true }
               }
             };
 
