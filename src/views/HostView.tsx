@@ -4,7 +4,7 @@ class ErrorBoundary extends React.Component<any, any> { constructor(props: any) 
 import { useGame } from '../context/GameContext';
 import { PlayingCard } from '../components/ui/PlayingCard';
 import { PowerDock } from '../components/ui/PowerDock';
-import { IconZap, IconFlame, IconScale, IconEye } from '../components/icons';
+import { IconZap, IconFlame, IconScale, IconEye, IconTV, IconController } from '../components/icons';
 import { motion, AnimatePresence } from 'framer-motion';
 import { UniversalHeader } from '../components/ui/UniversalHeader';
 import { GamePopup } from '../components/ui/GamePopup';
@@ -47,7 +47,7 @@ const HostViewInner: React.FC = () => {
   const [showMobileResults, setShowMobileResults] = useState(false);
   
   const isHostless = sessionStorage.getItem('hostlessMode') === 'true';
-  const [showPlayerControls, setShowPlayerControls] = useState(false);
+  const [showPlayerControls, setShowPlayerControls] = useState(isHostless);
 
   const timeLeft = useSyncTimer(hostGameState?.timers?.endsAt);
   
@@ -570,21 +570,6 @@ const HostViewInner: React.FC = () => {
       <div className="min-h-[100dvh] bg-canvas text-ink-primary flex flex-col items-center justify-center p-12 text-center">
         <h1 className="text-4xl md:text-6xl lg:text-8xl font-display font-black text-accent-dare mb-6 uppercase tracking-widest">Game Over</h1>
         <p className="text-xl md:text-2xl font-body text-ink-primary/70 mb-12">The decks have run dry. The heat has subsided.</p>
-        
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl w-full mb-12">
-          {Object.entries(hostGameState.players || {}).map(([id, p]: any) => (
-             <div key={id} className="bg-surface-card p-6 rounded-3xl border-4 border-ink-primary/10 shadow-solid flex flex-col items-center text-center">
-                <div className="w-16 h-16 rounded-full border-4 border-ink-primary bg-accent-consensus-fill mb-4"></div>
-                <h3 className="font-display font-black text-2xl uppercase tracking-widest">{p.name}</h3>
-                <div className="mt-4 flex gap-4 opacity-70">
-                  <div className="flex flex-col items-center">
-                    <span className="font-meta font-bold text-2xl">{hostGameState.stats?.[id]?.powersUsed || 0}</span>
-                    <span className="font-meta text-xs uppercase tracking-widest">Powers</span>
-                  </div>
-                </div>
-             </div>
-          ))}
-        </div>
 
         <button 
           onClick={() => window.location.href = '/'} 
@@ -855,14 +840,24 @@ const HostViewInner: React.FC = () => {
       {isHostless && showPlayerControls && (
         <div className="fixed inset-0 z-[100000] bg-canvas overflow-y-auto">
           <ControllerView />
-          <button onClick={() => setShowPlayerControls(false)} className="absolute top-6 left-6 z-[100001] bg-ink-primary text-canvas px-4 py-2 rounded-full font-meta text-sm font-bold shadow-xl border-2 border-canvas">Back to TV</button>
         </div>
       )}
 
-      {isHostless && !showPlayerControls && (
-        <button onClick={() => setShowPlayerControls(true)} className="fixed bottom-40 left-1/2 -translate-x-1/2 z-[90] px-8 py-4 bg-accent-dare text-canvas rounded-full font-meta font-bold uppercase tracking-widest shadow-2xl border-2 border-canvas shadow-solid-sm active:translate-y-[2px] whitespace-nowrap">
-          Open Player Controls
-        </button>
+      {isHostless && (
+        <div className="fixed top-2 left-1/2 -translate-x-1/2 z-[100001] bg-surface-card border-2 border-ink-primary/20 rounded-full p-1 flex shadow-lg items-center">
+          <button 
+            onClick={() => setShowPlayerControls(false)} 
+            className={`px-4 py-1.5 rounded-full flex items-center justify-center transition-all ${!showPlayerControls ? 'bg-ink-primary text-canvas shadow-md' : 'text-ink-primary/50'}`}
+          >
+            <IconTV className="w-5 h-5" />
+          </button>
+          <button 
+            onClick={() => setShowPlayerControls(true)} 
+            className={`px-4 py-1.5 rounded-full flex items-center justify-center transition-all ${showPlayerControls ? 'bg-ink-primary text-canvas shadow-md' : 'text-ink-primary/50'}`}
+          >
+            <IconController className="w-5 h-5" />
+          </button>
+        </div>
       )}
     </div>
   </ErrorBoundary>

@@ -127,11 +127,15 @@ export const ControllerView: React.FC = () => {
 
   if (clientState?.uiState === 'ended') {
     return (
-      <div className="min-h-[100dvh] bg-canvas text-ink-primary flex flex-col items-center justify-center p-6 text-center">
-        <h1 className="text-2xl md:text-3xl lg:text-4xl font-display font-black text-accent-dare mb-4 uppercase">Game Over</h1>
-        <p className="font-body text-ink-primary/70 mb-8">The host has ended the game.</p>
-        <button onClick={() => window.location.href = '/'} className="px-8 py-4 bg-surface-card border-4 border-ink-primary/20 text-ink-primary font-display font-black text-xl uppercase tracking-widest rounded-2xl shadow-solid active:translate-y-[4px] active:shadow-none transition-all">
-          Home
+      <div className="min-h-[100dvh] bg-canvas text-ink-primary flex flex-col items-center justify-center p-12 text-center">
+        <h1 className="text-4xl md:text-6xl lg:text-8xl font-display font-black text-accent-dare mb-6 uppercase tracking-widest">Game Over</h1>
+        <p className="text-xl md:text-2xl font-body text-ink-primary/70 mb-12">The decks have run dry. The heat has subsided.</p>
+
+        <button 
+          onClick={() => window.location.href = '/'} 
+          className="px-12 py-6 bg-ink-primary text-canvas font-display font-black text-2xl uppercase tracking-widest rounded-[2rem] shadow-solid hover:-translate-y-2 transition-all active:translate-y-[4px] active:shadow-none"
+        >
+          Return to Lobby
         </button>
       </div>
     );

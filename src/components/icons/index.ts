@@ -16,3 +16,5 @@ export * from './IconPoly';
 export * from './IconArrowLeft';
 export * from './IconDrink';
 export * from './IconMoon';
+export * from './IconTV';
+export * from './IconController';
