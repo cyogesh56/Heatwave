@@ -37,6 +37,7 @@ export default function LobbyView() {
   const connectedPlayers = Object.values(hostGameState?.players || {});
 
   const handleStart = async () => {
+    setIsJoining(true);
     const res = await fetch('/cards.json');
     const allCards: Card[] = await res.json();
     
@@ -46,6 +47,7 @@ export default function LobbyView() {
 
     if (filteredCards.length === 0) {
       setPopupMessage("No cards found for the selected decks! Please select different decks.");
+      setIsJoining(false);
       return;
     }
     
@@ -287,10 +289,10 @@ export default function LobbyView() {
                   return (
                     <button 
                       onClick={handleStart}
-                      disabled={!isReady}
+                      disabled={!isReady || isJoining}
                       className="w-full py-5 bg-accent-consensus text-canvas font-display font-black text-xl uppercase tracking-widest rounded-2xl shadow-solid disabled:opacity-50 disabled:shadow-none hover:-translate-y-1 transition-all active:translate-y-[4px] active:shadow-none"
                     >
-                      {!isReady ? (limitMsg || 'Complete Setup') : 'Start Game'}
+                      {isJoining ? 'STARTING...' : (!isReady ? (limitMsg || 'Complete Setup') : 'Start Game')}
                     </button>
                   );
                 })()}

@@ -10,6 +10,7 @@ import { UniversalHeader } from '../components/ui/UniversalHeader';
 import { GamePopup } from '../components/ui/GamePopup';
 import { TimerBadge } from '../components/ui/TimerBadge';
 import { soundEngine } from '../lib/audio/SoundEngine';
+import { ControllerView } from './ControllerView';
 
 
 
@@ -20,7 +21,7 @@ const HostAlertOverlay = ({ uiAlert }: { uiAlert?: string }) => (
         initial={{ opacity: 0, y: 50, scale: 0.9 }}
         animate={{ opacity: 1, y: 0, scale: 1 }}
         exit={{ opacity: 0, y: -50, scale: 0.9 }}
-        className="fixed top-32 left-1/2 -translate-x-1/2 z-[9999] pointer-events-none w-11/12 max-w-lg"
+        className="fixed top-8 pt-[env(safe-area-inset-top)] left-1/2 -translate-x-1/2 z-[9999] pointer-events-none w-11/12 max-w-lg"
       >
         <div className="bg-surface-card text-ink-primary border-4 border-accent-dare rounded-2xl px-6 py-4 shadow-2xl text-center backdrop-blur-xl">
           <span className="text-sm lg:text-base font-display font-black uppercase tracking-widest leading-snug">
@@ -44,8 +45,10 @@ const HostViewInner: React.FC = () => {
   const [isDeflectSheetOpen, setIsDeflectSheetOpen] = useState(false);
   const [deflectTarget, setDeflectTarget] = useState<string | null>(null);
   const [showMobileResults, setShowMobileResults] = useState(false);
-
   
+  const isHostless = sessionStorage.getItem('hostlessMode') === 'true';
+  const [showPlayerControls, setShowPlayerControls] = useState(false);
+
   const timeLeft = useSyncTimer(hostGameState?.timers?.endsAt);
   
   const handlePower = (power: string) => {
@@ -158,14 +161,30 @@ const HostViewInner: React.FC = () => {
             newPlayers[playerId].inventory.deflect = Math.max(0, newPlayers[playerId].inventory.deflect - 1);
 
             let currentCard = { ...hostGameState!.currentCard! };
-            if (currentCard.targetedPlayers && currentCard.targetedPlayers.length > 0) {
-                const oldTarget = currentCard.targetedPlayers[0];
-                currentCard.parsedPrompt = currentCard.parsedPrompt.replace(new RegExp(oldTarget, 'gi'), targetName);
-                currentCard.targetedPlayers = [targetName];
+            const deflectingName = hostGameState?.players[playerId]?.name;
+            
+            if (currentCard.parsedPrompt.includes(deflectingName)) {
+                // Swap the deflecting player and the target player in the prompt
+                const tempToken = '___TEMP_DEFLECT_TOKEN___';
+                currentCard.parsedPrompt = currentCard.parsedPrompt
+                  .replace(new RegExp(deflectingName, 'gi'), tempToken)
+                  .replace(new RegExp(targetName, 'gi'), deflectingName)
+                  .replace(new RegExp(tempToken, 'gi'), targetName);
+                
+                // Also update targetedPlayers array if they exist
+                if (currentCard.targetedPlayers) {
+                  currentCard.targetedPlayers = currentCard.targetedPlayers.map(p => 
+                    p === deflectingName ? targetName : (p === targetName ? deflectingName : p)
+                  );
+                }
             } else {
-                // If there was no target (e.g. room discussion), just prepend the target's name
+                // If the deflecting player wasn't even in the prompt, just prepend the target's name
                 currentCard.parsedPrompt = `${targetName}: ${currentCard.parsedPrompt}`;
-                currentCard.targetedPlayers = [targetName];
+                if (currentCard.targetedPlayers) {
+                  currentCard.targetedPlayers = [targetName, ...currentCard.targetedPlayers];
+                } else {
+                  currentCard.targetedPlayers = [targetName];
+                }
             }
 
             setHostGameState(prev => {
@@ -482,6 +501,7 @@ const HostViewInner: React.FC = () => {
     return <div className="min-h-[100dvh] bg-canvas text-ink-primary flex items-center justify-center font-display text-2xl md:text-3xl lg:text-4xl">Loading Deck...</div>;
   }
 
+  const [isLeaving, setIsLeaving] = useState(false);
   const connectedPlayers = Object.values(hostGameState.players).filter((p: any) => p.isConnected !== false);
   const disconnectedPlayers = Object.values(hostGameState.players).filter((p: any) => p.isConnected === false);
   
@@ -494,8 +514,8 @@ const HostViewInner: React.FC = () => {
            <p className="text-3xl font-body opacity-90 mb-12">
               {disconnectedPlayers.map((p: any) => p.name).join(', ')} disconnected.<br/>Waiting for them to reconnect...
            </p>
-           <button onClick={() => window.location.href = '/'} className="px-12 py-6 bg-canvas text-accent-dare font-display font-black text-2xl uppercase tracking-widest rounded-2xl shadow-solid active:translate-y-[4px] active:shadow-none hover:-translate-y-1 transition-all">
-             Restart Game
+           <button onClick={() => { setIsLeaving(true); window.location.href = '/'; }} className="px-12 py-6 bg-canvas text-accent-dare font-display font-black text-2xl uppercase tracking-widest rounded-2xl shadow-solid active:translate-y-[4px] active:shadow-none hover:-translate-y-1 transition-all">
+             {isLeaving ? 'RESTARTING...' : 'Restart Game'}
            </button>
         </div>
      );
@@ -598,8 +618,8 @@ const HostViewInner: React.FC = () => {
              'Consensus'} ({totalVotes} votes)
           </h3>
           {hostGameState?.timers?.active && (
-            <div className={`text-3xl md:text-5xl lg:text-6xl font-display font-black tabular-nums tracking-tighter ${timeLeft <= 10 ? 'text-accent-wrong animate-pulse' : 'text-accent-consensus'}`}>
-              00:{timeLeft.toString().padStart(2, '0')}
+            <div className="scale-150 transform origin-left md:origin-center">
+              <TimerBadge timeLeft={timeLeft} />
             </div>
           )}
         </div>
@@ -771,6 +791,19 @@ const HostViewInner: React.FC = () => {
         </div>
         <button onClick={() => setIsOverrideSheetOpen(false)} className="mt-2 py-4 border-4 border-ink-primary/20 rounded-2xl font-display font-bold uppercase tracking-widest text-ink-primary/50 hover:bg-ink-primary/5">Cancel</button>
       </div>
+
+      {isHostless && showPlayerControls && (
+        <div className="fixed inset-0 z-[100000] bg-canvas overflow-y-auto">
+          <ControllerView />
+          <button onClick={() => setShowPlayerControls(false)} className="absolute top-6 left-6 z-[100001] bg-ink-primary text-canvas px-4 py-2 rounded-full font-meta text-sm font-bold shadow-xl border-2 border-canvas">Back to TV</button>
+        </div>
+      )}
+
+      {isHostless && !showPlayerControls && (
+        <button onClick={() => setShowPlayerControls(true)} className="fixed bottom-40 left-1/2 -translate-x-1/2 z-[90] px-8 py-4 bg-accent-dare text-canvas rounded-full font-meta font-bold uppercase tracking-widest shadow-2xl border-2 border-canvas shadow-solid-sm active:translate-y-[2px] whitespace-nowrap">
+          Open Player Controls
+        </button>
+      )}
     </div>
   </ErrorBoundary>
   );

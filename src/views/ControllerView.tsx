@@ -161,6 +161,7 @@ export const ControllerView: React.FC = () => {
 
   
 
+  const [isLeaving, setIsLeaving] = React.useState(false);
   const connectedPlayers = Object.values(clientState.players || {}).filter((p: any) => p.isConnected !== false);
   const disconnectedPlayers = Object.values(clientState.players || {}).filter((p: any) => p.isConnected === false);
   
@@ -171,8 +172,8 @@ export const ControllerView: React.FC = () => {
            <p className="text-xl font-body opacity-90 mb-12">
               {disconnectedPlayers.map((p: any) => p.name).join(', ')} disconnected.<br/>Waiting for them to reconnect...
            </p>
-           <button onClick={() => window.location.href = '/'} className="px-8 py-4 bg-canvas text-accent-dare font-display font-black text-xl uppercase tracking-widest rounded-2xl shadow-solid active:translate-y-[4px] active:shadow-none transition-all">
-             Leave Game
+           <button onClick={() => { setIsLeaving(true); window.location.href = '/'; }} className="px-8 py-4 bg-canvas text-accent-dare font-display font-black text-xl uppercase tracking-widest rounded-2xl shadow-solid active:translate-y-[4px] active:shadow-none transition-all">
+             {isLeaving ? 'LEAVING...' : 'Leave Game'}
            </button>
         </div>
      );
@@ -186,9 +187,8 @@ export const ControllerView: React.FC = () => {
          animate={{ opacity: 1, scale: 1 }}
          exit={{ opacity: 0, scale: 1.05 }}
          transition={{ type: 'spring', stiffness: 200, damping: 20 }}
-         className="min-h-[100dvh] w-full flex flex-col items-center justify-center bg-accent-dare text-canvas p-8 text-center"
+         className={`min-h-[100dvh] w-full flex flex-col items-center justify-center ${clientState.interstitial.color || 'bg-accent-dare'} text-canvas p-8 text-center`}
        >
-           <AlertOverlay state={clientState} node={clientNode} />
            <h1 className="text-2xl md:text-3xl lg:text-4xl font-display font-black uppercase tracking-widest mb-4">{clientState.interstitial.title}</h1>
            <p className="text-xl font-body opacity-90">{clientState.interstitial.subtitle}</p>
         </motion.div>
@@ -223,6 +223,7 @@ export const ControllerView: React.FC = () => {
   return (
     <div className="relative w-full h-[100dvh] bg-canvas flex flex-col overflow-hidden text-ink-primary font-sans">
       <GamePopup isOpen={!!popupMessage} title="Disconnected" message={popupMessage} confirmText="Return to Lobby" onConfirm={() => { localStorage.removeItem('handsy_room'); localStorage.removeItem('handsy_name'); window.location.href = '/'; }} accent="dare" />
+      <AlertOverlay state={clientState} node={clientNode} />
       
       {/* HEADER */}
       <UniversalHeader
