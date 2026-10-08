@@ -13,9 +13,8 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 
 const AlertOverlay = ({ state, node }: { state: any, node: any }) => {
-  if (!state || !node) return null;
-  const globalAlert = state.uiAlert;
-  const personalAlert = state.players?.[node.playerId]?.uiAlert;
+  const globalAlert = state?.uiAlert;
+  const personalAlert = state?.players?.[node?.playerId]?.uiAlert;
 
   React.useEffect(() => {
     if (personalAlert || globalAlert) {
@@ -23,8 +22,10 @@ const AlertOverlay = ({ state, node }: { state: any, node: any }) => {
     }
   }, [personalAlert, globalAlert]);
   
+  if (!state || !node) return null;
+  
   return (
-    <div className="fixed top-6 left-0 right-0 z-[9999] flex items-start justify-center px-6 pointer-events-none">
+    <div className="fixed top-32 left-0 right-0 z-[9999] flex items-start justify-center px-6 pointer-events-none">
        <AnimatePresence>
          {(globalAlert || personalAlert) && (
            <motion.div 
