@@ -615,30 +615,14 @@ const HostViewInner: React.FC = () => {
       return (
         <div className="flex flex-col gap-8 w-full max-w-md items-center mt-0">
           
-          {manualTimeTotal > 0 && (
-            <div className="w-full bg-surface-card rounded-3xl p-6 border-4 border-ink-primary/20 shadow-solid flex flex-col items-center gap-4">
-              <h3 className="font-display font-black text-xl uppercase tracking-widest text-ink-primary/70">Manual Timer</h3>
-              <div className="text-5xl font-meta font-bold text-accent-dare mb-2">
-                {Math.floor(manualTimeLeft / 60)}:{(manualTimeLeft % 60).toString().padStart(2, '0')}
-              </div>
-              <div className="flex gap-4 w-full">
-                {manualTimeLeft === 0 ? (
-                  <button onClick={() => { setManualTimeLeft(manualTimeTotal); setManualTimerActive(true); }} className="flex-1 py-3 bg-ink-primary text-canvas rounded-xl font-display font-bold uppercase tracking-widest hover:bg-ink-primary/80">Restart</button>
-                ) : manualTimerActive ? (
-                  <button onClick={() => setManualTimerActive(false)} className="flex-1 py-3 border-4 border-ink-primary text-ink-primary rounded-xl font-display font-bold uppercase tracking-widest hover:bg-ink-primary/5">Pause</button>
-                ) : (
-                  <button onClick={() => setManualTimerActive(true)} className="flex-1 py-3 bg-accent-dare text-canvas rounded-xl font-display font-bold uppercase tracking-widest hover:bg-accent-dare/90">Start</button>
-                )}
-              </div>
-            </div>
-          )}
+          
 
           {hostGameState?.revealCountdown ? (
      <div className="w-full py-6 bg-accent-truth text-canvas font-display font-black text-2xl uppercase tracking-widest rounded-3xl shadow-solid text-center animate-pulse">
        ADVANCING IN {hostGameState.revealCountdown}...
      </div>
   ) : (
-     <button onClick={() => handleNextCard(false)} className="w-full py-4 bg-transparent border-4 border-ink-primary/20 text-ink-primary/40 font-display font-bold text-sm uppercase tracking-widest rounded-2xl hover:bg-ink-primary/5 transition-all">
+     <button onClick={() => handleNextCard(false)} className="hidden lg:block w-full py-4 bg-transparent border-4 border-ink-primary/20 text-ink-primary/40 font-display font-bold text-sm uppercase tracking-widest rounded-2xl hover:bg-ink-primary/5 transition-all">
        Force Advance
      </button>
   )}
@@ -699,7 +683,7 @@ const HostViewInner: React.FC = () => {
             );
           })}
         </div>
-        <button onClick={() => handleNextCard(false)} className="mt-6 sm:mt-8 w-full py-4 sm:py-6 bg-accent-dare text-canvas font-display font-black text-xl sm:text-2xl uppercase tracking-widest rounded-2xl shadow-solid active:translate-y-[4px] active:shadow-none hover:-translate-y-1 transition-all">
+        <button onClick={() => handleNextCard(false)} className="hidden lg:block mt-6 sm:mt-8 w-full py-4 sm:py-6 bg-accent-dare text-canvas font-display font-black text-xl sm:text-2xl uppercase tracking-widest rounded-2xl shadow-solid active:translate-y-[4px] active:shadow-none hover:-translate-y-1 transition-all">
           Draw Next Card
         </button>
       </div>
@@ -722,59 +706,125 @@ const HostViewInner: React.FC = () => {
       <audio src="/arpmedia-bedroom-night-sensual-massage-569465.mp3" autoPlay loop muted={false} />
       <UniversalHeader
         leftNode={
-          <div className="text-xl sm:text-2xl lg:text-4xl font-black tracking-widest bg-ink-primary/5 px-4 lg:px-5 py-1.5 lg:py-2 rounded-2xl border border-ink-primary/20 shadow-inner">
-            #{hostServer?.roomCode || 'GAME'}
-          </div>
+          isHostless && clientNode ? (
+            <div className="flex items-center gap-2">
+              <div className="w-3 h-3 rounded-full border-2 border-ink-primary bg-accent-consensus-fill shadow-solid-sm" />
+              <span className="font-display font-bold text-lg uppercase tracking-widest">{hostGameState?.players?.[clientNode.playerId]?.name || clientNode.playerName}</span>
+            </div>
+          ) : (
+            <div className="text-xl sm:text-2xl lg:text-3xl font-black tracking-widest bg-ink-primary/5 px-4 py-1.5 lg:py-2 rounded-2xl border border-ink-primary/20 shadow-inner">
+              #{hostServer?.roomCode || 'GAME'}
+            </div>
+          )
         }
         rightNode={
           <button 
             onClick={() => setConfirmEndGame(true)}
-            className="font-meta font-bold text-sm tracking-widest uppercase text-accent-dare hover:bg-accent-dare/10 px-4 py-2 rounded-2xl shadow-solid-sm active:translate-y-[2px] active:shadow-none transition-all transition-colors"
+            className="font-meta font-bold text-xs tracking-widest uppercase text-accent-dare hover:bg-accent-dare/10 px-3 py-1.5 rounded-2xl shadow-solid-sm active:translate-y-[2px] active:shadow-none transition-all transition-colors"
           >
             End Game
           </button>
         }
+        notchNode={
+          isHostless ? (
+            <div className="flex gap-1">
+              <button 
+                onClick={() => setShowPlayerControls(false)} 
+                className={`p-1.5 sm:p-2 rounded-xl transition-colors ${!showPlayerControls ? 'bg-ink-primary text-canvas' : 'bg-transparent text-ink-primary/40'}`}
+              >
+                <IconTV className="w-4 h-4 sm:w-5 sm:h-5" />
+              </button>
+              <button 
+                onClick={() => setShowPlayerControls(true)} 
+                className={`p-1.5 sm:p-2 rounded-xl transition-colors ${showPlayerControls ? 'bg-ink-primary text-canvas' : 'bg-transparent text-ink-primary/40'}`}
+              >
+                <IconController className="w-4 h-4 sm:w-5 sm:h-5" />
+              </button>
+            </div>
+          ) : undefined
+        }
       />
 
-      <main className="flex-1 flex flex-col lg:flex-row items-center justify-center p-6 pb-48 lg:p-12 gap-4 sm:gap-8 lg:gap-16 relative z-0 w-full max-w-[1600px] mx-auto overflow-visible">
-        {/* Left Side: Card */}
-        <div className={`relative w-full lg:w-1/2 items-center justify-center shrink-0 ${showMobileResults ? "hidden lg:flex" : "flex"}`}>
-          <div className="w-full max-w-md lg:max-w-xl aspect-[4/3] relative">
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={card.id}
-              initial={{ y: 200, opacity: 0, scale: 0.8, rotate: 3 }}
-              animate={{ y: 0, opacity: 1, scale: 1, rotate: 0 }}
-              exit={{ y: -200, opacity: 0, scale: 0.8, rotate: -3 }}
-              transition={{ type: 'spring', stiffness: 250, damping: 20 }}
-              className="absolute inset-0"
-            >
-              <PlayingCard 
-                prompt={parsedPrompt}
-                type={card.type === 'kahoot' ? 'wrong' : card.type}
-                index={card.phase}
-              />
-            </motion.div>
-          </AnimatePresence>
+      <main className="flex-1 flex flex-col items-center justify-center p-6 pb-48 lg:p-12 relative z-0 w-full max-w-[1600px] mx-auto overflow-visible">
+        {isHostless && showPlayerControls ? (
+          <div className="w-full h-full flex flex-col items-center flex-1 min-h-0 relative -mx-6 px-6">
+             <ControllerView 
+                hideHeader 
+                hidePowerDock 
+                extraTopNode={
+                  manualTimeTotal > 0 ? (
+                    <div className="w-full max-w-md bg-surface-card rounded-3xl p-4 sm:p-6 border-4 border-ink-primary/20 shadow-solid flex flex-col items-center gap-2 sm:gap-4 my-2 sm:my-4 mx-auto shrink-0 z-[80]">
+                      <h3 className="font-display font-black text-xs sm:text-sm uppercase tracking-widest text-ink-primary/70">Manual Timer</h3>
+                      <div className="text-3xl sm:text-4xl font-meta font-bold text-accent-dare mb-1">
+                        {Math.floor(manualTimeLeft / 60)}:{(manualTimeLeft % 60).toString().padStart(2, '0')}
+                      </div>
+                      <div className="flex gap-2 sm:gap-4 w-full">
+                        {manualTimeLeft === 0 ? (
+                          <button onClick={() => { setManualTimeLeft(manualTimeTotal); setManualTimerActive(true); }} className="flex-1 py-1.5 sm:py-2 bg-ink-primary text-canvas rounded-xl font-display font-bold text-sm sm:text-base uppercase tracking-widest hover:bg-ink-primary/80">Restart</button>
+                        ) : manualTimerActive ? (
+                          <button onClick={() => setManualTimerActive(false)} className="flex-1 py-1.5 sm:py-2 border-4 border-ink-primary text-ink-primary rounded-xl font-display font-bold text-sm sm:text-base uppercase tracking-widest hover:bg-ink-primary/5">Pause</button>
+                        ) : (
+                          <button onClick={() => setManualTimerActive(true)} className="flex-1 py-1.5 sm:py-2 bg-accent-dare text-canvas rounded-xl font-display font-bold text-sm sm:text-base uppercase tracking-widest hover:bg-accent-dare/90">Start</button>
+                        )}
+                      </div>
+                    </div>
+                  ) : null
+                }
+             />
+          </div>
+        ) : (
+          <div className="flex flex-col lg:flex-row items-center justify-center w-full gap-4 sm:gap-8 lg:gap-16">
+            {/* Left Side: Card */}
+            <div className={`relative w-full lg:w-1/2 flex items-center justify-center shrink-0`}>
+              <div className="w-full max-w-md lg:max-w-xl aspect-[4/3] relative">
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={card.id}
+                  initial={{ y: 200, opacity: 0, scale: 0.8, rotate: 3 }}
+                  animate={{ y: 0, opacity: 1, scale: 1, rotate: 0 }}
+                  exit={{ y: -200, opacity: 0, scale: 0.8, rotate: -3 }}
+                  transition={{ type: 'spring', stiffness: 250, damping: 20 }}
+                  className="absolute inset-0"
+                >
+                  <PlayingCard 
+                    prompt={parsedPrompt}
+                    type={card.type === 'kahoot' ? 'wrong' : card.type}
+                    index={card.phase}
+                  />
+                </motion.div>
+              </AnimatePresence>
+              </div>
+            </div>
+            
+            {/* Mobile TV Toggle */}
+            <div className="lg:hidden flex bg-surface-card border-2 border-ink-primary/20 rounded-full p-1 my-2 w-full max-w-sm shrink-0">
+              <button onClick={() => setShowMobileResults(false)} className={`flex-1 py-2 rounded-full font-bold uppercase tracking-widest text-xs transition-colors ${!showMobileResults ? 'bg-ink-primary text-canvas shadow-md' : 'text-ink-primary/50'}`}>Question</button>
+              <button onClick={() => setShowMobileResults(true)} className={`flex-1 py-2 rounded-full font-bold uppercase tracking-widest text-xs transition-colors ${showMobileResults ? 'bg-ink-primary text-canvas shadow-md' : 'text-ink-primary/50'}`}>Votes</button>
+            </div>
 
-        </div>
-        </div>
-        {/* Right Side: Reveal Area */}
-        <div className={`w-full lg:w-1/2 items-center justify-center shrink-0 p-6 sm:p-8 min-h-[300px] ${showMobileResults ? 'flex' : 'hidden lg:flex'}`}>
-          {renderRevealArea()}
-        </div>
-      
-        {/* Mobile Toggle Button */}
-        <div className="lg:hidden fixed bottom-36 left-1/2 -translate-x-1/2 z-50">
-           <button onClick={() => setShowMobileResults(!showMobileResults)} className="px-8 py-4 bg-ink-primary text-canvas rounded-full font-meta font-bold uppercase tracking-widest shadow-2xl whitespace-nowrap active:scale-95 transition-transform">
-             {showMobileResults ? 'View Question' : 'View Live Votes'}
-           </button>
-        </div>
+            {/* Right Side: Reveal Area */}
+            <div className={`w-full lg:w-1/2 flex items-center justify-center shrink-0 p-2 sm:p-8 min-h-[100px] ${!showMobileResults ? 'hidden lg:flex' : 'flex'}`}>
+              {renderRevealArea()}
+            </div>
+            
+            {/* Global Force Advance / Draw Next Card for TV mode Mobile */}
+            <div className="lg:hidden w-full max-w-sm mt-2 shrink-0">
+               {['kahoot', 'wrong_answers', 'consensus', 'vibe_poll', 'fill_blank'].includes(card.type) ? (
+                 <button onClick={() => handleNextCard(false)} className="w-full py-4 bg-accent-dare text-canvas font-display font-black text-xl uppercase tracking-widest rounded-2xl shadow-solid active:translate-y-[4px] active:shadow-none transition-all">
+                   Draw Next Card
+                 </button>
+               ) : (
+                 <button onClick={() => handleNextCard(false)} className="w-full py-4 bg-transparent border-4 border-ink-primary/20 text-ink-primary/40 font-display font-bold text-sm uppercase tracking-widest rounded-2xl hover:bg-ink-primary/5 transition-all">
+                   Force Advance
+                 </button>
+               )}
+            </div>
+          </div>
+        )}
       </main>
 
-{/* uiAlert removed */}
-
       <HostAlertOverlay uiAlert={uiAlert} />
+      
       {/* Bottom Bar: Online Players OR Power Dock */}
       {clientNode ? (
         <div className="fixed bottom-0 left-0 w-full z-[100]">
@@ -800,26 +850,16 @@ const HostViewInner: React.FC = () => {
       <div className={`fixed bottom-0 left-0 w-full bg-surface-card rounded-t-[2rem] border-t-4 border-ink-primary shadow-2xl transition-transform duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] z-[9999] p-8 flex flex-col gap-6 ${isDeflectSheetOpen ? 'translate-y-0' : 'translate-y-[120%]'}`}>
         <div className="w-16 h-1.5 bg-ink-primary/20 rounded-full mx-auto" />
         <h3 className="text-center font-display font-black uppercase tracking-widest text-2xl text-ink-primary">Deflect to...</h3>
-        <div className="flex flex-col gap-3 max-h-48 overflow-y-auto">
-          {Object.entries(hostGameState?.players || {}).filter(([id]) => id !== clientNode?.['playerId']).map(([id, p]: any) => (
-             <button 
-               key={id}
-               onClick={() => setDeflectTarget(id)} 
-               className={`py-4 px-6 rounded-2xl border-4 ${deflectTarget === id ? 'border-accent-dare bg-accent-dare/10 text-accent-dare' : 'border-ink-primary/20 bg-canvas text-ink-primary'} font-display font-bold uppercase tracking-widest text-left shadow-sm transition-all`}
-             >
-               {p.name}
-             </button>
+        <div className="grid grid-cols-2 gap-4">
+          {Object.entries(hostGameState?.players || {}).filter(([id]) => id !== (clientNode?.['playerId'] || '') && id !== 'host').map(([id, p]: any) => (
+            <button key={id} onClick={() => setDeflectTarget(id)} className={`py-4 rounded-2xl border-4 ${deflectTarget === id ? 'border-accent-consensus bg-accent-consensus-fill' : 'border-ink-primary/20 bg-canvas'} font-display font-bold uppercase tracking-widest shadow-solid-sm`}>
+              {p.name}
+            </button>
           ))}
         </div>
         <div className="flex gap-4 mt-2">
-           <button onClick={() => { setIsDeflectSheetOpen(false); setDeflectTarget(null); }} className="flex-1 py-4 border-4 border-ink-primary/20 rounded-2xl font-display font-bold uppercase tracking-widest text-ink-primary/50 hover:bg-ink-primary/5">Cancel</button>
-           <button 
-             disabled={!deflectTarget}
-             onClick={() => { clientNode?.send({ type: 'power', power: 'deflect', targetId: deflectTarget }); setIsDeflectSheetOpen(false); setDeflectTarget(null); }} 
-             className="flex-1 py-4 rounded-2xl border-4 border-accent-dare bg-accent-dare text-canvas font-display font-black uppercase tracking-widest disabled:opacity-50"
-           >
-             Deflect
-           </button>
+           <button onClick={() => setIsDeflectSheetOpen(false)} className="flex-1 py-4 border-4 border-ink-primary/20 rounded-2xl font-display font-bold uppercase tracking-widest text-ink-primary/50">Cancel</button>
+           <button onClick={() => { if (deflectTarget) { handlePower(`deflect:${deflectTarget}`); setIsDeflectSheetOpen(false); } }} disabled={!deflectTarget} className="flex-1 py-4 bg-ink-primary text-canvas rounded-2xl font-display font-bold uppercase tracking-widest shadow-solid-sm disabled:opacity-50">Deflect</button>
         </div>
       </div>
 
@@ -836,31 +876,9 @@ const HostViewInner: React.FC = () => {
         </div>
         <button onClick={() => setIsOverrideSheetOpen(false)} className="mt-2 py-4 border-4 border-ink-primary/20 rounded-2xl font-display font-bold uppercase tracking-widest text-ink-primary/50 hover:bg-ink-primary/5">Cancel</button>
       </div>
-
-      {isHostless && showPlayerControls && (
-        <div className="fixed inset-0 z-[100000] bg-canvas overflow-y-auto">
-          <ControllerView />
-        </div>
-      )}
-
-      {isHostless && (
-        <div className="fixed top-2 left-1/2 -translate-x-1/2 z-[100001] bg-surface-card border-2 border-ink-primary/20 rounded-full p-1 flex shadow-lg items-center">
-          <button 
-            onClick={() => setShowPlayerControls(false)} 
-            className={`px-4 py-1.5 rounded-full flex items-center justify-center transition-all ${!showPlayerControls ? 'bg-ink-primary text-canvas shadow-md' : 'text-ink-primary/50'}`}
-          >
-            <IconTV className="w-5 h-5" />
-          </button>
-          <button 
-            onClick={() => setShowPlayerControls(true)} 
-            className={`px-4 py-1.5 rounded-full flex items-center justify-center transition-all ${showPlayerControls ? 'bg-ink-primary text-canvas shadow-md' : 'text-ink-primary/50'}`}
-          >
-            <IconController className="w-5 h-5" />
-          </button>
-        </div>
-      )}
     </div>
-  </ErrorBoundary>
+  
+</ErrorBoundary>
   );
 };
 

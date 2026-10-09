@@ -45,7 +45,13 @@ const AlertOverlay = ({ state, node }: { state: any, node: any }) => {
   );
 };
 
-export const ControllerView: React.FC = () => {
+export interface ControllerViewProps {
+  hideHeader?: boolean;
+  hidePowerDock?: boolean;
+  extraTopNode?: React.ReactNode;
+}
+
+export const ControllerView: React.FC<ControllerViewProps> = ({ hideHeader, hidePowerDock, extraTopNode }) => {
   const { clientState, clientNode, initClient } = useGame();
   const [isOverrideSheetOpen, setIsOverrideSheetOpen] = useState(false);
   const [isDeflectSheetOpen, setIsDeflectSheetOpen] = useState(false);
@@ -233,19 +239,18 @@ export const ControllerView: React.FC = () => {
       <AlertOverlay state={clientState} node={clientNode} />
       
       {/* HEADER */}
-      <UniversalHeader
-        leftNode={
-          <div className="flex items-center gap-3">
-            <div className="w-4 h-4 rounded-full border-2 border-ink-primary bg-accent-consensus-fill shadow-solid-sm" />
-            <span className="font-display font-bold text-xl uppercase tracking-widest">{myOfficialName}</span>
-          </div>
-        }
-        rightNode={
-          <div className="font-meta font-bold text-sm tracking-widest uppercase text-ink-primary/50">
-            Phase {clientState?.phase || 1}
-          </div>
-        }
-      />
+      {!hideHeader && (
+        <UniversalHeader
+          leftNode={
+            <div className="flex items-center gap-2">
+              <div className="w-3 h-3 rounded-full border-2 border-ink-primary bg-accent-consensus-fill shadow-solid-sm" />
+              <span className="font-display font-bold text-lg uppercase tracking-widest">{myOfficialName}</span>
+            </div>
+          }
+        />
+      )}
+      
+      {extraTopNode}
 
       
       
@@ -306,9 +311,9 @@ export const ControllerView: React.FC = () => {
                 <button 
                   onClick={() => handleVote('done')}
                   disabled={selectedChoice !== null}
-                  className="w-full py-8 rounded-2xl bg-accent-dare border-4 border-ink-primary text-canvas font-display font-black text-3xl uppercase tracking-widest shadow-solid active:translate-y-[4px] active:shadow-none transition-all disabled:opacity-50"
+                  className="w-full py-4 rounded-2xl bg-accent-dare border-4 border-ink-primary text-canvas font-display font-bold text-lg md:text-xl uppercase tracking-widest shadow-solid active:translate-y-[4px] active:shadow-none transition-all disabled:opacity-50"
                 >
-                  {selectedChoice ? 'WAITING...' : 'I DID IT'}
+                  {selectedChoice ? 'WAITING...' : 'DONE'}
                 </button>
               </>
             ) : (
@@ -321,9 +326,9 @@ export const ControllerView: React.FC = () => {
                 <button 
                   onClick={() => handleVote('done')}
                   disabled={selectedChoice !== null}
-                  className="mt-8 w-full py-4 rounded-2xl border-4 border-ink-primary/20 bg-transparent text-ink-primary/60 font-display font-bold text-xl uppercase tracking-widest hover:bg-ink-primary/5 active:bg-ink-primary/10 transition-all disabled:opacity-50"
+                  className="w-full py-4 rounded-2xl border-4 border-ink-primary/20 bg-transparent text-ink-primary/60 font-display font-bold text-sm md:text-base uppercase tracking-widest hover:bg-ink-primary/5 active:bg-ink-primary/10 transition-all disabled:opacity-50"
                 >
-                  {selectedChoice ? 'WAITING...' : 'ACTIVITY COMPLETED'}
+                  {selectedChoice ? 'WAITING...' : 'DONE'}
                 </button>
               </>
             )}
@@ -344,14 +349,16 @@ export const ControllerView: React.FC = () => {
       </section>
 
       {/* POWER DOCK */}
-      <section className="shrink-0 relative z-50">
-        <PowerDock 
-          onDeflect={() => setIsDeflectSheetOpen(true)}
-          onKillswitch={() => handlePower('killswitch')}
-          onOverride={() => setIsOverrideSheetOpen(true)}
-          inventory={clientState?.players?.[clientNode?.['playerId'] || '']?.inventory || { deflect: 0, killswitch: 0, override: 0 }}
-        />
-      </section>
+      {!hidePowerDock && (
+        <section className="shrink-0 relative z-50">
+          <PowerDock 
+            onDeflect={() => setIsDeflectSheetOpen(true)}
+            onKillswitch={() => handlePower('killswitch')}
+            onOverride={() => setIsOverrideSheetOpen(true)}
+            inventory={clientState?.players?.[clientNode?.['playerId'] || '']?.inventory || { deflect: 0, killswitch: 0, override: 0 }}
+          />
+        </section>
+      )}
 
       
       {/* DEFLECT SHEET */}
