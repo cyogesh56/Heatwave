@@ -250,6 +250,12 @@ export const ControllerView: React.FC<ControllerViewProps> = ({ hideHeader, hide
         />
       )}
       
+      {!hideHeader && disconnectedPlayers.length > 0 && (
+        <div className="w-full bg-accent-dare text-canvas font-meta font-bold text-xs uppercase tracking-widest py-2 px-4 text-center animate-pulse">
+           {disconnectedPlayers.map((p: any) => p.name).join(', ')} disconnected
+        </div>
+      )}
+      
       {extraTopNode}
 
       
@@ -311,9 +317,9 @@ export const ControllerView: React.FC<ControllerViewProps> = ({ hideHeader, hide
                 <button 
                   onClick={() => handleVote('done')}
                   disabled={selectedChoice !== null}
-                  className="w-full py-4 rounded-2xl bg-accent-dare border-4 border-ink-primary text-canvas font-display font-bold text-lg md:text-xl uppercase tracking-widest shadow-solid active:translate-y-[4px] active:shadow-none transition-all disabled:opacity-50"
+                  className="w-full py-4 rounded-2xl bg-accent-dare border-4 border-ink-primary text-canvas font-display font-bold text-sm md:text-base uppercase tracking-widest shadow-solid active:translate-y-[4px] active:shadow-none transition-all disabled:opacity-50"
                 >
-                  {selectedChoice ? 'WAITING...' : 'DONE'}
+                  {clientState?.revealCountdown ? `ADVANCING IN ${clientState.revealCountdown}...` : selectedChoice ? 'WAITING...' : 'DONE'}
                 </button>
               </>
             ) : (
@@ -326,9 +332,9 @@ export const ControllerView: React.FC<ControllerViewProps> = ({ hideHeader, hide
                 <button 
                   onClick={() => handleVote('done')}
                   disabled={selectedChoice !== null}
-                  className="w-full py-4 rounded-2xl border-4 border-ink-primary/20 bg-transparent text-ink-primary/60 font-display font-bold text-sm md:text-base uppercase tracking-widest hover:bg-ink-primary/5 active:bg-ink-primary/10 transition-all disabled:opacity-50"
+                  className="w-full py-4 rounded-2xl bg-accent-dare border-4 border-ink-primary text-canvas font-display font-bold text-sm md:text-base uppercase tracking-widest shadow-solid active:translate-y-[4px] active:shadow-none transition-all disabled:opacity-50"
                 >
-                  {selectedChoice ? 'WAITING...' : 'DONE'}
+                  {clientState?.revealCountdown ? `ADVANCING IN ${clientState.revealCountdown}...` : selectedChoice ? 'WAITING...' : 'DONE'}
                 </button>
               </>
             )}

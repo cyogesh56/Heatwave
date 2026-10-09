@@ -9,7 +9,7 @@ interface ChoiceGridProps {
 
 export function ChoiceGrid({ choices, selectedChoice, onSelect, accent = 'consensus' }: ChoiceGridProps) {
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 w-full font-body">
+    <div className="grid grid-cols-2 gap-3 sm:gap-4 w-full font-body">
       {choices.map((choice, i) => {
         const isSelected = selectedChoice === choice;
         const baseClass = "relative flex flex-col items-center justify-center p-4 rounded-2xl border-2 text-center transition-all duration-200 shadow-solid-sm font-bold text-lg leading-tight min-h-[80px]";

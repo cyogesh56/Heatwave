@@ -612,27 +612,7 @@ const HostViewInner: React.FC = () => {
 
   const renderRevealArea = () => {
     if (!['kahoot', 'wrong_answers', 'consensus', 'vibe_poll', 'fill_blank'].includes(card.type)) {
-      return (
-        <div className="flex flex-col gap-8 w-full max-w-md items-center mt-0">
-          
-          
-
-          {hostGameState?.revealCountdown ? (
-     <div className="w-full py-6 bg-accent-truth text-canvas font-display font-black text-2xl uppercase tracking-widest rounded-3xl shadow-solid text-center animate-pulse">
-       ADVANCING IN {hostGameState.revealCountdown}...
-     </div>
-  ) : (
-     <button onClick={() => handleNextCard(false)} className="hidden lg:block w-full py-4 bg-transparent border-4 border-ink-primary/20 text-ink-primary/40 font-display font-bold text-sm uppercase tracking-widest rounded-2xl hover:bg-ink-primary/5 transition-all">
-       Force Advance
-     </button>
-  )}
-          {parsedPrompt.toLowerCase().includes('answer a truth') && (
-             <button onClick={() => window.dispatchEvent(new CustomEvent('player-action', { detail: { playerId: 'host', action: { type: 'fail_truth' } } }))} className="w-full py-4 bg-transparent border-4 border-accent-truth text-accent-truth font-display font-black text-xl uppercase tracking-widest rounded-2xl hover:bg-accent-truth/10 transition-all">
-               Answer a Truth Instead
-             </button>
-          )}
-        </div>
-      );
+      return null;
     }
 
     const options = card.options || ['Option A', 'Option B', 'Option C', 'Option D'];
@@ -647,35 +627,29 @@ const HostViewInner: React.FC = () => {
              'Consensus'} ({totalVotes} votes)
           </h3>
           {hostGameState?.timers?.active && (
-            <div className="shrink-0 mx-auto sm:mx-0">
-              <TimerBadge timeLeft={timeLeft} />
+            <div className="font-meta font-bold text-accent-dare text-xl sm:text-2xl tracking-widest animate-pulse">
+              {Math.floor(timeLeft / 60)}:{(timeLeft % 60).toString().padStart(2, '0')}
             </div>
           )}
         </div>
-        <div className="flex flex-col gap-3 sm:gap-6">
+
+        <div className="flex flex-col gap-3 sm:gap-4">
           {options.map((opt: string, i: number) => {
-            const voteCount = Object.values(votes).filter(v => v === opt).length;
-            const percentage = totalVotes === 0 ? 0 : Math.round((voteCount / totalVotes) * 100);
+            const count = Object.values(votes).filter(v => v === opt).length;
+            const percentage = totalVotes > 0 ? Math.round((count / totalVotes) * 100) : 0;
             
-            const voters = Object.entries(votes)
-              .filter(([id, v]) => v === opt)
-              .map(([id]) => hostGameState.players[id]?.name)
-              .filter(Boolean)
-              .join(', ');
             return (
-              <div key={i} className="flex items-center gap-2 sm:gap-4">
-                <div className="w-24 sm:w-32 md:w-48 text-right font-bold text-xs sm:text-base opacity-90 truncate leading-tight" title={opt}>{opt}</div>
-                <div className="flex-1 h-8 bg-canvas rounded-full shadow-inner overflow-hidden border border-ink-primary/5 relative">
+              <div key={i} className="flex items-center gap-3 sm:gap-6">
+                <div className="w-16 sm:w-24 shrink-0 font-display font-bold text-xs sm:text-base uppercase tracking-widest text-ink-primary/60 text-right truncate">
+                  {opt}
+                </div>
+                <div className="flex-1 h-6 sm:h-8 bg-ink-primary/5 rounded-full overflow-hidden relative">
                   <div 
-                    className="h-full bg-accent-consensus transition-all duration-1000 ease-out relative"
+                    className="absolute top-0 left-0 h-full bg-accent-consensus transition-all duration-1000 ease-[cubic-bezier(0.32,0.72,0,1)]"
                     style={{ width: `${percentage}%` }}
-                  >
-                    {percentage > 0 && <div className="absolute inset-0 bg-white/20 w-full h-full animate-pulse"></div>}
-                    {voters && (
-                      <div className="absolute inset-0 flex items-center px-4 overflow-hidden">
-                        <span className="font-meta text-xs uppercase tracking-widest text-ink-dark font-bold truncate z-10">{voters}</span>
-                      </div>
-                    )}
+                  />
+                  <div className="absolute inset-0 flex items-center px-4">
+                    <span className="font-meta text-xs font-bold text-canvas mix-blend-difference">{count} votes</span>
                   </div>
                 </div>
                 <div className="w-16 font-meta text-xl text-accent-consensus">{percentage}%</div>
@@ -683,9 +657,6 @@ const HostViewInner: React.FC = () => {
             );
           })}
         </div>
-        <button onClick={() => handleNextCard(false)} className="hidden lg:block mt-6 sm:mt-8 w-full py-4 sm:py-6 bg-accent-dare text-canvas font-display font-black text-xl sm:text-2xl uppercase tracking-widest rounded-2xl shadow-solid active:translate-y-[4px] active:shadow-none hover:-translate-y-1 transition-all">
-          Draw Next Card
-        </button>
       </div>
     );
   };
@@ -745,6 +716,12 @@ const HostViewInner: React.FC = () => {
         }
       />
 
+      {disconnectedPlayers.length > 0 && (
+        <div className="w-full bg-accent-dare text-canvas font-meta font-bold text-xs uppercase tracking-widest py-2 px-4 text-center animate-pulse relative z-[99999]">
+           {disconnectedPlayers.map((p: any) => p.name).join(', ')} disconnected
+        </div>
+      )}
+
       <main className="flex-1 flex flex-col items-center justify-center p-6 pb-48 lg:p-12 relative z-0 w-full max-w-[1600px] mx-auto overflow-visible">
         {isHostless && showPlayerControls ? (
           <div className="w-full h-full flex flex-col items-center flex-1 min-h-0 relative -mx-6 px-6">
@@ -773,9 +750,9 @@ const HostViewInner: React.FC = () => {
              />
           </div>
         ) : (
-          <div className="flex flex-col lg:flex-row items-center justify-center w-full gap-4 sm:gap-8 lg:gap-16">
-            {/* Left Side: Card */}
-            <div className={`relative w-full lg:w-1/2 flex items-center justify-center shrink-0`}>
+          <div className="flex flex-col items-center justify-start w-full max-w-xl gap-4 sm:gap-6 mt-4">
+            {/* Top Side: Card */}
+            <div className={`relative w-full flex items-center justify-center shrink-0`}>
               <div className="w-full max-w-md lg:max-w-xl aspect-[4/3] relative">
               <AnimatePresence mode="wait">
                 <motion.div
@@ -796,27 +773,44 @@ const HostViewInner: React.FC = () => {
               </div>
             </div>
             
-            {/* Mobile TV Toggle */}
-            <div className="lg:hidden flex bg-surface-card border-2 border-ink-primary/20 rounded-full p-1 my-2 w-full max-w-sm shrink-0">
-              <button onClick={() => setShowMobileResults(false)} className={`flex-1 py-2 rounded-full font-bold uppercase tracking-widest text-xs transition-colors ${!showMobileResults ? 'bg-ink-primary text-canvas shadow-md' : 'text-ink-primary/50'}`}>Question</button>
-              <button onClick={() => setShowMobileResults(true)} className={`flex-1 py-2 rounded-full font-bold uppercase tracking-widest text-xs transition-colors ${showMobileResults ? 'bg-ink-primary text-canvas shadow-md' : 'text-ink-primary/50'}`}>Votes</button>
-            </div>
+            {/* TV Toggle (Only for Vote-based cards) */}
+            {['kahoot', 'wrong_answers', 'consensus', 'vibe_poll', 'fill_blank'].includes(card.type) && (
+              <div className="flex bg-surface-card border-2 border-ink-primary/20 rounded-full p-1 my-2 w-full max-w-sm shrink-0">
+                <button onClick={() => setShowMobileResults(false)} className={`flex-1 py-2 rounded-full font-bold uppercase tracking-widest text-xs transition-colors ${!showMobileResults ? 'bg-ink-primary text-canvas shadow-md' : 'text-ink-primary/50'}`}>Question</button>
+                <button onClick={() => setShowMobileResults(true)} className={`flex-1 py-2 rounded-full font-bold uppercase tracking-widest text-xs transition-colors ${showMobileResults ? 'bg-ink-primary text-canvas shadow-md' : 'text-ink-primary/50'}`}>Votes</button>
+              </div>
+            )}
 
-            {/* Right Side: Reveal Area */}
-            <div className={`w-full lg:w-1/2 flex items-center justify-center shrink-0 p-2 sm:p-8 min-h-[100px] ${!showMobileResults ? 'hidden lg:flex' : 'flex'}`}>
-              {renderRevealArea()}
-            </div>
+            {/* Reveal Area */}
+            {['kahoot', 'wrong_answers', 'consensus', 'vibe_poll', 'fill_blank'].includes(card.type) && showMobileResults && (
+              <div className="w-full flex items-center justify-center shrink-0 min-h-[100px]">
+                {renderRevealArea()}
+              </div>
+            )}
             
-            {/* Global Force Advance / Draw Next Card for TV mode Mobile */}
-            <div className="lg:hidden w-full max-w-sm mt-2 shrink-0">
+            {/* Global Force Advance / Draw Next Card */}
+            <div className="w-full max-w-sm mt-2 shrink-0">
                {['kahoot', 'wrong_answers', 'consensus', 'vibe_poll', 'fill_blank'].includes(card.type) ? (
                  <button onClick={() => handleNextCard(false)} className="w-full py-4 bg-accent-dare text-canvas font-display font-black text-xl uppercase tracking-widest rounded-2xl shadow-solid active:translate-y-[4px] active:shadow-none transition-all">
                    Draw Next Card
                  </button>
                ) : (
-                 <button onClick={() => handleNextCard(false)} className="w-full py-4 bg-transparent border-4 border-ink-primary/20 text-ink-primary/40 font-display font-bold text-sm uppercase tracking-widest rounded-2xl hover:bg-ink-primary/5 transition-all">
-                   Force Advance
-                 </button>
+                 <>
+                   {hostGameState?.revealCountdown ? (
+                     <div className="w-full py-6 bg-accent-truth text-canvas font-display font-black text-2xl uppercase tracking-widest rounded-3xl shadow-solid text-center animate-pulse">
+                       ADVANCING IN {hostGameState.revealCountdown}...
+                     </div>
+                   ) : (
+                     <button onClick={() => handleNextCard(false)} className="w-full py-4 bg-transparent border-4 border-ink-primary/20 text-ink-primary/40 font-display font-bold text-sm uppercase tracking-widest rounded-2xl hover:bg-ink-primary/5 transition-all">
+                       Force Advance
+                     </button>
+                   )}
+                   {parsedPrompt.toLowerCase().includes('answer a truth') && (
+                     <button onClick={() => window.dispatchEvent(new CustomEvent('player-action', { detail: { playerId: 'host', action: { type: 'fail_truth' } } }))} className="mt-4 w-full py-4 bg-transparent border-4 border-accent-truth text-accent-truth font-display font-black text-xl uppercase tracking-widest rounded-2xl hover:bg-accent-truth/10 transition-all">
+                       Answer a Truth Instead
+                     </button>
+                   )}
+                 </>
                )}
             </div>
           </div>
